@@ -6,7 +6,7 @@ public class wasd : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float speed = 20f;
+    public float speed = 15f;
     private Rigidbody2D rb;
     private Animator anime;
 
