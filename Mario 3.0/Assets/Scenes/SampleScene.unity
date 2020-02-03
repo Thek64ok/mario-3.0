@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 142496395}
   - component: {fileID: 142496391}
   m_Layer: 0
-  m_Name: "\u0440\u044B\u0446\u0430\u0440"
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 142496390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.33, y: 2.71, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5418385, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.34, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -690,11 +690,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8e481643b6a924dbf62461f211e188, type: 3}
+  m_Script: {fileID: 11500000, guid: 76928a653656a434b9a9d2b26cdca349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 142496390}
-  speed: 5
+  followTarget: {fileID: 142496390}
+  moveSpeed: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -705,7 +705,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.40784317, g: 0.29803923, b: 0.20392159, a: 0}
+  m_BackGroundColor: {r: 0.3803922, g: 0.3803922, b: 0.3803922, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -721,7 +721,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.018572
+  orthographic size: 4.3886127
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -745,7 +745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.96, y: 2.31, z: -10}
+  m_LocalPosition: {x: -4.07, y: 3.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
