@@ -18,6 +18,26 @@ public class Inventory : MonoBehaviour
     public ItemInentory currentItem;
     public RectTransform movingObj;
     public Vector3 offset;
+    public void Start()
+    {
+        if(items.Count==0)
+        {
+            addGraphics();
+        }
+        for (int i = 0; i < maxCount; i++)//test random
+        {
+            addItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1, 33));
+
+        }
+        UpdateInvetory();
+    }
+    public void Update()
+    {
+        if(currentID!=-1)
+        {
+            MoveObj();
+        }
+    }
     public void addItem(int id, Item item, int count)
     {
         items[id].id = item.id;
