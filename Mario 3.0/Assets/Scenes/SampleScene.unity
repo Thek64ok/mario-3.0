@@ -444,8 +444,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142496390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.61, y: 9.85, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.34, z: 0.5}
+  m_LocalPosition: {x: -7.25, y: 1.71, z: 0}
+  m_LocalScale: {x: 0.23010002, y: 0.23902, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -524,8 +524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 10}
-  m_SizeDelta: {x: -29.5, y: -41.3}
+  m_AnchoredPosition: {x: 1, y: 6.63501}
+  m_SizeDelta: {x: -29.5, y: -38.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322909312
 MonoBehaviour:
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 40, y: 40}
+  m_CellSize: {x: 30, y: 35}
   m_Spacing: {x: 2, y: 2}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -844,7 +844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.28, y: 9.77, z: -10}
+  m_LocalPosition: {x: -6.56, y: 2.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 549060766}
@@ -878,6 +878,7 @@ MonoBehaviour:
     count: 0
   movingObj: {fileID: 1720217873}
   offset: {x: 1, y: -1, z: 0}
+  backGround: {fileID: 549060765}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,7 +894,7 @@ MonoBehaviour:
   items:
   - id: 0
     name: Empty
-    img: {fileID: 21300142, guid: a82859f6385b5fd48be62171ea257807, type: 3}
+    img: {fileID: 0}
   - id: 1
     name: Sword1
     img: {fileID: 21300002, guid: a82859f6385b5fd48be62171ea257807, type: 3}
@@ -915,7 +916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &549060766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -995,7 +996,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &697511869
 GameObject:
@@ -1278,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.92941177}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
