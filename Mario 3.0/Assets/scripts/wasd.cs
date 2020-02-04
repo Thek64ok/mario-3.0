@@ -10,10 +10,12 @@ public class wasd : MonoBehaviour
     private bool moving;
     private Vector2 lastMove;
     public int dayn;
+    public GameObject Readl_Sword; 
 
     void Start()
     {   
         anime = GetComponent<Animator>();
+        Readl_Sword.SetActive(false);
     }
 
     void Update()
@@ -39,6 +41,7 @@ public class wasd : MonoBehaviour
         if (dayn == 1)
         {
             anime.SetTrigger("taking");
+            Readl_Sword.SetActive(true);
         }
     }
 }
