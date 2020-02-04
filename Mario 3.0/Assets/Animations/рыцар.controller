@@ -52,6 +52,18 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &114586503626518700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e206100aee0850498e4c2f7d44202dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!206 &206083233408019630
 BlendTree:
   m_ObjectHideFlags: 1
