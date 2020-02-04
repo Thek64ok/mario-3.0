@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class wasd : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public float speed = 20f;
     private Rigidbody2D rb;
     private Animator anime;
     private bool moving;
     private Vector2 lastMove;
+    public int dayn;
 
     void Start()
-    {
-        //rb = GetComponent<Rigidbody2D>();    
+    {   
         anime = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         moving = false;
@@ -34,11 +31,14 @@ public class wasd : MonoBehaviour
             moving = true;
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
         }
-
         anime.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anime.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anime.SetBool("Moving", moving);
         anime.SetFloat("LastMoveX", lastMove.x);
         anime.SetFloat("LastMoveY", lastMove.y);
+        if (dayn == 1)
+        {
+            anime.SetTrigger("taking");
+        }
     }
 }

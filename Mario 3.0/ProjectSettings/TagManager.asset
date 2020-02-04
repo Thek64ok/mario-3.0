@@ -7,6 +7,7 @@ TagManager:
   - map
   - Enemy
   - tree
+  - Weapon
   layers:
   - Default
   - TransparentFX

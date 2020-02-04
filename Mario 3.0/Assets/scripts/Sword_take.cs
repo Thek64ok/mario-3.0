@@ -5,19 +5,22 @@ using UnityEngine.UI;
 
 public class Sword_take : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Text pickUpText;
     private bool pickUpAllowed;
+    public GameObject otherGame;
+    private wasd take;
     void Start()
     {
         pickUpText.gameObject.SetActive(false);
+        take = otherGame.GetComponent<wasd>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        {
             PickUp();
+            take.dayn = 1;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
