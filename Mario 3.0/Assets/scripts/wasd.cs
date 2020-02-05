@@ -10,7 +10,8 @@ public class wasd : MonoBehaviour
     private bool moving;
     private Vector2 lastMove;
     public int dayn;
-    public GameObject Readl_Sword; 
+    public GameObject Readl_Sword;
+    private bool ll;
 
     void Start()
     {   
@@ -42,6 +43,19 @@ public class wasd : MonoBehaviour
         {
             anime.SetTrigger("taking");
             Readl_Sword.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ll = true;
+            anime.SetBool("Attack", ll);
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                ll = false;
+                anime.SetBool("Attack", ll);
+            }
         }
     }
 }
