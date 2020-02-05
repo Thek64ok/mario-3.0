@@ -62,6 +62,7 @@ public class EnemyControll : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        /*
         if (other.gameObject.name == "Knight")
         {
             //Destroy(other.gameObject);
@@ -69,5 +70,6 @@ public class EnemyControll : MonoBehaviour
             reloading = true;
             theKnight = other.gameObject;
         }
+        */
     }
 }

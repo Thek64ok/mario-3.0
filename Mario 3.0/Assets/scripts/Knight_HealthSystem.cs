@@ -15,13 +15,13 @@ public class Knight_HealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (knightCurrentHealth < 0)
+        if (knightCurrentHealth <= 0)
         {
             gameObject.SetActive(false);
         }
     }
 
-    public void Heart(int damageToGive)
+    public void HurtKnight(int damageToGive)
     {
         knightCurrentHealth -= damageToGive;
     }
