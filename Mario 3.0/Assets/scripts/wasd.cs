@@ -30,12 +30,19 @@ public class wasd : MonoBehaviour
             speed = 1.5f;
         }
         else
+
             speed = 1;
     }
     void Update()
     {
         moving = false;
-        Sprint();
+        if (Input.GetKey(KeyCode.LeftShift))//Sprint
+        {
+            speed = 1.5f;
+        }
+        else
+            speed = 1f;
+
         if (!attacking)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
