@@ -1153,6 +1153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knightMaxHealth: 50
   knightCurrentHealth: 0
+  texHealth: {fileID: 2800000, guid: 50a518fa756e87447a40dd11715068e9, type: 3}
 --- !u!1 &144036546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,6 +5971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e495641f578c6dd4ca10848d76e3599f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageToGive: 5
 --- !u!212 &1130416289
 SpriteRenderer:
   m_ObjectHideFlags: 0
