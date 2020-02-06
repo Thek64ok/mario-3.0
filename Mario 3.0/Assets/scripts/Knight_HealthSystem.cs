@@ -7,6 +7,7 @@ public class Knight_HealthSystem : MonoBehaviour
     // Start is called before the first frame update
     public int knightMaxHealth;
     public int knightCurrentHealth;
+    public Texture2D texHealth;
     void Start()
     {
         knightCurrentHealth = knightMaxHealth; 
@@ -19,6 +20,11 @@ public class Knight_HealthSystem : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    void OnGUI()
+    {
+        GUI.Box(new Rect(40,Screen.height-127,(knightMaxHealth*10)/2,20),"");
+        GUI.DrawTexture(new Rect(40,Screen.height-127,(knightCurrentHealth*10)/2,20),texHealth);
     }
 
     public void HurtKnight(int damageToGive)
