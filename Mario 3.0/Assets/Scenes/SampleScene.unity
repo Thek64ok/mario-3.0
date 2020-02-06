@@ -1154,6 +1154,10 @@ MonoBehaviour:
   knightMaxHealth: 50
   knightCurrentHealth: 0
   texHealth: {fileID: 2800000, guid: 50a518fa756e87447a40dd11715068e9, type: 3}
+  knightMaxStamina: 100
+  knightCurrentStamina: 0
+  regenStamina: 0.1
+  texStamina: {fileID: 2800000, guid: 22ca57f2a42324642825625e555aa400, type: 3}
 --- !u!1 &144036546
 GameObject:
   m_ObjectHideFlags: 0
@@ -19019,6 +19023,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8454117353631374605, guid: ef96224b275d6ca498be0975832702b8,
+        type: 3}
+      propertyPath: m_Name
+      value: blood
+      objectReference: {fileID: 0}
     - target: {fileID: 8454117353631374600, guid: ef96224b275d6ca498be0975832702b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19073,11 +19082,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374605, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: m_Name
-      value: blood
       objectReference: {fileID: 0}
     - target: {fileID: 8454117353631374606, guid: ef96224b275d6ca498be0975832702b8,
         type: 3}
