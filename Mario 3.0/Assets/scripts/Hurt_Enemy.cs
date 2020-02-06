@@ -8,6 +8,7 @@ public class Hurt_Enemy : MonoBehaviour
     public int damageToGive;
     public GameObject blood;
     public Transform hitPoint;
+    public GameObject damageNumber1;
     void Start()
     {
         
@@ -23,8 +24,9 @@ public class Hurt_Enemy : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damageToGive);
-            // Destroy(other.gameObject);
             Instantiate(blood, hitPoint.position, hitPoint.rotation);
+            var clone = (GameObject)Instantiate(damageNumber1, hitPoint.position, Quaternion.Euler(Vector3.zero));
+            clone.GetComponent<Numbers_of_damage>().damageNumber2 = damageToGive;
         }
     }
 }
