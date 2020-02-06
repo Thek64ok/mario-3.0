@@ -26,8 +26,10 @@ public class Knight_HealthSystem : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        if(knightCurrentStamina < knightMaxStamina)knightCurrentStamina = knightCurrentStamina + regenStamina;//Regen Stamina
-        if(knightCurrentStamina > knightMaxStamina)knightCurrentStamina = knightMaxStamina;
+        if (knightCurrentStamina < knightMaxStamina)
+            knightCurrentStamina += regenStamina;//Regen Stamina
+        //if (knightCurrentStamina > knightMaxStamina) 
+           // knightCurrentStamina = knightMaxStamina;
         if(Input.GetKey(KeyCode.LeftShift) && knightCurrentStamina > 0.5f)
         {
             knightCurrentStamina = knightCurrentStamina - 0.5f;
