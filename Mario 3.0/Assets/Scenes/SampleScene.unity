@@ -5826,6 +5826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  currentMoveSpeed: 0
+  anime: {fileID: 0}
   dayn: 0
   Readl_Sword: {fileID: 1130416286}
   attackTime: 1
@@ -5913,6 +5915,7 @@ MonoBehaviour:
   knightCurrentStamina: 0
   regenStamina: 0.1
   texStamina: {fileID: 2800000, guid: 22ca57f2a42324642825625e555aa400, type: 3}
+  dayn1: {fileID: 142496390}
 --- !u!1 &143858737
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,14 @@ public class Knight_HealthSystem : MonoBehaviour
     public float knightCurrentStamina;
     public float regenStamina;
     public Texture2D texStamina;
+    public GameObject dayn1;
+    private wasd sprint;
 
     void Start()
     {
         knightCurrentHealth = knightMaxHealth; 
         knightCurrentStamina = knightMaxStamina;
+        sprint = dayn1.GetComponent<wasd>(); 
     }
 
     // Update is called once per frame
@@ -27,12 +30,22 @@ public class Knight_HealthSystem : MonoBehaviour
             gameObject.SetActive(false);
         }
         if (knightCurrentStamina < knightMaxStamina)
+        {
             knightCurrentStamina += regenStamina;//Regen Stamina
+        }
         //if (knightCurrentStamina > knightMaxStamina) 
            // knightCurrentStamina = knightMaxStamina;
-        if(Input.GetKey(KeyCode.LeftShift) && knightCurrentStamina > 0.5f)
+        if(Input.GetKey(KeyCode.LeftShift) && knightCurrentStamina > 1)
         {
-            knightCurrentStamina = knightCurrentStamina - 0.5f;
+            knightCurrentStamina -= 0.2f;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            knightCurrentStamina -= 5f;
+        if (knightCurrentStamina < 0)
+            knightCurrentStamina = 0;
+        if (knightCurrentStamina < 5)
+        {
+            sprint.currentMoveSpeed = 1f;
         }
     }
     void OnGUI()

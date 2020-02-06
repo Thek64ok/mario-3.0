@@ -5,9 +5,9 @@ using UnityEngine;
 public class wasd : MonoBehaviour
 {
     public float speed ;
-    private float currentMoveSpeed;
+    public float currentMoveSpeed;
     private Rigidbody2D rb;
-    private Animator anime;
+    public Animator anime;
     private bool moving;
     private Vector2 lastMove;
     private Rigidbody2D myrigidbody2D;
@@ -17,32 +17,22 @@ public class wasd : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
 
+
     void Start()
     {   
         anime = GetComponent<Animator>();
         Readl_Sword.SetActive(false);
         myrigidbody2D = GetComponent<Rigidbody2D>();
     }
-    public void Sprint()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))//Sprint
-        {
-            speed = 1.5f;
-        }
-        else
-
-            speed = 1;
-    }
     void Update()
     {
         moving = false;
-        if (Input.GetKey(KeyCode.LeftShift))//Sprint
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 1.5f;
         }
         else
             speed = 1f;
-
         if (!attacking)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
