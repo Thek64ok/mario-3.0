@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class wasd : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed ;
     private float currentMoveSpeed;
     private Rigidbody2D rb;
     private Animator anime;
@@ -27,6 +27,10 @@ public class wasd : MonoBehaviour
     void Update()
     {
         moving = false;
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = 1.5f;
+        else
+            speed = 1;
         if (!attacking)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
