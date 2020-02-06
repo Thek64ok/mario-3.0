@@ -23,14 +23,26 @@ public class wasd : MonoBehaviour
         Readl_Sword.SetActive(false);
         myrigidbody2D = GetComponent<Rigidbody2D>();
     }
+    public void Sprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))//Sprint
+        {
+            speed = 1.5f;
+        }
+        else
 
+            speed = 1;
+    }
     void Update()
     {
         moving = false;
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))//Sprint
+        {
             speed = 1.5f;
+        }
         else
             speed = 1f;
+
         if (!attacking)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
