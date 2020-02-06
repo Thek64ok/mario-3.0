@@ -23,8 +23,8 @@ public class Knight_HealthSystem : MonoBehaviour
     }
     void OnGUI()
     {
-        GUI.Box(new Rect(40,Screen.height-127,(knightMaxHealth*10)/2,20),"");
-        GUI.DrawTexture(new Rect(40,Screen.height-127,(knightCurrentHealth*10)/2,20),texHealth);
+        GUI.Box(new Rect(600, Screen.height - 200, (knightMaxHealth * 10) / 2, 10), "");
+        GUI.DrawTexture(new Rect(600, Screen.height - 200, (knightCurrentHealth * 10) / 2, 10), texHealth);
     }
 
     public void HurtKnight(int damageToGive)
