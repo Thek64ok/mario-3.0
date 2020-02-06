@@ -6,6 +6,8 @@ public class Hurt_Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damageToGive;
+    public GameObject blood;
+    public Transform hitPoint;
     void Start()
     {
         
@@ -21,7 +23,8 @@ public class Hurt_Enemy : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damageToGive);
-           // Destroy(other.gameObject);
+            // Destroy(other.gameObject);
+            Instantiate(blood, hitPoint.position, hitPoint.rotation);
         }
     }
 }

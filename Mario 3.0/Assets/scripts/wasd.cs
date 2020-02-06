@@ -30,7 +30,7 @@ public class wasd : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
             speed = 1.5f;
         else
-            speed = 1;
+            speed = 1f;
         if (!attacking)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
