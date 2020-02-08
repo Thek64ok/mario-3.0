@@ -18,9 +18,7 @@ public class EnemyControll : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        //timeBetweenMoveCounter = timeBetweenMove;
-        //timeToMoveCounter = timeToMove;
-        timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
+        timeBetweenMoveCounter = Random.Range(timeBetweenMove * 1.5f, timeBetweenMove * 1.25f);
         timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeBetweenMove * 1.25f);
     }
 
@@ -34,7 +32,6 @@ public class EnemyControll : MonoBehaviour
             if (timeToMoveCounter < 0f)
             {
                 moving = false;
-                //timeBetweenMoveCounter = timeBetweenMove;
                 timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
             }
         } else
@@ -44,7 +41,6 @@ public class EnemyControll : MonoBehaviour
             if (timeBetweenMoveCounter < 0f)
             {
                 moving = true;
-                //timeToMoveCounter = timeToMove;
                 timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeBetweenMove * 1.25f);
                 moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
             }
