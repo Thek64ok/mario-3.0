@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 7435449048531003750}
   - component: {fileID: 9056765753586192560}
   - component: {fileID: 1402437559124292615}
+  - component: {fileID: 1433567161}
+  - component: {fileID: 914530824}
   m_Layer: 0
   m_Name: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331"
   m_TagString: Enemy
@@ -132,13 +134,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7435449048531003747}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74157e8299db42747b54cd4cd36ebb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  timeBetweenMove: 1
+  moveSpeed: 2
+  timeBetweenMove: 3
   timeToMove: 1
   waitToReload: 2
 --- !u!60 &7435449048531003750
@@ -213,3 +215,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 15
   CurrentHealth: 0
+--- !u!114 &1433567161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7435449048531003747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88ff45cbfcd30948af1014daa8065c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.74
+  startWaitTime: 2
+  moveSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &914530824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7435449048531003747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88ff45cbfcd30948af1014daa8065c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  startWaitTime: 4
+  moveSpots: []
