@@ -19,7 +19,7 @@ public class Sword_take : MonoBehaviour
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
         {
             PickUp();
-            take.dayn = 1;
+            take.dayn = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

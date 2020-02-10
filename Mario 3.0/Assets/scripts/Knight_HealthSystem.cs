@@ -40,7 +40,10 @@ public class Knight_HealthSystem : MonoBehaviour
             knightCurrentStamina -= 0.2f;
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            knightCurrentStamina -= 5f;
+        {
+            if (sprint.Readl_Sword.gameObject.activeInHierarchy == true)
+                knightCurrentStamina -= 5f;
+        }
         if (knightCurrentStamina < 0)
             knightCurrentStamina = 0;
         if (knightCurrentStamina < 5)

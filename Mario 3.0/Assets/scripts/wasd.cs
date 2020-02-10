@@ -11,7 +11,7 @@ public class wasd : MonoBehaviour
     private bool moving;
     private Vector2 lastMove;
     private Rigidbody2D myrigidbody2D;
-    public int dayn;
+    public bool dayn;
     public GameObject Readl_Sword;
     public bool attacking;
     public float attackTime;
@@ -59,10 +59,13 @@ public class wasd : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                attackTimeCounter = attackTime;
-                attacking = true;
-                myrigidbody2D.velocity = Vector2.zero;
-                anime.SetBool("Attack", true);
+                if (Readl_Sword.gameObject.activeInHierarchy == true)
+                {
+                    attackTimeCounter = attackTime;
+                    attacking = true;
+                    myrigidbody2D.velocity = Vector2.zero;
+                    anime.SetBool("Attack", true);
+                }
             }
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.5f)
             {
@@ -87,7 +90,7 @@ public class wasd : MonoBehaviour
         anime.SetBool("Moving", moving);
         anime.SetFloat("LastMoveX", lastMove.x);
         anime.SetFloat("LastMoveY", lastMove.y);
-        if (dayn == 1)
+        if (dayn == true)
         {
             anime.SetTrigger("taking");
             Readl_Sword.SetActive(true);
