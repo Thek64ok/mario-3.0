@@ -7399,7 +7399,7 @@ MonoBehaviour:
   dayn: 0
   Readl_Sword: {fileID: 1130416286}
   attacking: 0
-  attackTime: 1
+  attackTime: 2.15
 --- !u!61 &142496396
 BoxCollider2D:
   m_ObjectHideFlags: 0
