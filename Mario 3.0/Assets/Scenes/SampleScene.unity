@@ -7398,6 +7398,7 @@ MonoBehaviour:
   anime: {fileID: 0}
   dayn: 0
   Readl_Sword: {fileID: 1130416286}
+  attacking: 0
   attackTime: 1
 --- !u!61 &142496396
 BoxCollider2D:
@@ -56554,6 +56555,7 @@ MonoBehaviour:
   hitPoint: {fileID: 1597487539}
   damageNumber1: {fileID: 4658750201160805020, guid: add316dfbcb7c8746b8f8a4bb4d13e02,
     type: 3}
+  knight: {fileID: 142496390}
 --- !u!212 &1130416289
 SpriteRenderer:
   m_ObjectHideFlags: 0

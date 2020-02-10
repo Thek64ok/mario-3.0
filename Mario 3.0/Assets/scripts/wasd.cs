@@ -13,7 +13,7 @@ public class wasd : MonoBehaviour
     private Rigidbody2D myrigidbody2D;
     public int dayn;
     public GameObject Readl_Sword;
-    private bool attacking;
+    public bool attacking;
     public float attackTime;
     private float attackTimeCounter;
 

@@ -9,9 +9,11 @@ public class Hurt_Enemy : MonoBehaviour
     public GameObject blood;
     public Transform hitPoint;
     public GameObject damageNumber1;
+    public GameObject knight;
+    private wasd ataka;
     void Start()
     {
-        
+        ataka = knight.GetComponent<wasd>();
     }
 
     // Update is called once per frame
@@ -21,12 +23,15 @@ public class Hurt_Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (ataka.attacking == true)
         {
-            other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damageToGive);
-            Instantiate(blood, hitPoint.position, hitPoint.rotation);
-            var clone = (GameObject)Instantiate(damageNumber1, hitPoint.position, Quaternion.Euler(Vector3.zero));
-            clone.GetComponent<Numbers_of_damage>().damageNumber2 = damageToGive;
+            if (other.gameObject.tag == "Enemy")
+            {
+                other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damageToGive);
+                Instantiate(blood, hitPoint.position, hitPoint.rotation);
+                var clone = (GameObject)Instantiate(damageNumber1, hitPoint.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<Numbers_of_damage>().damageNumber2 = damageToGive;
+            }
         }
     }
 }
