@@ -11,16 +11,23 @@ public class EnemyPatrol : MonoBehaviour
     private int randomSpot;
     private Transform target;
     private bool Detected;
+    public Animator anim;
+    private Rigidbody2D rb2;
 
     void Start()
     {
         waitTime = startWaitTime;
         randomSpot = Random.Range(0, moveSpots.Length);
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        anim = GetComponent<Animator>();
+        rb2 = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        /*
+        
+            */
         if (!Detected)
         {
             transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
@@ -30,6 +37,14 @@ public class EnemyPatrol : MonoBehaviour
                 {
                     randomSpot = Random.Range(0, moveSpots.Length);
                     waitTime = startWaitTime;
+                    if (transform.position.x < 0)
+                    {
+                        anim.SetFloat("MoveX", -1f);
+                    }
+                    else
+                    {
+                        anim.SetFloat("MoveX", 1f);
+                    }
                 }
                 else
                     waitTime -= Time.deltaTime;
@@ -39,9 +54,13 @@ public class EnemyPatrol : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             Detected = true;
+            anim.SetFloat("MoveX", target.position.x - transform.position.x);
+            anim.SetFloat("MoveY", target.position.y - transform.position.y);
         }
         else
-            if (Vector2.Distance(transform.position, target.position) > 3)
+        if (Vector2.Distance(transform.position, target.position) > 3)
+        {
             Detected = false;
+        }
     }
 }
