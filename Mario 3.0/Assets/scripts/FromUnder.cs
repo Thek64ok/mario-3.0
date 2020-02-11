@@ -9,8 +9,10 @@ public class FromUnder : MonoBehaviour
     private Transform Knight;
     public float TimeOf;
     private float TimeOffCurrent;
+    private EnemyHealthMeneger hp;
     void Start()
     {
+        hp = Spider.GetComponent<EnemyHealthMeneger>();
         Spider.SetActive(false);
         anim = GetComponent<Animator>();
         Knight = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -29,5 +31,7 @@ public class FromUnder : MonoBehaviour
             Spider.SetActive(true);
             anim.SetBool("CloseUp", false);
         }
+        if (hp.CurrentHealth <= 0)
+            Destroy(gameObject);
     }
 }
