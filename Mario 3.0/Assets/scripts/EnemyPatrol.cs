@@ -29,12 +29,8 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
-        /*
-        
-            */
         if(transform.position != oldPosition)
         {
-            Debug.Log("Test");
             DirectPos = transform.position - oldPosition;
             oldPosition = transform.position;
         }
@@ -43,33 +39,25 @@ public class EnemyPatrol : MonoBehaviour
             
             transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
             if (DirectPos.x < 0)                    
-                    {
-                        anim.SetFloat("MoveX", -1f);
-                    }
-                    else
-                    {
-                        anim.SetFloat("MoveX", 1f);
-                    }
+            {
+                anim.SetFloat("MoveX", -1f);
+            }
+            else
+            {
+                anim.SetFloat("MoveX", 1f);
+            }
             if (Vector2.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
             {
                 if (waitTime <= 0)
                 {
                     randomSpot = Random.Range(0, moveSpots.Length);
                     waitTime = startWaitTime;
-                    // if (transform.position.x < 0)                    
-                    // {
-                    //     anim.SetFloat("MoveX", -1f);
-                    // }
-                    // else
-                    // {
-                    //     anim.SetFloat("MoveX", 1f);
-                    // }
                 }
                 else
                     waitTime -= Time.deltaTime;
             }
         }
-        if (Vector2.Distance(transform.position, target.position) < 1)
+        if (Vector2.Distance(transform.position, target.position) < 1f)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             Detected = true;
@@ -77,7 +65,7 @@ public class EnemyPatrol : MonoBehaviour
             anim.SetFloat("MoveY", target.position.y - transform.position.y);
         }
         else
-        if (Vector2.Distance(transform.position, target.position) > 2)
+        if (Vector2.Distance(transform.position, target.position) > 1.2f)
         {
             Detected = false;
         }
