@@ -13,12 +13,14 @@ public class SpecialAttack : MonoBehaviour
     private float coolDownForSkill;
     private Transform target;
     public float timeToCast = 1f;
+    private Knight_HealthSystem stamina;
     void Start()
     {
         knightFromSkript = knight.gameObject.GetComponent<wasd>();
         coolDownOver = true;
         coolDownForSkill = coolDown;
         target = GameObject.FindGameObjectWithTag("a").GetComponent<Transform>();
+        stamina = knight.GetComponent<Knight_HealthSystem>();
     }
 
     // Update is called once per frame
@@ -28,10 +30,10 @@ public class SpecialAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                if (coolDownOver)
+                if (coolDownOver && stamina.knightCurrentStamina > 30f)
                 {
                     timeToCast = 1f;
-                    if (Input.GetAxisRaw("Horizontal") > 0) 
+                    if (Input.GetAxisRaw("Horizontal") > 0 ) 
                         if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
                         {
                             target.transform.position = new Vector2(target.transform.position.x + 0.5f, target.transform.position.y);
