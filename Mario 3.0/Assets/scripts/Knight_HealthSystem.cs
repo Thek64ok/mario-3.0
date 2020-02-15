@@ -53,7 +53,7 @@ public class Knight_HealthSystem : MonoBehaviour
             if (sprint.Readl_Sword.gameObject.activeInHierarchy == true)
                 knightCurrentStamina -= 5f;
         }
-        if(skillToss.GetCoolDownOver() && Input.GetKeyDown(KeyCode.Alpha1))
+        if(skillToss.GetCoolDownOver() && Input.GetKeyDown(KeyCode.Alpha1) && sprint.dayn)
         {
             knightCurrentMana -= 20f;
         }
