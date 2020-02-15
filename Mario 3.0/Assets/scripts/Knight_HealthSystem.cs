@@ -56,6 +56,7 @@ public class Knight_HealthSystem : MonoBehaviour
         if(skillToss.GetCoolDownOver() && Input.GetKeyDown(KeyCode.Alpha1) && sprint.dayn)
         {
             knightCurrentMana -= 20f;
+            knightCurrentStamina -= 30f;
         }
         if (knightCurrentMana < 0) knightCurrentMana = 0;
         if (knightCurrentStamina < 0) knightCurrentStamina = 0;
