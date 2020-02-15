@@ -13,14 +13,12 @@ public class SpecialAttack : MonoBehaviour
     private float coolDownForSkill;
     private Transform target;
     public float timeToCast = 1f;
-    private Knight_HealthSystem stamina;
     void Start()
     {
         knightFromSkript = knight.gameObject.GetComponent<wasd>();
         coolDownOver = true;
         coolDownForSkill = coolDown;
         target = GameObject.FindGameObjectWithTag("a").GetComponent<Transform>();
-        stamina = knight.GetComponent<Knight_HealthSystem>();
     }
 
     // Update is called once per frame
@@ -34,6 +32,7 @@ public class SpecialAttack : MonoBehaviour
                 {
                     timeToCast = 1f;
                     if (Input.GetAxisRaw("Horizontal") > 0)
+                    {
                         if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
                         {
                             target.transform.position = new Vector2(target.transform.position.x + 0.5f, target.transform.position.y);
@@ -43,38 +42,47 @@ public class SpecialAttack : MonoBehaviour
                         {
                             knightFromSkript.anime.SetBool("Skill1", true);
                         }
-                    else
-                    {
-                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
-                        {
-                            target.transform.position = new Vector2(target.transform.position.x - 0.5f, target.transform.position.y);
-                            knightFromSkript.anime.SetBool("Skill1", true);
-                        }
-                        else
-                        {
-                            knightFromSkript.anime.SetBool("Skill1", true);
-                        }
                     }
-                    if (Input.GetAxisRaw("Vertical") > 0)
-                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
-                        {
-                            target.transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.5f);
-                            knightFromSkript.anime.SetBool("Skill1", true);
-                        }
-                        else
-                        {
-                            knightFromSkript.anime.SetBool("Skill1", true);
-                        }
                     else
                     {
-                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                        if (Input.GetAxisRaw("Horizontal") < 0)
                         {
-                            target.transform.position = new Vector2(target.transform.position.x, target.transform.position.y - 0.5f);
-                            knightFromSkript.anime.SetBool("Skill1", true);
+                            if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                            {
+                                target.transform.position = new Vector2(target.transform.position.x - 0.5f, target.transform.position.y);
+                                knightFromSkript.anime.SetBool("Skill1", true);
+                            }
+                            else
+                            {
+                                knightFromSkript.anime.SetBool("Skill1", true);
+                            }
                         }
                         else
                         {
-                            knightFromSkript.anime.SetBool("Skill1", true);
+                            if (Input.GetAxisRaw("Vertical") > 0)
+                            {
+                                if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                                {
+                                    target.transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.5f);
+                                    knightFromSkript.anime.SetBool("Skill1", true);
+                                }
+                                else
+                                {
+                                    knightFromSkript.anime.SetBool("Skill1", true);
+                                }
+                            }
+                            else
+                            {
+                                if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                                {
+                                    target.transform.position = new Vector2(target.transform.position.x, target.transform.position.y - 0.5f);
+                                    knightFromSkript.anime.SetBool("Skill1", true);
+                                }
+                                else
+                                {
+                                    knightFromSkript.anime.SetBool("Skill1", true);
+                                }
+                            }
                         }
                     }
                     coolDownOver = false;
