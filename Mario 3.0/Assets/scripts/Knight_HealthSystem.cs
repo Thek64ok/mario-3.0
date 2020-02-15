@@ -58,8 +58,8 @@ public class Knight_HealthSystem : MonoBehaviour
         {
             knightCurrentMana -= 20f;
         }
-        if (knightCurrentStamina < 0)
-            knightCurrentStamina = 0;
+        if (knightCurrentMana < 0) knightCurrentMana = 0;
+        if (knightCurrentStamina < 0) knightCurrentStamina = 0;
         if (knightCurrentStamina < 5)
         {
             sprint.currentMoveSpeed = 1f;
