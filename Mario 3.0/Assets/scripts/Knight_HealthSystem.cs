@@ -18,7 +18,6 @@ public class Knight_HealthSystem : MonoBehaviour
     public float knightCurrentMana;
     public float regenMana;
     public Texture2D texMana;
-    public GameObject skills;//ForMana
     private SpecialAttack skillToss;
     void Start()
     {
@@ -26,7 +25,7 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentStamina = knightMaxStamina;
         knightCurrentMana = knightMaxMana;
         sprint = dayn1.GetComponent<wasd>();
-        skillToss = skills.GetComponent<SpecialAttack>(); 
+        skillToss = dayn1.GetComponent<SpecialAttack>(); 
     }
 
     // Update is called once per frame
