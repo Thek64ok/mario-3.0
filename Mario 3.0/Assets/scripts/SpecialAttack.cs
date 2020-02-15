@@ -8,7 +8,7 @@ public class SpecialAttack : MonoBehaviour
     public GameObject knight;
     private wasd knightFromSkript;
     public float coolDown;
-    private bool coolDownOver;
+    public bool coolDownOver;
     public Image imageCoolDown;
     private float coolDownForSkill;
     private Transform target;
@@ -30,10 +30,10 @@ public class SpecialAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                if (coolDownOver && stamina.knightCurrentStamina > 30f)
+                if (coolDownOver)
                 {
                     timeToCast = 1f;
-                    if (Input.GetAxisRaw("Horizontal") > 0 ) 
+                    if (Input.GetAxisRaw("Horizontal") > 0)
                         if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
                         {
                             target.transform.position = new Vector2(target.transform.position.x + 0.5f, target.transform.position.y);
