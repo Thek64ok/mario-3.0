@@ -654,7 +654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371379985}
   - component: {fileID: 371379986}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2561,8 +2561,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.8, y: 21.312866}
-  m_SizeDelta: {x: 954.5, y: 598}
+  m_AnchoredPosition: {x: 18, y: 16}
+  m_SizeDelta: {x: 1423.4, y: 772.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526238020
 MonoBehaviour:
