@@ -12,6 +12,7 @@ public class SpecialAttack : MonoBehaviour
     public Image imageCoolDown;
     private float coolDownForSkill;
     private Transform target;
+    public float timeToCast = 1f;
     void Start()
     {
         knightFromSkript = knight.gameObject.GetComponent<wasd>();
@@ -23,31 +24,76 @@ public class SpecialAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (knightFromSkript.dayn == true)
         {
-            if (coolDownOver)
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                if (Input.GetAxisRaw("Horizontal") > 0.5f)
-                    if (Vector2.Distance(knight.transform.position, target.transform.position) < 1.5f)
-                        target.transform.position = new Vector2(target.transform.position.x + 1.5f, target.transform.position.y);
-                if (Input.GetAxisRaw("Horizontal") < 0.5f)
-                    if(Vector2.Distance(knight.transform.position, target.transform.position) < 1.5f)
-                        target.transform.position = new Vector2(target.transform.position.x - 1.5f, target.transform.position.y);
-                coolDownOver = false;
+                if (coolDownOver)
+                {
+                    timeToCast = 1f;
+                    if (Input.GetAxisRaw("Horizontal") > 0) 
+                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                        {
+                            target.transform.position = new Vector2(target.transform.position.x + 0.5f, target.transform.position.y);
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                        else
+                        {
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                    else
+                    {
+                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                        {
+                            target.transform.position = new Vector2(target.transform.position.x - 0.5f, target.transform.position.y);
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                        else
+                        {
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                    }
+                    if (Input.GetAxisRaw("Vertical") > 0)
+                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                        {
+                            target.transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.5f);
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                        else
+                        {
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                    else
+                    {
+                        if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
+                        {
+                            target.transform.position = new Vector2(target.transform.position.x, target.transform.position.y - 0.5f);
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                        else
+                        {
+                            knightFromSkript.anime.SetBool("Skill1", true);
+                        }
+                    }
+                    coolDownOver = false;
+                }
             }
-           
-        }
-        if (coolDownOver == false)
-        {
-            coolDown -= Time.deltaTime;
-            imageCoolDown.fillAmount += 1 / coolDownForSkill * Time.deltaTime;
-            if (imageCoolDown.fillAmount >= 1)
-                imageCoolDown.fillAmount = 0;
-        }
-        if (coolDown < 0)
-        {
-            coolDownOver = true;
-            coolDown = 5;
+            if (coolDownOver == false)
+            {
+                timeToCast -= Time.deltaTime;
+                coolDown -= Time.deltaTime;
+                imageCoolDown.fillAmount += 1 / coolDownForSkill * Time.deltaTime;
+                if (imageCoolDown.fillAmount >= 1)
+                    imageCoolDown.fillAmount = 0;
+            }
+            if (coolDown < 0 && timeToCast < 0)
+            {
+                coolDownOver = true;
+                coolDown = 5f;
+                
+            }
+            if (timeToCast < 0)
+                knightFromSkript.anime.SetBool("Skill1", false);
         }
     }
     public bool GetCoolDownOver()
