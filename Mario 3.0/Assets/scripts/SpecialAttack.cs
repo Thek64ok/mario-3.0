@@ -11,11 +11,13 @@ public class SpecialAttack : MonoBehaviour
     private bool coolDownOver;
     public Image imageCoolDown;
     private float coolDownForSkill;
+    private Transform target;
     void Start()
     {
         knightFromSkript = knight.gameObject.GetComponent<wasd>();
         coolDownOver = true;
         coolDownForSkill = coolDown;
+        target = GameObject.FindGameObjectWithTag("a").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -26,9 +28,11 @@ public class SpecialAttack : MonoBehaviour
             if (coolDownOver)
             {
                 if (Input.GetAxisRaw("Horizontal") > 0.5f)
-                    knightFromSkript.transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y);
-                else
-                    knightFromSkript.transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y);
+                    if (Vector2.Distance(knight.transform.position, target.transform.position) < 1.5f)
+                        target.transform.position = new Vector2(target.transform.position.x + 1.5f, target.transform.position.y);
+                if (Input.GetAxisRaw("Horizontal") < 0.5f)
+                    if(Vector2.Distance(knight.transform.position, target.transform.position) < 1.5f)
+                        target.transform.position = new Vector2(target.transform.position.x - 1.5f, target.transform.position.y);
                 coolDownOver = false;
             }
            
@@ -43,7 +47,7 @@ public class SpecialAttack : MonoBehaviour
         if (coolDown < 0)
         {
             coolDownOver = true;
-            coolDown = 10;
+            coolDown = 5;
         }
     }
 }
