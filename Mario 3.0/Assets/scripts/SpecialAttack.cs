@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpecialAttack : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class SpecialAttack : MonoBehaviour
     private wasd knightFromSkript;
     public float coolDown;
     private bool coolDownOver;
+    public Image imageCoolDown;
+    private float coolDownForSkill;
     void Start()
     {
         knightFromSkript = knight.gameObject.GetComponent<wasd>();
         coolDownOver = true;
+        coolDownForSkill = coolDown;
     }
 
     // Update is called once per frame
@@ -30,7 +34,12 @@ public class SpecialAttack : MonoBehaviour
            
         }
         if (coolDownOver == false)
+        {
             coolDown -= Time.deltaTime;
+            imageCoolDown.fillAmount += 1 / coolDownForSkill * Time.deltaTime;
+            if (imageCoolDown.fillAmount >= 1)
+                imageCoolDown.fillAmount = 0;
+        }
         if (coolDown < 0)
         {
             coolDownOver = true;
