@@ -7578,6 +7578,7 @@ MonoBehaviour:
   knight: {fileID: 142496390}
   coolDown: 5
   imageCoolDown: {fileID: 379567361}
+  timeToCast: 1
 --- !u!1 &144036546
 GameObject:
   m_ObjectHideFlags: 0
