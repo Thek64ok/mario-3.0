@@ -9,6 +9,7 @@ TagManager:
   - tree
   - Weapon
   - middle
+  - a
   layers:
   - Default
   - TransparentFX
