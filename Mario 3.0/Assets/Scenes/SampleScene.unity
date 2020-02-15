@@ -6756,6 +6756,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 26
@@ -7563,6 +7565,11 @@ MonoBehaviour:
   regenStamina: 0.1
   texStamina: {fileID: 2800000, guid: 22ca57f2a42324642825625e555aa400, type: 3}
   dayn1: {fileID: 142496390}
+  knightMaxMana: 50
+  knightCurrentMana: 50
+  regenMana: 0.1
+  texMana: {fileID: 2800000, guid: 00ca1a1ed0f9c614299b9375b69af3e6, type: 3}
+  skills: {fileID: 142496390}
 --- !u!114 &142496400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14951,6 +14958,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -17951,6 +17960,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 3
   m_PreserveAspect: 0
@@ -43697,6 +43708,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2ce09638a2b92b54d8a5f942a2267945, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -45215,6 +45228,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: b03733a5cfe07b444b6faaae6031bcd4, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -52121,6 +52136,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7435449048531003747, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
+        type: 3}
+      propertyPath: m_Name
+      value: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331 (2)"
+      objectReference: {fileID: 0}
     - target: {fileID: 1433567161, guid: 3cab76ce3c76b19499ab1eb55b52a55f, type: 3}
       propertyPath: moveSpots.Array.size
       value: 5
@@ -52165,11 +52185,6 @@ PrefabInstance:
       propertyPath: moveSpots.Array.data[0]
       value: 
       objectReference: {fileID: 345831076}
-    - target: {fileID: 7435449048531003747, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
-        type: 3}
-      propertyPath: m_Name
-      value: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331 (2)"
-      objectReference: {fileID: 0}
     - target: {fileID: 7435449048531003749, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -59585,6 +59600,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7435449048531003747, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
+        type: 3}
+      propertyPath: m_Name
+      value: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331"
+      objectReference: {fileID: 0}
     - target: {fileID: 1433567161, guid: 3cab76ce3c76b19499ab1eb55b52a55f, type: 3}
       propertyPath: moveSpots.Array.size
       value: 7
@@ -59617,11 +59637,6 @@ PrefabInstance:
       propertyPath: moveSpots.Array.data[6]
       value: 
       objectReference: {fileID: 231822267}
-    - target: {fileID: 7435449048531003747, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
-        type: 3}
-      propertyPath: m_Name
-      value: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331"
-      objectReference: {fileID: 0}
     - target: {fileID: 7435449048531003749, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60188,6 +60203,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7435449048531003747, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
+        type: 3}
+      propertyPath: m_Name
+      value: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331 (1)"
+      objectReference: {fileID: 0}
     - target: {fileID: 1433567161, guid: 3cab76ce3c76b19499ab1eb55b52a55f, type: 3}
       propertyPath: moveSpots.Array.size
       value: 7
@@ -60220,11 +60240,6 @@ PrefabInstance:
       propertyPath: moveSpots.Array.data[6]
       value: 
       objectReference: {fileID: 231822267}
-    - target: {fileID: 7435449048531003747, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
-        type: 3}
-      propertyPath: m_Name
-      value: "\u0442\u0435\u0441\u0442_\u0432\u0440\u0430\u04331 (1)"
-      objectReference: {fileID: 0}
     - target: {fileID: 7435449048531003749, guid: 3cab76ce3c76b19499ab1eb55b52a55f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62542,6 +62557,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
@@ -88853,6 +88870,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -97764,51 +97783,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1542318581}
     m_Modifications:
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[3]
-      value: 
-      objectReference: {fileID: 504827181}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[4]
-      value: 
-      objectReference: {fileID: 504827181}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[5]
-      value: 
-      objectReference: {fileID: 504827181}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[2]
-      value: 
-      objectReference: {fileID: 504827181}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[1]
-      value: 
-      objectReference: {fileID: 373787246}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[0]
-      value: 
-      objectReference: {fileID: 1236258694}
-    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_Name
-      value: Spider (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 1382667938889338414, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97864,6 +97838,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_Name
+      value: Spider (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[3]
+      value: 
+      objectReference: {fileID: 504827181}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[4]
+      value: 
+      objectReference: {fileID: 504827181}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[5]
+      value: 
+      objectReference: {fileID: 504827181}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[2]
+      value: 
+      objectReference: {fileID: 504827181}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 373787246}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1236258694}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ade735b5f2b134b9ba9bccd463f3ed, type: 3}
 --- !u!1 &1901736133
@@ -99309,7 +99328,7 @@ GameObject:
 --- !u!199 &1931395672
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -113865,46 +113884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1542318581}
     m_Modifications:
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[0]
-      value: 
-      objectReference: {fileID: 1236258694}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[1]
-      value: 
-      objectReference: {fileID: 373787246}
-    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: moveSpots.Array.data[2]
-      value: 
-      objectReference: {fileID: 504827181}
-    - target: {fileID: 1382667938889338402, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382667938889338403, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382667938889338403, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_Name
-      value: Spider
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 1382667938889338414, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -113960,6 +113939,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_Name
+      value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338408, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1236258694}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 373787246}
+    - target: {fileID: 1382667938889338401, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: moveSpots.Array.data[2]
+      value: 
+      objectReference: {fileID: 504827181}
+    - target: {fileID: 1382667938889338402, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338403, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382667938889338403, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ade735b5f2b134b9ba9bccd463f3ed, type: 3}
 --- !u!1001 &4658750201069194035
@@ -113969,6 +113988,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4658750201160805020, guid: add316dfbcb7c8746b8f8a4bb4d13e02,
+        type: 3}
+      propertyPath: m_Name
+      value: DamageNumbers
+      objectReference: {fileID: 0}
     - target: {fileID: 4658750201160804992, guid: add316dfbcb7c8746b8f8a4bb4d13e02,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -114074,11 +114098,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4658750201160805020, guid: add316dfbcb7c8746b8f8a4bb4d13e02,
-        type: 3}
-      propertyPath: m_Name
-      value: DamageNumbers
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: add316dfbcb7c8746b8f8a4bb4d13e02, type: 3}
 --- !u!1001 &8454117352870224764
@@ -114088,6 +114107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8454117353631374605, guid: ef96224b275d6ca498be0975832702b8,
+        type: 3}
+      propertyPath: m_Name
+      value: blood
+      objectReference: {fileID: 0}
     - target: {fileID: 8454117353631374600, guid: ef96224b275d6ca498be0975832702b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -114142,11 +114166,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374605, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: m_Name
-      value: blood
       objectReference: {fileID: 0}
     - target: {fileID: 8454117353631374606, guid: ef96224b275d6ca498be0975832702b8,
         type: 3}

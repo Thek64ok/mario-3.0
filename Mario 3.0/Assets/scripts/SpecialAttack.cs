@@ -50,4 +50,8 @@ public class SpecialAttack : MonoBehaviour
             coolDown = 5;
         }
     }
+    public bool GetCoolDownOver()
+    {
+        return coolDownOver;
+    }
 }
