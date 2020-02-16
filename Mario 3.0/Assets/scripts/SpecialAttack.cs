@@ -31,7 +31,7 @@ public class SpecialAttack : MonoBehaviour
                 if (coolDownOver)
                 {
                     timeToCast = 1f;
-                    if (Input.GetAxisRaw("Horizontal") > 0)
+                    if (knightFromSkript.lastMove.x > 0.5f)
                     {
                         if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
                         {
@@ -45,7 +45,7 @@ public class SpecialAttack : MonoBehaviour
                     }
                     else
                     {
-                        if (Input.GetAxisRaw("Horizontal") < 0)
+                        if (knightFromSkript.lastMove.x < 0.5f)
                         {
                             if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
                             {
@@ -59,7 +59,7 @@ public class SpecialAttack : MonoBehaviour
                         }
                         else
                         {
-                            if (Input.GetAxisRaw("Vertical") > 0)
+                            if (knightFromSkript.lastMove.y > 0.5f)
                             {
                                 if (Vector2.Distance(knight.transform.position, target.transform.position) < 2.5f)
                                 {
