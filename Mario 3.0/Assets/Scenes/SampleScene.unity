@@ -7906,6 +7906,7 @@ MonoBehaviour:
   speed: 1
   currentMoveSpeed: 0
   anime: {fileID: 0}
+  lastMove: {x: 0, y: 0}
   dayn: 0
   Readl_Sword: {fileID: 1130416286}
   attacking: 0
