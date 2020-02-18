@@ -6,9 +6,8 @@ public class wasd : MonoBehaviour
 {
     public float speed ;
     public float currentMoveSpeed;
-    private Rigidbody2D rb;
     public Animator anime;
-    private bool moving;
+    public bool moving;
     public Vector2 lastMove;
     private Rigidbody2D myrigidbody2D;
     public bool dayn;
@@ -37,14 +36,12 @@ public class wasd : MonoBehaviour
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
             {
-                // transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0f, 0f));
                 myrigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * currentMoveSpeed, myrigidbody2D.velocity.y);
                 moving = true;
                 lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
             }
             if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
             {
-                //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0f));
                 myrigidbody2D.velocity = new Vector2(myrigidbody2D.velocity.x, Input.GetAxisRaw("Vertical") * currentMoveSpeed);
                 moving = true;
                 lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));

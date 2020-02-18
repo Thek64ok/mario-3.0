@@ -100,10 +100,11 @@ public class SpecialAttack : MonoBehaviour
             {
                 coolDownOver = true;
                 coolDown = 5f;
-                
             }
             if (timeToCast < 0)
+            {
                 knightFromSkript.anime.SetBool("Skill1", false);
+            }
         }
     }
     public bool GetCoolDownOver()
