@@ -10,6 +10,7 @@ TagManager:
   - Weapon
   - middle
   - a
+  - Real_Sword
   layers:
   - Default
   - TransparentFX

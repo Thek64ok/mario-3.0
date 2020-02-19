@@ -9,7 +9,7 @@ public class wasd : MonoBehaviour
     public Animator anime;
     public bool moving;
     public Vector2 lastMove;
-    private Rigidbody2D myrigidbody2D;
+    public Rigidbody2D myrigidbody2D;
     public bool dayn;
     public GameObject Readl_Sword;
     public bool attacking;

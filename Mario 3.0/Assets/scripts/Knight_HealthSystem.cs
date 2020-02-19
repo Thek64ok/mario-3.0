@@ -25,7 +25,7 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentStamina = knightMaxStamina;
         knightCurrentMana = knightMaxMana;
         sprint = dayn1.GetComponent<wasd>();
-        skillToss = dayn1.GetComponent<SpecialAttack>(); 
+        skillToss = dayn1.GetComponent<SpecialAttack>();
     }
 
     // Update is called once per frame
@@ -84,7 +84,21 @@ public class Knight_HealthSystem : MonoBehaviour
     public void HurtKnight(int damageToGive)
     {
         knightCurrentHealth -= damageToGive;
+
     }
+    /*
+    public void Back(bool checkDamage)
+    {
+        if (checkDamage)
+        {
+            //knightCurrentHealth = 200;
+            rigidbody2D.AddForce(Vector2.left * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
+        }
+        else
+            rigidbody2D.AddForce(Vector2.right * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
+            //knightCurrentHealth = 100;
+    }
+    */
     public void SetMaxHealth()
     {
         knightCurrentHealth = knightMaxHealth;

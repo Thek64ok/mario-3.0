@@ -7884,11 +7884,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ab1bac14cc38e1f4e80e8f69da31ec50, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -7908,6 +7908,7 @@ MonoBehaviour:
   speed: 1
   currentMoveSpeed: 0
   anime: {fileID: 0}
+  moving: 0
   lastMove: {x: 0, y: 0}
   myrigidbody2D: {fileID: 0}
   dayn: 0
@@ -7924,7 +7925,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.7236868, y: -3.2528267}
@@ -7950,7 +7951,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.8187306, y: -1.2736661}
@@ -61750,7 +61751,7 @@ GameObject:
   - component: {fileID: 1130416287}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Real_Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73265,6 +73266,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1542318581}
     m_Modifications:
+    - target: {fileID: 66570048, guid: 13ade735b5f2b134b9ba9bccd463f3ed, type: 3}
+      propertyPath: knight
+      value: 
+      objectReference: {fileID: 142496390}
     - target: {fileID: 1177723085246801528, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -122853,11 +122858,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1542318581}
     m_Modifications:
-    - target: {fileID: 1177723085246801524, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 66570048, guid: 13ade735b5f2b134b9ba9bccd463f3ed, type: 3}
+      propertyPath: knight
+      value: 
+      objectReference: {fileID: 142496390}
     - target: {fileID: 1177723085246801528, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -122933,6 +122937,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 1177723085246801535, guid: 13ade735b5f2b134b9ba9bccd463f3ed,
+        type: 3}
+      propertyPath: knight
+      value: 
+      objectReference: {fileID: 142496390}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ade735b5f2b134b9ba9bccd463f3ed, type: 3}
 --- !u!1001 &4658750201069194035
