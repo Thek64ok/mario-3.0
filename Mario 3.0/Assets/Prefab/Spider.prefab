@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToGive: 7
+  checkDamage: 0
+  knight: {fileID: 0}
 --- !u!50 &7422748515656537098
 Rigidbody2D:
   serializedVersion: 4
