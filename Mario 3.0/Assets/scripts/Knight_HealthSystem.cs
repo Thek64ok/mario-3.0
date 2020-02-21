@@ -5,8 +5,9 @@ using UnityEngine;
 public class Knight_HealthSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int knightMaxHealth;
-    public int knightCurrentHealth;
+    public float knightMaxHealth;
+    public float knightCurrentHealth;
+    public float regenHP;
     public Texture2D texHealth;
     public float knightMaxStamina;
     public float knightCurrentStamina;
@@ -102,6 +103,11 @@ public class Knight_HealthSystem : MonoBehaviour
     public void SetMaxHealth()
     {
         knightCurrentHealth = knightMaxHealth;
+    }
+    public void RegenerationHP()
+    {
+        knightCurrentHealth += regenHP;
+        if(knightCurrentHealth > knightMaxHealth) knightCurrentHealth = knightMaxHealth;
     }
     public void SetMaxStamina()
     {
