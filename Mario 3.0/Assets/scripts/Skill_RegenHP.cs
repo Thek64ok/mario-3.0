@@ -10,7 +10,7 @@ public class Skill_RegenHP : MonoBehaviour
     public float coolDown;
     public bool coolDownOver;
     public Image imageCoolDown;
-
+    public float timeToCast = 1f;
     private Knight_HealthSystem regenSkill;
     private float timeForCoolDown;
     void Start()
@@ -29,6 +29,7 @@ public class Skill_RegenHP : MonoBehaviour
         {
             if (coolDownOver && regenSkill.knightCurrentMana > 30f)
             {
+                timeToCast = 1f;
                 regenSkill.regenHP = 0.05f;
                 coolDownOver = false;
                 regenSkill.knightCurrentMana -= 30f;
@@ -36,12 +37,14 @@ public class Skill_RegenHP : MonoBehaviour
         }
         if (!coolDownOver)
         {
+            timeToCast -= Time.deltaTime;
             coolDown -= Time.deltaTime;
-            //imageCoolDown.fillAmount += 1 / timeForCoolDown * Time.deltaTime;
-            //if (imageCoolDown.fillAmount >= 1) imageCoolDown.fillAmount = 0;
+            
+            imageCoolDown.fillAmount += 1 / timeForCoolDown * Time.deltaTime;
+            if (imageCoolDown.fillAmount >= 1) imageCoolDown.fillAmount = 0;
             regenSkill.RegenerationHP();
         }
-        if (coolDown < 0)
+        if (coolDown < 0 && timeToCast < 0)
         {
             regenSkill.regenHP = 0;
             coolDownOver = true;
