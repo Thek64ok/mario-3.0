@@ -252,6 +252,12 @@ MonoBehaviour:
   damageToGive: 7
   checkDamage: 0
   knight: {fileID: 0}
+  pointR: {fileID: 0}
+  pointL: {fileID: 0}
+  pointRight: {fileID: 0}
+  pointLeft: {fileID: 0}
+  pointUp: {fileID: 0}
+  pointDown: {fileID: 0}
 --- !u!50 &7422748515656537098
 Rigidbody2D:
   serializedVersion: 4
