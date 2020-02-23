@@ -7,10 +7,12 @@ public class EnemyHealthMeneger : MonoBehaviour
     // Start is called before the first frame update
     public int MaxHealth;
     public int CurrentHealth;
-  //  public Texture2D texHealth;
+    public int expGive;
+    private knightStats stats;
     void Start()
     {
         CurrentHealth = MaxHealth;
+        stats = FindObjectOfType<knightStats>();
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class EnemyHealthMeneger : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+            stats.AddExp(expGive);
         }
     }
     /*
