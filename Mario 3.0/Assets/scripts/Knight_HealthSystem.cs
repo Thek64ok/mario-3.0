@@ -87,19 +87,6 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentHealth -= damageToGive;
 
     }
-    /*
-    public void Back(bool checkDamage)
-    {
-        if (checkDamage)
-        {
-            //knightCurrentHealth = 200;
-            rigidbody2D.AddForce(Vector2.left * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-        }
-        else
-            rigidbody2D.AddForce(Vector2.right * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-            //knightCurrentHealth = 100;
-    }
-    */
     public void SetMaxHealth()
     {
         knightCurrentHealth = knightMaxHealth;
