@@ -13,6 +13,9 @@ public class Skill_RegenHP : MonoBehaviour
     public float timeToCast = 1f;
     private Knight_HealthSystem regenSkill;
     private float timeForCoolDown;
+    public GameObject health;
+    public Transform pointOfHp;
+    public ParticleSystem awake;
     void Start()
     {
         knightFromSkript = knight.gameObject.GetComponent<wasd>();
@@ -29,17 +32,20 @@ public class Skill_RegenHP : MonoBehaviour
         {
             if (coolDownOver && regenSkill.knightCurrentMana > 30f)
             {
+                awake.playOnAwake = true;
                 timeToCast = 1f;
                 regenSkill.regenHP = 0.05f;
                 coolDownOver = false;
                 regenSkill.knightCurrentMana -= 30f;
+                Instantiate(health, pointOfHp.position, pointOfHp.rotation, pointOfHp);
+
             }
         }
         if (!coolDownOver)
         {
+            knightFromSkript.currentMoveSpeed = 0.4f;
             timeToCast -= Time.deltaTime;
             coolDown -= Time.deltaTime;
-            
             imageCoolDown.fillAmount += 1 / timeForCoolDown * Time.deltaTime;
             if (imageCoolDown.fillAmount >= 1) imageCoolDown.fillAmount = 0;
             regenSkill.RegenerationHP();
