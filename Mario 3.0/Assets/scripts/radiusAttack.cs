@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class radiusAttack : MonoBehaviour
 {
     public GameObject knight;
-    private GameObject[] positions;
+    public GameObject[] positions;
     private wasd knightFromScript;
     public Image imageCoolDown;
     public float coolDown;
@@ -25,6 +25,7 @@ public class radiusAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        positions = GameObject.FindGameObjectsWithTag("Enemy");
         if (knightFromScript.dayn == true)
         {
             if (Input.GetKeyDown(KeyCode.Alpha2))
