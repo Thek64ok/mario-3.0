@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class wasd : MonoBehaviour
 {
-    public float speed ;
+    public float speed;
     public float currentMoveSpeed;
     public Animator anime;
     public bool moving;
@@ -92,5 +92,9 @@ public class wasd : MonoBehaviour
             anime.SetTrigger("taking");
             Readl_Sword.SetActive(true);
         }
+    }
+    public void SetSpeed(float max)
+    {
+        
     }
 }

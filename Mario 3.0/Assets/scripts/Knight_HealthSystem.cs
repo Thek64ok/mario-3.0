@@ -100,8 +100,9 @@ public class Knight_HealthSystem : MonoBehaviour
             //knightCurrentHealth = 100;
     }
     */
-    public void SetMaxHealth()
+    public void SetMaxHealth(float max)
     {
+        knightMaxHealth = max;
         knightCurrentHealth = knightMaxHealth;
     }
     public void RegenerationHP()
@@ -109,12 +110,14 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentHealth += regenHP;
         if(knightCurrentHealth > knightMaxHealth) knightCurrentHealth = knightMaxHealth;
     }
-    public void SetMaxStamina()
+    public void SetMaxStamina(float max)
     {
+        knightMaxStamina = max;
         knightCurrentStamina = knightMaxStamina;
     }
-    public void SetMaxMana()
+    public void SetMaxMana(float max)
     {
+        knightMaxMana = max;
         knightCurrentMana = knightMaxMana;
     }
 
