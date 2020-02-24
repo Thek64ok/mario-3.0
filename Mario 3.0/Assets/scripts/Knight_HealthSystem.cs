@@ -115,6 +115,14 @@ public class Knight_HealthSystem : MonoBehaviour
         knightMaxStamina = max;
         knightCurrentStamina = knightMaxStamina;
     }
+    public void SetRegenerationMana(float max)
+    {
+        regenMana = max;
+    }
+    public void SetRegenerationStamina(float max)
+    {
+        regenStamina = max;
+    }
     public void SetMaxMana(float max)
     {
         knightMaxMana = max;

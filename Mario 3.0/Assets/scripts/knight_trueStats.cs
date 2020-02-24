@@ -13,13 +13,13 @@ public class knight_trueStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        strength = 5;
-        agility = 5;
-        intelligence = 5;
-        endurance = 5;
+        strength = 30;
+        agility = 30;
+        intelligence = 30;
+        endurance = 30;
         HealthSys = FindObjectOfType<Knight_HealthSystem>();
         wasdSys = FindObjectOfType<wasd>();
-        //funk();
+        StartAttribute();
     }
 
     // Update is called once per frame
@@ -27,10 +27,12 @@ public class knight_trueStats : MonoBehaviour
     {
         
     }
-    void funk(){
-        HealthSys.SetMaxHealth(strength * 2);
-        HealthSys.SetMaxMana(intelligence * 2);
-        HealthSys.SetMaxStamina(endurance * 2);
+    void StartAttribute(){
+        HealthSys.SetMaxHealth((strength + endurance) / 2);
+        HealthSys.SetMaxMana(intelligence + 10);
+        HealthSys.SetMaxStamina(endurance + strength + agility);
+        HealthSys.SetRegenerationMana(intelligence * 0.0015f);
+        HealthSys.SetRegenerationStamina((strength + agility + endurance)*0.001f);
     }
     void funk2()
     {
