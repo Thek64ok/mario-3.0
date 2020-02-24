@@ -87,8 +87,22 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentHealth -= damageToGive;
 
     }
-    public void SetMaxHealth()
+    /*
+    public void Back(bool checkDamage)
     {
+        if (checkDamage)
+        {
+            //knightCurrentHealth = 200;
+            rigidbody2D.AddForce(Vector2.left * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
+        }
+        else
+            rigidbody2D.AddForce(Vector2.right * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
+            //knightCurrentHealth = 100;
+    }
+    */
+    public void SetMaxHealth(float max)
+    {
+        knightMaxHealth = max;
         knightCurrentHealth = knightMaxHealth;
     }
     public void RegenerationHP()
@@ -96,12 +110,22 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentHealth += regenHP;
         if(knightCurrentHealth > knightMaxHealth) knightCurrentHealth = knightMaxHealth;
     }
-    public void SetMaxStamina()
+    public void SetMaxStamina(float max)
     {
+        knightMaxStamina = max;
         knightCurrentStamina = knightMaxStamina;
     }
-    public void SetMaxMana()
+    public void SetRegenerationMana(float max)
     {
+        regenMana = max;
+    }
+    public void SetRegenerationStamina(float max)
+    {
+        regenStamina = max;
+    }
+    public void SetMaxMana(float max)
+    {
+        knightMaxMana = max;
         knightCurrentMana = knightMaxMana;
     }
 
