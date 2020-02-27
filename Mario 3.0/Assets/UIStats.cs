@@ -8,6 +8,7 @@ public class UIStats : MonoBehaviour
     // Start is called before the first frame update
     public Text currentLvl;
     public Text currentExp;
+    public Text currentSkillPoints;
     private knightStats stats;
     void Start()
     {
@@ -19,5 +20,6 @@ public class UIStats : MonoBehaviour
     {
         currentLvl.text = "Lvl: " + stats.currentLvl;
         currentExp.text = "Exp: " + stats.cureentExp + "/" + stats.toLevelUp[stats.currentLvl];
+        currentSkillPoints.text = "Points: " + stats.skillPoints;
     }
 }
