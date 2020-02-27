@@ -21,7 +21,8 @@ public class knightStats : MonoBehaviour
         if (cureentExp >= toLevelUp[currentLvl])
         {
             currentLvl++;
-            SavePoints();
+            if (currentLvl > 1)
+                SavePoints();
         }
     }
 
