@@ -24,7 +24,7 @@ public class loadSkillTreeScen : MonoBehaviour
     }
 
     public void PlayPressed()
-    { 
+    {
         SceneManager.LoadScene("Skill Tree");
     }
 }

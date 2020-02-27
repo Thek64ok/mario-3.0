@@ -14,6 +14,7 @@ public class Hurt_Enemy : MonoBehaviour
     void Start()
     {
         ataka = knight.GetComponent<wasd>();
+        
     }
 
     // Update is called once per frame
