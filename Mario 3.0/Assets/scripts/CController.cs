@@ -9,7 +9,7 @@ public class CController : MonoBehaviour
     public float moveSpeed;
     void Start()
     {
-
+        DontDestroyOnLoad(transform.gameObject);
     }
     void Update()
     {

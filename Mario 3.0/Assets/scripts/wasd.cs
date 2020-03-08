@@ -22,6 +22,7 @@ public class wasd : MonoBehaviour
         anime = GetComponent<Animator>();
         Readl_Sword.SetActive(false);
         myrigidbody2D = GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(transform.gameObject);
     }
     void Update()
     {
