@@ -12,7 +12,7 @@ public class loadSkillTreeScen : MonoBehaviour
     private knightStats points;
     public GameObject knight;
     private Hurt_Enemy damage;
-    public GameObject buttons;
+    public Button[] firstBust;
 
     void Start()
     {
@@ -23,16 +23,22 @@ public class loadSkillTreeScen : MonoBehaviour
 
     void Update()
     {
-        if (points.skillPoints <= 0)
+        if (points.skillPoints == 0)
         {
-            buttons.SetActive(false);
+            for (int i = 0; i < firstBust.Length; i++)
+            {
+                ColorBlock colors = firstBust[i].colors;
+                colors.normalColor = new Color(100, 110, 110, 100);
+                firstBust[i].interactable = false;
+            }
         }
         else
-        {
+        {  
             if (points.skillPoints > 0)
             {
-                buttons.SetActive(true);
-            }
+                for (int i = 0; i < firstBust.Length; i++)
+                    firstBust[i].interactable = true;
+            }   
         }
     }
     public void Exit()
@@ -45,6 +51,7 @@ public class loadSkillTreeScen : MonoBehaviour
     {
         Tree.SetActive(true);
     }
+
     public void BackToMenu()
     {
         Tree.SetActive(false);
