@@ -17,12 +17,14 @@ public class knightStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        skillPoints = currentLvl - 1;
+        //skillPoints = currentLvl - 1;
+        if (currentLvl == 1)
+            skillPoints = 0;
         if (cureentExp >= toLevelUp[currentLvl])
         {
             currentLvl++;
             if (currentLvl > 1)
-                SavePoints();
+                skillPoints++;
         }
     }
 
@@ -30,11 +32,8 @@ public class knightStats : MonoBehaviour
     {
         cureentExp += expAdd;
     }
-    public void SavePoints()
+    public void Points()
     {
-        skillPoints++;
-        PlayerPrefs.SetInt("skillPoints", skillPoints);
-        PlayerPrefs.Save();
-        Debug.Log("Saved");
+        skillPoints -= 1;
     }
 }
