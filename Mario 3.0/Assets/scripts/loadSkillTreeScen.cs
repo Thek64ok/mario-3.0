@@ -27,8 +27,8 @@ public class loadSkillTreeScen : MonoBehaviour
         {
             for (int i = 0; i < firstBust.Length; i++)
             {
-                ColorBlock colors = firstBust[i].colors;
-                colors.normalColor = new Color(100, 110, 110, 100);
+                //ColorBlock colors = firstBust[i].colors;
+                //colors.normalColor = new Color(100, 110, 110, 100);
                 firstBust[i].interactable = false;
             }
         }
