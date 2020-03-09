@@ -11,6 +11,7 @@ TagManager:
   - middle
   - a
   - Real_Sword
+  - Fire
   layers:
   - Default
   - TransparentFX

@@ -6,25 +6,58 @@ using UnityEngine.UI;
 
 public class loadSkillTreeScen : MonoBehaviour
 {
-    private knightStats stats;
-    public Button button;
+    public GameObject menu;
+    private fireArea check;
+    public GameObject Tree;
+    private knightStats points;
+    public GameObject knight;
+    private Hurt_Enemy damage;
+    public GameObject buttons;
+
     void Start()
     {
-        stats = FindObjectOfType<knightStats>();
+        check = FindObjectOfType<fireArea>();
+        points = FindObjectOfType<knightStats>();
+        damage = knight.GetComponent<Hurt_Enemy>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (stats.skillPoints == 0)
-            button.enabled = false;
+        if (points.skillPoints <= 0)
+        {
+            buttons.SetActive(false);
+        }
         else
-            if (stats.skillPoints > 0)
-            button.enabled = true;
+        {
+            if (points.skillPoints > 0)
+            {
+                buttons.SetActive(true);
+            }
+        }
     }
-
-    public void PlayPressed()
+    public void Exit()
     {
-        SceneManager.LoadScene("Skill Tree");
+        Time.timeScale = 1f;
+        menu.SetActive(false);
+        check.check = true;
+    }
+    public void Points()
+    {
+        Tree.SetActive(true);
+    }
+    public void BackToMenu()
+    {
+        Tree.SetActive(false);
+    }
+    public void firstSkill()
+    {
+        Debug.Log(points.skillPoints);
+        damage.damageToGive = 5;
+        points.skillPoints--;
+        Debug.Log(points.skillPoints);
+    }
+    public void secondSkill()
+    {
+        
     }
 }
