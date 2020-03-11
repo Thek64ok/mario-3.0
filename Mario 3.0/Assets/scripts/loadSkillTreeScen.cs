@@ -13,6 +13,8 @@ public class loadSkillTreeScen : MonoBehaviour
     public GameObject knight;
     private Hurt_Enemy damage;
     public Button[] firstBust;
+    public GameObject[] pictureArray;
+    public bool pointInFirstSkill;
 
     void Start()
     {
@@ -40,6 +42,8 @@ public class loadSkillTreeScen : MonoBehaviour
                     firstBust[i].interactable = true;
             }   
         }
+        if (pointInFirstSkill)
+            pictureArray[0].SetActive(true);
     }
     public void Exit()
     {
@@ -58,13 +62,12 @@ public class loadSkillTreeScen : MonoBehaviour
     }
     public void firstSkill()
     {
-        Debug.Log(points.skillPoints);
         damage.damageToGive = 5;
         points.skillPoints--;
-        Debug.Log(points.skillPoints);
+        pointInFirstSkill = true;
     }
     public void secondSkill()
     {
-        
+
     }
 }
