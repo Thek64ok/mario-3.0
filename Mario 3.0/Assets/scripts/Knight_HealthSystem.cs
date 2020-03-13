@@ -20,6 +20,7 @@ public class Knight_HealthSystem : MonoBehaviour
     public float regenMana;
     public Texture2D texMana;
     private SpecialAttack skillToss;
+    private fireArea hideGUI;
     void Start()
     {
         knightCurrentHealth = knightMaxHealth; 
@@ -27,6 +28,7 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentMana = knightMaxMana;
         sprint = dayn1.GetComponent<wasd>();
         skillToss = dayn1.GetComponent<SpecialAttack>();
+        hideGUI = FindObjectOfType<fireArea>();
     }
 
     // Update is called once per frame
@@ -81,7 +83,10 @@ public class Knight_HealthSystem : MonoBehaviour
         GUI.Box(new Rect(100, Screen.height - 50, knightMaxMana, 15), "");
         GUI.DrawTexture(new Rect(100, Screen.height - 50, knightCurrentMana, 15), texMana);
     }
-
+    public void SetActiveGUI(bool boolean)
+    {
+        dayn1.gameObject.SetActive(boolean);
+    }
     public void HurtKnight(int damageToGive)
     {
         knightCurrentHealth -= damageToGive;
@@ -100,6 +105,7 @@ public class Knight_HealthSystem : MonoBehaviour
             //knightCurrentHealth = 100;
     }
     */
+
     public void SetMaxHealth(float max)
     {
         knightMaxHealth = max;

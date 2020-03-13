@@ -15,12 +15,14 @@ public class loadSkillTreeScen : MonoBehaviour
     public Button[] firstBust;
     public GameObject[] pictureArray;
     public bool pointInFirstSkill;
+    public Knight_HealthSystem hideGUI;
 
     void Start()
     {
         check = FindObjectOfType<fireArea>();
         points = FindObjectOfType<knightStats>();
         damage = knight.GetComponent<Hurt_Enemy>();
+        hideGUI = FindObjectOfType<Knight_HealthSystem>();
     }
 
     void Update()
@@ -50,6 +52,7 @@ public class loadSkillTreeScen : MonoBehaviour
         Time.timeScale = 1f;
         menu.SetActive(false);
         check.check = true;
+        hideGUI.SetActiveGUI(true);
     }
     public void Points()
     {

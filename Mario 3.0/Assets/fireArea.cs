@@ -9,10 +9,12 @@ public class fireArea : MonoBehaviour
     public Text text;
     public GameObject menu;
     public GameObject Tree;
+    public Knight_HealthSystem hideGUI;
     void Start()
     {
         text.enabled = false;
         menu.SetActive(false);
+        hideGUI = FindObjectOfType<Knight_HealthSystem>();
     }
 
     // Update is called once per frame
@@ -25,9 +27,9 @@ public class fireArea : MonoBehaviour
             {
                 menu.SetActive(true);
                 Tree.SetActive(false);
+                hideGUI.SetActiveGUI(false);
                 check = false;  
                 Time.timeScale = 0.000000001f;
-                
                 Debug.Log("Чел садится 2 секунды");
             }
         }
