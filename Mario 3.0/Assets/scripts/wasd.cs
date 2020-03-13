@@ -28,10 +28,10 @@ public class wasd : MonoBehaviour
         moving = false;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 1.5f;
+            speed = 0.9f;
         }
         else
-            speed = 1f;
+            speed = 0.6f;
         if (!attacking)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
@@ -66,7 +66,7 @@ public class wasd : MonoBehaviour
             }
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.5f)
             {
-                currentMoveSpeed = speed / 1.5f;
+                currentMoveSpeed = speed / 1.3f;
             }
             else
             {

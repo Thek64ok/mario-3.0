@@ -66,7 +66,7 @@ public class Knight_HealthSystem : MonoBehaviour
         if (knightCurrentStamina < 0) knightCurrentStamina = 0;
         if (knightCurrentStamina < 5)
         {
-            sprint.currentMoveSpeed = 1f;
+            sprint.currentMoveSpeed = 0.6f;
         }
     }
     void OnGUI()

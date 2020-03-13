@@ -8,7 +8,7 @@ public class pointRight : MonoBehaviour
     public bool right;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

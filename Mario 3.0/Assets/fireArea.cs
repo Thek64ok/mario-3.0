@@ -26,7 +26,7 @@ public class fireArea : MonoBehaviour
                 menu.SetActive(true);
                 Tree.SetActive(false);
                 check = false;  
-                Time.timeScale = 0f;
+                Time.timeScale = 0.000000001f;
                 
                 Debug.Log("Чел садится 2 секунды");
             }
