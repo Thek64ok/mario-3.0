@@ -6,6 +6,7 @@ public class Knight_Hurt : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damageToGive;
+    public int currentDamageToGive;
     public bool checkDamage;
     public GameObject knight;
     public GameObject pointR;
@@ -30,6 +31,7 @@ public class Knight_Hurt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentDamageToGive = damageToGive;
         if (checkDamage)
         {
             if (rPoint.right == true)
@@ -94,7 +96,7 @@ public class Knight_Hurt : MonoBehaviour
     {
         if (other.gameObject.name == "Knight")
         {
-            other.gameObject.GetComponent<Knight_HealthSystem>().HurtKnight(damageToGive);
+            other.gameObject.GetComponent<Knight_HealthSystem>().HurtKnight(currentDamageToGive);
             checkDamage = true;
         }
     }

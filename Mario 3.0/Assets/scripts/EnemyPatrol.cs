@@ -15,6 +15,7 @@ public class EnemyPatrol : MonoBehaviour
     private Rigidbody2D rb2;
     private Vector3 oldPosition;
     private Vector3 DirectPos;
+    public float currentSpeed;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
+        currentSpeed = speed;
         if(transform.position != oldPosition)
         {
             DirectPos = transform.position - oldPosition;
@@ -37,7 +39,7 @@ public class EnemyPatrol : MonoBehaviour
         if (!Detected)
         {
             
-            transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, currentSpeed * Time.deltaTime);
             if (DirectPos.x < 0)                    
             {
                 anim.SetFloat("MoveX", -1f);

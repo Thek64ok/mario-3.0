@@ -17,6 +17,7 @@ public class loadSkillTreeScen : MonoBehaviour
     private bool pointInFirstSkill;
     private bool pointInSecondSkill;
     private bool pointInFightOrRunSkill;
+    public bool pointInFreez;
     private float timer = 300f;
     private bool cooldown;
     public Knight_HealthSystem hideGUI;
@@ -105,5 +106,10 @@ public class loadSkillTreeScen : MonoBehaviour
     {
         points.skillPoints--;
         pointInFightOrRunSkill = true;
+    }
+    public void freez()
+    {
+        points.skillPoints--;
+        pointInFreez = true;
     }
 }
