@@ -18,6 +18,7 @@ public class Hurt_Enemy : MonoBehaviour
     public bool stunned;
     private EnemyPatrol moveSpeed;
     private Knight_Hurt damageGiven;
+ 
     void Start()
     {
         ataka = knight.GetComponent<wasd>();
@@ -38,6 +39,7 @@ public class Hurt_Enemy : MonoBehaviour
             moveSpeed.speed = 0.18f;
             damageGiven.damageToGive = 7;
             stunned = false;
+           
         }
         if (!stunned)
             timer = cooldown;
@@ -61,17 +63,19 @@ public class Hurt_Enemy : MonoBehaviour
                     {
                         other.gameObject.GetComponent<EnemyPatrol>().speed = 0.18f;
                         other.gameObject.GetComponent<Knight_Hurt>().damageToGive = 7;
+                        
                     }
                     else
                     {
                         other.gameObject.GetComponent<EnemyPatrol>().speed = 0;
                         other.gameObject.GetComponent<Knight_Hurt>().damageToGive = 0;
+                      
                         stunned = true;
                     }
                 }
             }
-        }
-    }
+        }//////////////
+    }/////////////////////////////////////////////////////////
     public int critical_damage()
     {
         int originalDamage = damageToGive;
