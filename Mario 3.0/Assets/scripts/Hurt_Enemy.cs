@@ -12,6 +12,7 @@ public class Hurt_Enemy : MonoBehaviour
     public GameObject knight;
     private wasd ataka;
     private loadSkillTreeScen freez;
+    private loadSkillTreeScen LoadSkill;
     private int chanceToStun;
     public float timer, cooldown;
     public bool stunned;
@@ -20,7 +21,7 @@ public class Hurt_Enemy : MonoBehaviour
     {
         ataka = knight.GetComponent<wasd>();
         freez = FindObjectOfType<loadSkillTreeScen>();
-
+        LoadSkill = FindObjectOfType<loadSkillTreeScen>();
         timer = cooldown;
     }
 
@@ -44,12 +45,13 @@ public class Hurt_Enemy : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
+                int damage = critical_damage();
                 chanceToStun = Random.Range(1, 100);
                 Debug.Log(chanceToStun);
-                other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damageToGive);
+                other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damage);
                 Instantiate(blood, hitPoint.position, hitPoint.rotation);
                 var clone = (GameObject)Instantiate(damageNumber1, hitPoint.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<Numbers_of_damage>().damageNumber2 = damageToGive;
+                clone.GetComponent<Numbers_of_damage>().damageNumber2 = damage;
                 if (freez.pointInFreez == true)
                 {
                     if (chanceToStun <= 10)
@@ -67,5 +69,23 @@ public class Hurt_Enemy : MonoBehaviour
                 }
             }
         }
+    }
+    public int critical_damage()
+    {
+        int originalDamage = damageToGive;
+        int currentDamage = damageToGive;
+        if(LoadSkill.pointInCriticalStrike)
+        {
+            Debug.Log("CRITICAL STRIKE RABOTAET");
+            int r = Random.Range(0, 100);
+            if(r <= 10)
+            {
+                currentDamage = currentDamage + 5;
+                return currentDamage;
+            }
+            if(r >= 11)return originalDamage;
+            return originalDamage;
+        }
+        else return originalDamage;
     }
 }
