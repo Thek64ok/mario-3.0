@@ -34,7 +34,7 @@ public class Knight_HealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (knightCurrentHealth <= 0)
+        if (knightCurrentHealth <= -10)
         {
             gameObject.SetActive(false);
         }

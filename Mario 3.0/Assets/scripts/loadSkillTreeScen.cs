@@ -14,7 +14,11 @@ public class loadSkillTreeScen : MonoBehaviour
     private Hurt_Enemy damage;
     public Button[] firstBust;
     public GameObject[] pictureArray;
-    public bool pointInFirstSkill;
+    private bool pointInFirstSkill;
+    private bool pointInSecondSkill;
+    private bool pointInFightOrRunSkill;
+    private float timer = 300f;
+    private bool cooldown;
     public Knight_HealthSystem hideGUI;
 
     void Start()
@@ -44,8 +48,30 @@ public class loadSkillTreeScen : MonoBehaviour
                     firstBust[i].interactable = true;
             }   
         }
+        if (pointInFightOrRunSkill)
+        {
+            if (timer == 300f)
+            {
+                if (hideGUI.knightCurrentHealth <= 0)
+                {
+                    hideGUI.knightCurrentHealth = hideGUI.knightMaxHealth * 0.4f;
+                    cooldown = true;
+                }
+            }
+            if (cooldown)
+                timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                cooldown = false;
+                timer = 300f;
+            }
+        }
         if (pointInFirstSkill)
             pictureArray[0].SetActive(true);
+        if (pointInSecondSkill)
+            pictureArray[1].SetActive(true);
+        if (pointInFightOrRunSkill)
+            pictureArray[2].SetActive(true);
     }
     public void Exit()
     {
@@ -71,6 +97,13 @@ public class loadSkillTreeScen : MonoBehaviour
     }
     public void secondSkill()
     {
-
+        hideGUI.knightMaxHealth += 30;
+        points.skillPoints--;
+        pointInSecondSkill = true;
+    }
+    public void fight_or_run()
+    {
+        points.skillPoints--;
+        pointInFightOrRunSkill = true;
     }
 }
