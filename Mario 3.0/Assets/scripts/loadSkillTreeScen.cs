@@ -17,6 +17,7 @@ public class loadSkillTreeScen : MonoBehaviour
     private bool pointInFirstSkill;
     private bool pointInSecondSkill;
     private bool pointInFightOrRunSkill;
+    public bool pointInCriticalStrike;
     private float timer = 300f;
     private bool cooldown;
     public Knight_HealthSystem hideGUI;
@@ -72,6 +73,8 @@ public class loadSkillTreeScen : MonoBehaviour
             pictureArray[1].SetActive(true);
         if (pointInFightOrRunSkill)
             pictureArray[2].SetActive(true);
+        if (pointInCriticalStrike)
+            pictureArray[3].SetActive(true);
     }
     public void Exit()
     {
@@ -105,5 +108,10 @@ public class loadSkillTreeScen : MonoBehaviour
     {
         points.skillPoints--;
         pointInFightOrRunSkill = true;
+    }
+    public void critical_strike()
+    {
+        points.skillPoints--;
+        pointInCriticalStrike = true;
     }
 }
