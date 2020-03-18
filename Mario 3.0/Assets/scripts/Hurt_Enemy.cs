@@ -15,12 +15,14 @@ public class Hurt_Enemy : MonoBehaviour
     private int chanceToStun;
     public float timer, cooldown;
     public bool stunned;
-    public bool dayn;
+    private EnemyPatrol moveSpeed;
+    private Knight_Hurt damageGiven;
     void Start()
     {
         ataka = knight.GetComponent<wasd>();
         freez = FindObjectOfType<loadSkillTreeScen>();
-
+        moveSpeed = FindObjectOfType<EnemyPatrol>();
+        damageGiven = FindObjectOfType<Knight_Hurt>();
         timer = cooldown;
     }
 
@@ -31,8 +33,8 @@ public class Hurt_Enemy : MonoBehaviour
             timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            gameObject.GetComponent<EnemyPatrol>().speed = gameObject.GetComponent<EnemyPatrol>().currentSpeed;
-            gameObject.GetComponent<Knight_Hurt>().damageToGive = gameObject.GetComponent<Knight_Hurt>().currentDamageToGive;
+            moveSpeed.speed = 0.18f;
+            damageGiven.damageToGive = 7;
             stunned = false;
         }
         if (!stunned)
@@ -54,9 +56,8 @@ public class Hurt_Enemy : MonoBehaviour
                 {
                     if (chanceToStun <= 10)
                     {
-                        other.gameObject.GetComponent<EnemyPatrol>().speed = other.gameObject.GetComponent<EnemyPatrol>().currentSpeed;
-                        other.gameObject.GetComponent<Knight_Hurt>().damageToGive = other.gameObject.GetComponent<Knight_Hurt>().currentDamageToGive;
-                        dayn = true;
+                        other.gameObject.GetComponent<EnemyPatrol>().speed = 0.18f;
+                        other.gameObject.GetComponent<Knight_Hurt>().damageToGive = 7;
                     }
                     else
                     {
