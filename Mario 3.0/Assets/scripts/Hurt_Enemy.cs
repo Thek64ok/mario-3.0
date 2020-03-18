@@ -20,6 +20,7 @@ public class Hurt_Enemy : MonoBehaviour
     {
         ataka = knight.GetComponent<wasd>();
         freez = FindObjectOfType<loadSkillTreeScen>();
+
         timer = cooldown;
     }
 
