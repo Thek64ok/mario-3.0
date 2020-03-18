@@ -16,14 +16,12 @@ public class Hurt_Enemy : MonoBehaviour
     private int chanceToStun;
     public float timer, cooldown;
     public bool stunned;
-    private EnemyPatrol moveSpeed;
-    private Knight_Hurt damageGiven;
+    public GameObject[] gnudu;
     void Start()
     {
+        gnudu = GameObject.FindGameObjectsWithTag("Enemy");
         ataka = knight.GetComponent<wasd>();
         freez = FindObjectOfType<loadSkillTreeScen>();
-        moveSpeed = FindObjectOfType<EnemyPatrol>();
-        damageGiven = FindObjectOfType<Knight_Hurt>();
         LoadSkill = FindObjectOfType<loadSkillTreeScen>();
         timer = cooldown;
     }
@@ -31,14 +29,15 @@ public class Hurt_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gnudu = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < gnudu.Length; i++)
+        {
+            //gnudu[i].
+        }
         if (stunned)
             timer -= Time.deltaTime;
         if (timer <= 0)
-        {
-            moveSpeed.speed = 0.18f;
-            damageGiven.damageToGive = 7;
             stunned = false;
-        }
         if (!stunned)
             timer = cooldown;
     }
