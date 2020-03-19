@@ -15,7 +15,10 @@ public class EnemyPatrol : MonoBehaviour
     private Rigidbody2D rb2;
     private Vector3 oldPosition;
     private Vector3 DirectPos;
-    public float currentSpeed;
+    private float chanceStan;
+    private float timer;
+    public float cooldown;
+    public bool stunned;
 
     void Start()
     {
@@ -26,11 +29,20 @@ public class EnemyPatrol : MonoBehaviour
         rb2 = GetComponent<Rigidbody2D>();
         DirectPos = transform.position;
         oldPosition = transform.position;
+        timer = cooldown;
     }
 
     void Update()
     {
-        currentSpeed = speed;
+        if (stunned)
+            timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            stunned = false;
+            speed = 0.18f;
+        }
+        if (!stunned)
+            timer = cooldown;
         if(transform.position != oldPosition)
         {
             DirectPos = transform.position - oldPosition;
@@ -39,7 +51,7 @@ public class EnemyPatrol : MonoBehaviour
         if (!Detected)
         {
             
-            transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, currentSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
             if (DirectPos.x < 0)                    
             {
                 anim.SetFloat("MoveX", -1f);
@@ -70,6 +82,19 @@ public class EnemyPatrol : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) > 1.2f)
         {
             Detected = false;
+        }
+    }
+    public void Stun(float toStun)
+    {
+        chanceStan = toStun;
+        if (chanceStan <= 80)
+        {
+            Debug.Log("я ne в стане");
+        }
+        else
+        {
+            speed = 0;
+            stunned = true;
         }
     }
 }
