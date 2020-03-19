@@ -8,16 +8,11 @@ public class Knight_Hurt : MonoBehaviour
     public int damageToGive;
     public int currentDamageToGive;
     public bool checkDamage;
-    public GameObject knight;
-    public GameObject pointR;
-    public GameObject pointL;
-    public GameObject pointU;
-    public GameObject pointD;
-    private pointRight rPoint;
-    private pointLeft lPoint;
-    private pointUp uPoint;
-    private pointDown dPoint;
-    private wasd checkD;
+    private pointRight right;
+    private pointLeft left;
+    private pointUp up;
+    private pointDown down;
+    private wasd rigidbodyKnight;
     private float chance;
     public bool stunned;
     public float timer;
@@ -25,11 +20,11 @@ public class Knight_Hurt : MonoBehaviour
 
     void Start()
     {
-        checkD = knight.GetComponent<wasd>();
-        rPoint = pointR.GetComponent<pointRight>();
-        lPoint = pointL.GetComponent<pointLeft>();
-        uPoint = pointU.GetComponent<pointUp>();
-        dPoint = pointD.GetComponent<pointDown>();
+        right = FindObjectOfType<pointRight>();
+        left = FindObjectOfType<pointLeft>();
+        up = FindObjectOfType<pointUp>();
+        down = FindObjectOfType<pointDown>();
+        rigidbodyKnight = FindObjectOfType<wasd>();
         timer = cooldown;
     }
 
@@ -46,31 +41,35 @@ public class Knight_Hurt : MonoBehaviour
         if (!stunned)
             timer = cooldown;
         currentDamageToGive = damageToGive;
+        /*
         if (checkDamage)
         {
-            if (rPoint.right == true)
-                checkD.myrigidbody2D.AddForce(Vector2.left * 20f, ForceMode2D.Impulse);
+            if (right.right == true)
+                rigidbodyKnight.myrigidbody2D.AddForce(Vector2.left * 20f, ForceMode2D.Impulse);
             else
             {
-                if (lPoint.left == true)
-                    checkD.myrigidbody2D.AddForce(Vector2.right * 20f, ForceMode2D.Impulse);
+                if (left.left == true)
+                    rigidbodyKnight.myrigidbody2D.AddForce(Vector2.right * 20f, ForceMode2D.Impulse);
                 else
                 {
-                    if (uPoint.up == true)
-                        checkD.myrigidbody2D.AddForce(Vector2.down * 20f, ForceMode2D.Impulse);
+                    if (up.up == true)
+                        rigidbodyKnight.myrigidbody2D.AddForce(Vector2.down * 20f, ForceMode2D.Impulse);
                     else
                     {
-                        if (dPoint.down == true)
-                            checkD.myrigidbody2D.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+                        if (down.down == true)
+                            rigidbodyKnight.myrigidbody2D.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+                        /*
                         else
                         {
                             if (rPoint.right == true && lPoint.left)
                                 checkD.myrigidbody2D.AddForce(Vector2.right * 30f, ForceMode2D.Impulse);
                         }
+                        
                     }
                 }
             }
         }
+        */
     }
 
     void OnCollisionEnter2D(Collision2D other)

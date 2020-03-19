@@ -45,8 +45,8 @@ public class Hurt_Enemy : MonoBehaviour
                     other.gameObject.GetComponent<Knight_Hurt>().Stun(chanceToStun);
                 }
             }
-        }//////////////
-    }/////////////////////////////////////////////////////////
+        }
+    }
     public int critical_damage()
     {
         int originalDamage = damageToGive;
