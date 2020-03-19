@@ -18,6 +18,10 @@ public class Knight_Hurt : MonoBehaviour
     private pointUp uPoint;
     private pointDown dPoint;
     private wasd checkD;
+    private float chance;
+    public bool stunned;
+    public float timer;
+    public float cooldown;
 
     void Start()
     {
@@ -26,11 +30,21 @@ public class Knight_Hurt : MonoBehaviour
         lPoint = pointL.GetComponent<pointLeft>();
         uPoint = pointU.GetComponent<pointUp>();
         dPoint = pointD.GetComponent<pointDown>();
+        timer = cooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (stunned)
+            timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            damageToGive = 7;
+            stunned = false;
+        }
+        if (!stunned)
+            timer = cooldown;
         currentDamageToGive = damageToGive;
         if (checkDamage)
         {
@@ -56,40 +70,7 @@ public class Knight_Hurt : MonoBehaviour
                     }
                 }
             }
-            /*
-            if (Physics2D.OverlapPoint(pointRight.transform.position))
-                checkD.myrigidbody2D.AddForce(Vector2.left * 5f, ForceMode2D.Impulse);
-            else
-            {
-                if (Physics2D.OverlapPoint(pointLeft.transform.position))
-                    checkD.myrigidbody2D.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
-            }
-            */
         }
-        /*
-        if (gameObject.transform.position.x + checkD.transform.position.x < 0)
-        if (checkDamage)
-            checkD.myrigidbody2D.AddForce(gameObject.transform.position /2f, ForceMode2D.Impulse);
-            */
-        /*
-        if (checkDamage)
-        {
-            if (checkD.lastMove.x > 0)
-                checkD.myrigidbody2D.AddForce(Vector2.left * 10f + 15f * checkD.myrigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-            else
-            {
-                if (checkD.lastMove.x < 0)
-                    checkD.myrigidbody2D.AddForce(Vector2.right * 10f + 15f * checkD.myrigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-                else
-                {
-                    if (checkD.lastMove.y > 0)
-                        checkD.myrigidbody2D.AddForce(Vector2.down * 10f + 15f * checkD.myrigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-                    else
-                        checkD.myrigidbody2D.AddForce(Vector2.up * 10f + 15f * checkD.myrigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-                }
-            }
-        }
-        */
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -98,6 +79,19 @@ public class Knight_Hurt : MonoBehaviour
         {
             other.gameObject.GetComponent<Knight_HealthSystem>().HurtKnight(currentDamageToGive);
             checkDamage = true;
+        }
+    }
+    public void Stun(float toStun)
+    {
+        chance = toStun;
+        if (chance <= 80)
+        {
+            Debug.Log("я ne в стане");
+        }
+        else
+        {
+            damageToGive = 0;
+            stunned = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

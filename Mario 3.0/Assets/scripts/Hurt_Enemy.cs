@@ -14,32 +14,17 @@ public class Hurt_Enemy : MonoBehaviour
     private loadSkillTreeScen freez;
     private loadSkillTreeScen LoadSkill;
     private int chanceToStun;
-    public float timer, cooldown;
-    public bool stunned;
-    public GameObject[] gnudu;
     void Start()
     {
-        gnudu = GameObject.FindGameObjectsWithTag("Enemy");
         ataka = knight.GetComponent<wasd>();
         freez = FindObjectOfType<loadSkillTreeScen>();
         LoadSkill = FindObjectOfType<loadSkillTreeScen>();
-        timer = cooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gnudu = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < gnudu.Length; i++)
-        {
-            //gnudu[i].
-        }
-        if (stunned)
-            timer -= Time.deltaTime;
-        if (timer <= 0)
-            stunned = false;
-        if (!stunned)
-            timer = cooldown;
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -48,7 +33,6 @@ public class Hurt_Enemy : MonoBehaviour
             if (other.gameObject.tag == "Enemy")
             {
                 int damage = critical_damage();
-                chanceToStun = Random.Range(1, 100);
                 Debug.Log(chanceToStun);
                 other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damage);
                 Instantiate(blood, hitPoint.position, hitPoint.rotation);
@@ -56,19 +40,9 @@ public class Hurt_Enemy : MonoBehaviour
                 clone.GetComponent<Numbers_of_damage>().damageNumber2 = damage;
                 if (freez.pointInFreez == true)
                 {
-                    if (chanceToStun <= 10)
-                    {
-                        other.gameObject.GetComponent<EnemyPatrol>().speed = 0.18f;
-                        other.gameObject.GetComponent<Knight_Hurt>().damageToGive = 7;
-                        
-                    }
-                    else
-                    {
-                        other.gameObject.GetComponent<EnemyPatrol>().speed = 0;
-                        other.gameObject.GetComponent<Knight_Hurt>().damageToGive = 0;
-                      
-                        stunned = true;
-                    }
+                    chanceToStun = Random.Range(1, 100);
+                    other.gameObject.GetComponent<EnemyPatrol>().Stun(chanceToStun);
+                    other.gameObject.GetComponent<Knight_Hurt>().Stun(chanceToStun);
                 }
             }
         }//////////////
