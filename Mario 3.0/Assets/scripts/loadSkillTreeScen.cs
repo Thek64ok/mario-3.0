@@ -76,6 +76,8 @@ public class loadSkillTreeScen : MonoBehaviour
             pictureArray[2].SetActive(true);
         if (pointInCriticalStrike)
             pictureArray[3].SetActive(true);
+        if (pointInFreez)
+            pictureArray[4].SetActive(true);
     }
     public void Exit()
     {
