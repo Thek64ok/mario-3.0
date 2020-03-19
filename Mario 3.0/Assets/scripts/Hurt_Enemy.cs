@@ -83,7 +83,7 @@ public class Hurt_Enemy : MonoBehaviour
             int r = Random.Range(0, 100);
             if(r <= 10)
             {
-                currentDamage = currentDamage + 5;
+                currentDamage = currentDamage * 2;
                 return currentDamage;
             }
             if(r >= 11)return originalDamage;
