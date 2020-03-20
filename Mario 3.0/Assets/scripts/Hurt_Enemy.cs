@@ -33,7 +33,6 @@ public class Hurt_Enemy : MonoBehaviour
             if (other.gameObject.tag == "Enemy")
             {
                 int damage = critical_damage();
-                Debug.Log(chanceToStun);
                 other.gameObject.GetComponent<EnemyHealthMeneger>().HurtEnemy(damage);
                 Instantiate(blood, hitPoint.position, hitPoint.rotation);
                 var clone = (GameObject)Instantiate(damageNumber1, hitPoint.position, Quaternion.Euler(Vector3.zero));
