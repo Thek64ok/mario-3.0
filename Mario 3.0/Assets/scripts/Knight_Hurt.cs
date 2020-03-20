@@ -83,7 +83,7 @@ public class Knight_Hurt : MonoBehaviour
     public void Stun(float toStun)
     {
         chance = toStun;
-        if (chance <= 80)
+        if (chance <= 94)
         {
             Debug.Log("я ne в стане");
         }
