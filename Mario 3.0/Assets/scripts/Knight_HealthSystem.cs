@@ -19,7 +19,7 @@ public class Knight_HealthSystem : MonoBehaviour
     public float knightCurrentMana;
     public float regenMana;
     public Texture2D texMana;
-    private SpecialAttack skillToss;
+    public SpecialAttack skillToss;
     private fireArea hideGUI;
     void Start()
     {
@@ -56,14 +56,7 @@ public class Knight_HealthSystem : MonoBehaviour
             if (sprint.Readl_Sword.gameObject.activeInHierarchy == true)
                 knightCurrentStamina -= 5f;
         }
-        if(skillToss.GetCoolDownOver() && Input.GetKeyDown(KeyCode.Alpha1) && sprint.dayn)
-        {
-            if (knightCurrentStamina > 30f)
-                knightCurrentStamina -= 30f;
-            else
-                skillToss.coolDownOver = false;
-
-        }
+      
         if (knightCurrentMana < 0) knightCurrentMana = 0;
         if (knightCurrentStamina < 0) knightCurrentStamina = 0;
         if (knightCurrentStamina < 5)

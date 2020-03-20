@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class loadSkillTreeScen : MonoBehaviour
 {
     public GameObject menu;
@@ -19,6 +20,9 @@ public class loadSkillTreeScen : MonoBehaviour
     private bool pointInFightOrRunSkill;
     public bool pointInFreez;
     public bool pointInCriticalStrike;
+    public bool pointInSkill1;
+    public bool pointInSkill2;
+    public GameObject[] skillsArray;
     private float timer = 300f;
     private bool cooldown;
     public Knight_HealthSystem hideGUI;
@@ -29,10 +33,15 @@ public class loadSkillTreeScen : MonoBehaviour
         points = FindObjectOfType<knightStats>();
         damage = knight.GetComponent<Hurt_Enemy>();
         hideGUI = FindObjectOfType<Knight_HealthSystem>();
+        for(int i = 0; i < skillsArray.Length; i++)
+        {
+            skillsArray[i].SetActive(false); 
+        }
     }
 
     void Update()
     {
+        
         if (points.skillPoints == 0)
         {
             for (int i = 0; i < firstBust.Length; i++)
@@ -78,6 +87,17 @@ public class loadSkillTreeScen : MonoBehaviour
             pictureArray[3].SetActive(true);
         if (pointInFreez)
             pictureArray[4].SetActive(true);
+        if(pointInSkill1)
+        {
+            skillsArray[0].SetActive(true);
+            pictureArray[5].SetActive(true);
+        }
+        if(pointInSkill2)
+        {
+            skillsArray[1].SetActive(true);
+            pictureArray[6].SetActive(true);
+        }
+        
     }
     public void Exit()
     {
@@ -121,5 +141,15 @@ public class loadSkillTreeScen : MonoBehaviour
     {
         points.skillPoints--;
         pointInCriticalStrike = true;
+    }
+    public void skill1()
+    {
+        points.skillPoints--;
+        pointInSkill1 = true;
+    }
+    public void skill2()
+    {
+        points.skillPoints--;
+        pointInSkill2 = true;
     }
 }

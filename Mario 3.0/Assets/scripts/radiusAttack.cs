@@ -13,48 +13,54 @@ public class radiusAttack : MonoBehaviour
     private float timeForCoolDown;
     public bool coolDownOver;
     private bool trap;
+    private Knight_HealthSystem stamina;
     void Start()
     {
         knightFromScript = knight.gameObject.GetComponent<wasd>();
         coolDownOver = true;
         positions = GameObject.FindGameObjectsWithTag("Enemy");
         timeForCoolDown = coolDown;
-        
+        stamina = FindObjectOfType<Knight_HealthSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
         positions = GameObject.FindGameObjectsWithTag("Enemy");
-        if (knightFromScript.dayn == true)
+        if(stamina.skillToss.test.pointInSkill2)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (knightFromScript.dayn == true)
             {
-                if (coolDownOver)
+                if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    for (int i = 0; i < positions.Length; i++)
+                    if (coolDownOver)
                     {
-                        if (trap)
+                        if (stamina.knightCurrentStamina > 30f)
+                                stamina.knightCurrentStamina -= 30f;
+                        for (int i = 0; i < positions.Length; i++)
                         {
-                            positions[i].transform.position = new Vector2(positions[i].transform.position.x + Random.Range(-1f, 1f) / 0.5f, positions[i].transform.position.y + Random.Range(-1f, 1f) / 0.5f);
-                            coolDownOver = false;
+                            if (trap)
+                            {
+                                positions[i].transform.position = new Vector2(positions[i].transform.position.x + Random.Range(-1f, 1f) / 0.5f, positions[i].transform.position.y + Random.Range(-1f, 1f) / 0.5f);
+                                coolDownOver = false;
+                            }
+                            else
+                                coolDownOver = false;
                         }
-                        else
-                            coolDownOver = false;
                     }
                 }
-            }
-            if (!coolDownOver)
-            {
-                coolDown -= Time.deltaTime;
-                imageCoolDown.fillAmount += 1 / timeForCoolDown * Time.deltaTime;
-                if (imageCoolDown.fillAmount >= 1)
-                    imageCoolDown.fillAmount = 0;
-            }
-            if (coolDown < 0)
-            {
-                coolDownOver = true;
-                coolDown = 5f;
+                if (!coolDownOver)
+                {
+                    coolDown -= Time.deltaTime;
+                    imageCoolDown.fillAmount += 1 / timeForCoolDown * Time.deltaTime;
+                    if (imageCoolDown.fillAmount >= 1)
+                        imageCoolDown.fillAmount = 0;
+                }
+                if (coolDown < 0)
+                {
+                    coolDownOver = true;
+                    coolDown = 5f;
+                }
             }
         }
     }
