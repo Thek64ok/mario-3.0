@@ -87,7 +87,7 @@ public class EnemyPatrol : MonoBehaviour
     public void Stun(float toStun)
     {
         chanceStan = toStun;
-        if (chanceStan <= 80)
+        if (chanceStan <= 94)
         {
             Debug.Log("я ne в стане");
         }
