@@ -74,7 +74,7 @@ public class Knight_Hurt : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Knight")
+        if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Knight_HealthSystem>().HurtKnight(currentDamageToGive);
             checkDamage = true;
@@ -95,7 +95,7 @@ public class Knight_Hurt : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Knight")
+        if (collision.gameObject.tag == "Player")
         {
             checkDamage = false;
         }

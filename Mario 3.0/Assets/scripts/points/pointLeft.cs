@@ -21,11 +21,17 @@ public class pointLeft : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
             left = true;
+            Debug.Log("я слева");
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
             left = false;
+            Debug.Log("я не слева");
+        }
     }
 }

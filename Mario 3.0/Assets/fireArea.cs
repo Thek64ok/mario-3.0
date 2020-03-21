@@ -9,12 +9,10 @@ public class fireArea : MonoBehaviour
     public Text text;
     public GameObject menu;
     public GameObject Tree;
-    public Knight_HealthSystem hideGUI;
     void Start()
     {
         text.enabled = false;
         menu.SetActive(false);
-        hideGUI = FindObjectOfType<Knight_HealthSystem>();
     }
 
     // Update is called once per frame
@@ -27,9 +25,8 @@ public class fireArea : MonoBehaviour
             {
                 menu.SetActive(true);
                 Tree.SetActive(false);
-                hideGUI.SetActiveGUI(false);
                 check = false;  
-                Time.timeScale = 0.000000001f;
+                Time.timeScale = 0.00000000001f;
                 Debug.Log("Чел садится 2 секунды");
             }
         }
@@ -39,12 +36,12 @@ public class fireArea : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Knight")
+        if (collision.gameObject.tag == "Player")
             check = true;
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Knight")
+        if (collision.gameObject.tag == "Player")
             check = false;
     }
 }

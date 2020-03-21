@@ -25,7 +25,7 @@ public class loadSkillTreeScen : MonoBehaviour
     public GameObject[] skillsArray;
     private float timer = 300f;
     private bool cooldown;
-    public Knight_HealthSystem hideGUI;
+    private Knight_HealthSystem hideGUI;
 
     void Start()
     {
@@ -104,7 +104,7 @@ public class loadSkillTreeScen : MonoBehaviour
         Time.timeScale = 1f;
         menu.SetActive(false);
         check.check = true;
-        hideGUI.SetActiveGUI(true);
+        //hideGUI.SetActiveGUI(true);
     }
     public void Points()
     {
