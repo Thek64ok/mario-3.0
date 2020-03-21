@@ -10,14 +10,10 @@ public class Dialogue : MonoBehaviour
 
     void OnGUI()
     {
-
-
-
-        if (ShowDialogue == true)
-        {
+        
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Time.timeScale = 0.00000000001f;
+                Time.timeScale = 0;
                 if (ShowDialogue == true)
                 {
                     GUI.Box(new Rect(Screen.width / 2 - 300, Screen.height - 300, 600, 250), "");
@@ -29,13 +25,14 @@ public class Dialogue : MonoBehaviour
                             if (node[_currentNode].PlayerAnswer[i].SpeakEnd)
                             {
                                 ShowDialogue = false;
+                            Time.timeScale = 1;
                             }
                             _currentNode = node[_currentNode].PlayerAnswer[i].ToNode;
                         }
                     }
                 }
             }
-        }
+        
     }
     
 }
