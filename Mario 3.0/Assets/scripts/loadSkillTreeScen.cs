@@ -21,6 +21,7 @@ public class loadSkillTreeScen : MonoBehaviour
     public bool pointInCriticalStrike;
     public bool pointInSkill1;
     public bool pointInSkill2;
+    public bool pointInSkill3;
     public GameObject[] skillsArray;
     private float timer = 300f;
     private bool cooldown;
@@ -98,6 +99,11 @@ public class loadSkillTreeScen : MonoBehaviour
             skillsArray[1].SetActive(true);
             pictureArray[6].SetActive(true);
         }
+        if(pointInSkill3)
+        {
+            skillsArray[2].SetActive(true);
+            pictureArray[7].SetActive(true);
+        }
         
     }
     public void Exit()
@@ -154,5 +160,10 @@ public class loadSkillTreeScen : MonoBehaviour
     {
         points.skillPoints--;
         pointInSkill2 = true;
+    }
+    public void skill3()
+    {
+        points.skillPoints--;
+        pointInSkill3 = true;
     }
 }
