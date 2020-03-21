@@ -26,6 +26,8 @@ public class loadSkillTreeScen : MonoBehaviour
     private float timer = 300f;
     private bool cooldown;
     private Knight_HealthSystem hideGUI;
+    public GameObject bars;
+    
 
     void Start()
     {
@@ -104,6 +106,7 @@ public class loadSkillTreeScen : MonoBehaviour
         Time.timeScale = 1f;
         menu.SetActive(false);
         check.check = true;
+        bars.SetActive(true);
         //hideGUI.SetActiveGUI(true);
     }
     public void Points()
@@ -124,6 +127,7 @@ public class loadSkillTreeScen : MonoBehaviour
     public void secondSkill()
     {
         hideGUI.knightMaxHealth += 30;
+        hideGUI.hpBar.SetMaxValue(hideGUI.knightMaxHealth);
         points.skillPoints--;
         pointInSecondSkill = true;
     }
