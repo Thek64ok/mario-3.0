@@ -22,11 +22,17 @@ public class pointRight : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
             right = true;
+            Debug.Log("я справа");
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
             right = false;
+            Debug.Log("я не справа");
+        }
     }
 }
