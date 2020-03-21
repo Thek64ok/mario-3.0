@@ -97,4 +97,8 @@ public class wasd : MonoBehaviour
     {
         
     }
+    public void LoadDate(Save.KnightSaveData save)
+    {
+        transform.position = new Vector2(save.Position.x, save.Position.y);
+    }
 }
