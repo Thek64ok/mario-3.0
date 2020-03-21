@@ -8428,6 +8428,7 @@ GameObject:
   - component: {fileID: 142496401}
   - component: {fileID: 142496402}
   - component: {fileID: 142496405}
+  - component: {fileID: 142496406}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -8755,6 +8756,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footsteps: {fileID: 8300000, guid: 68216e30f1ab03d438d1ac55f3f386fa, type: 3}
+--- !u!114 &142496406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142496390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4117b4eea7c84489ef4f93080105df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps: {fileID: 8300000, guid: 7f6ca560b940c144f965c521e53ea69d, type: 3}
 --- !u!1 &144036546
 GameObject:
   m_ObjectHideFlags: 0
@@ -60676,7 +60690,6 @@ MonoBehaviour:
   text: {fileID: 752287382}
   menu: {fileID: 1329046096}
   Tree: {fileID: 310239995}
-  hideGUI: {fileID: 0}
 --- !u!1 &973333339
 GameObject:
   m_ObjectHideFlags: 0
@@ -77857,7 +77870,6 @@ MonoBehaviour:
   - {fileID: 934625560}
   - {fileID: 1908683427}
   - {fileID: 1023263204}
-  hideGUI: {fileID: 0}
 --- !u!4 &1224875288
 Transform:
   m_ObjectHideFlags: 0
