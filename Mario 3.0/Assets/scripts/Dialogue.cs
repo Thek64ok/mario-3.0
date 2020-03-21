@@ -7,29 +7,37 @@ public class Dialogue : MonoBehaviour
     public DialogueNode[] node;
     public int _currentNode;
     public bool ShowDialogue = true;
+    private textFor ins;
+    void Start()
+    {
+
+        ins = FindObjectOfType<textFor>();
+    }
+
+    void Update()
+    {
+        ShowDialogue = true;
+    }
 
     void OnGUI()
     {
-        
-            if (Input.GetKeyDown(KeyCode.E))
+        Time.timeScale = 0;
+        if (ShowDialogue == true)
+        {
+            GUI.Box(new Rect(Screen.width / 2 - 300, Screen.height - 300, 600, 250), "");
+            GUI.Label(new Rect(Screen.width / 2 - 250, Screen.height - 280, 500, 90), node[_currentNode].NpcText);
+            for (int i = 0; i < node[_currentNode].PlayerAnswer.Length; i++)
             {
-                Time.timeScale = 0;
-                if (ShowDialogue == true)
+                if (GUI.Button(new Rect(Screen.width / 2 - 250, Screen.height - 200 + 25 * i, 500, 25), node[_currentNode].PlayerAnswer[i].Text))
+
                 {
-                    GUI.Box(new Rect(Screen.width / 2 - 300, Screen.height - 300, 600, 250), "");
-                    GUI.Label(new Rect(Screen.width / 2 - 250, Screen.height - 280, 500, 90), node[_currentNode].NpcText);
-                    for (int i = 0; i < node[_currentNode].PlayerAnswer.Length; i++)
+                    if (node[_currentNode].PlayerAnswer[i].SpeakEnd)
                     {
-                        if (GUI.Button(new Rect(Screen.width / 2 - 250, Screen.height - 200 + 25 * i, 500, 25), node[_currentNode].PlayerAnswer[i].Text))
-                        {
-                            if (node[_currentNode].PlayerAnswer[i].SpeakEnd)
-                            {
-                                ShowDialogue = false;
-                            Time.timeScale = 1;
-                            }
-                            _currentNode = node[_currentNode].PlayerAnswer[i].ToNode;
-                        }
+                        ShowDialogue = false;
+                        Time.timeScale = 1f;
+                        ins.inside = false;
                     }
+                    _currentNode = node[_currentNode].PlayerAnswer[i].ToNode;
                 }
             }
         
