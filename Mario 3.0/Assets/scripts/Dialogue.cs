@@ -3,29 +3,41 @@ using System.Collections;
 
 public class Dialogue : MonoBehaviour
 {
+    
     public DialogueNode[] node;
     public int _currentNode;
     public bool ShowDialogue = true;
 
     void OnGUI()
     {
+
+
+
         if (ShowDialogue == true)
         {
-            GUI.Box(new Rect(Screen.width / 2 - 300, Screen.height - 300, 600, 250), "");
-            GUI.Label(new Rect(Screen.width / 2 - 250, Screen.height - 280, 500, 90), node[_currentNode].NpcText);
-            for (int i = 0; i < node[_currentNode].PlayerAnswer.Length; i++)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (GUI.Button(new Rect(Screen.width / 2 - 250, Screen.height - 200 + 25 * i, 500, 25), node[_currentNode].PlayerAnswer[i].Text))
+                Time.timeScale = 0.00000000001f;
+                if (ShowDialogue == true)
                 {
-                    if (node[_currentNode].PlayerAnswer[i].SpeakEnd)
+                    GUI.Box(new Rect(Screen.width / 2 - 300, Screen.height - 300, 600, 250), "");
+                    GUI.Label(new Rect(Screen.width / 2 - 250, Screen.height - 280, 500, 90), node[_currentNode].NpcText);
+                    for (int i = 0; i < node[_currentNode].PlayerAnswer.Length; i++)
                     {
-                        ShowDialogue = false;
+                        if (GUI.Button(new Rect(Screen.width / 2 - 250, Screen.height - 200 + 25 * i, 500, 25), node[_currentNode].PlayerAnswer[i].Text))
+                        {
+                            if (node[_currentNode].PlayerAnswer[i].SpeakEnd)
+                            {
+                                ShowDialogue = false;
+                            }
+                            _currentNode = node[_currentNode].PlayerAnswer[i].ToNode;
+                        }
                     }
-                    _currentNode = node[_currentNode].PlayerAnswer[i].ToNode;
                 }
             }
         }
     }
+    
 }
 
 [System.Serializable]
