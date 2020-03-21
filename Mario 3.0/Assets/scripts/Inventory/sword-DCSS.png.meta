@@ -4,10 +4,10 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: sword-DCSS_1
+    second: sword-DCSS_0
   - first:
       213: 21300002
-    second: sword-DCSS_0
+    second: sword-DCSS_1
   - first:
       213: 21300004
     second: sword-DCSS_2
@@ -459,7 +459,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: eefd9289dd2f97549bb6c1100e298fa8
-      internalID: 21300002
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -480,7 +480,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4469de5ebc7f1d3489dc7b7ce5863782
-      internalID: 21300000
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
