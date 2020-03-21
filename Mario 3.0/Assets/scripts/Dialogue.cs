@@ -3,14 +3,13 @@ using System.Collections;
 
 public class Dialogue : MonoBehaviour
 {
-    
+
     public DialogueNode[] node;
     public int _currentNode;
     public bool ShowDialogue = true;
     private textFor ins;
     void Start()
     {
-
         ins = FindObjectOfType<textFor>();
     }
 
@@ -40,24 +39,24 @@ public class Dialogue : MonoBehaviour
                     _currentNode = node[_currentNode].PlayerAnswer[i].ToNode;
                 }
             }
-        
+
+        }
+
     }
-    
-}
 
-[System.Serializable]
-public class DialogueNode
-{
-    public string NpcText;
-    public Answer[] PlayerAnswer;
-}
+    [System.Serializable]
+    public class DialogueNode
+    {
+        public string NpcText;
+        public Answer[] PlayerAnswer;
+    }
 
 
-[System.Serializable]
-public class Answer
-{
-    public string Text;
-    public int ToNode;
-    public bool SpeakEnd;
-
+    [System.Serializable]
+    public class Answer
+    {
+        public string Text;
+        public int ToNode;
+        public bool SpeakEnd;
+    }
 }
