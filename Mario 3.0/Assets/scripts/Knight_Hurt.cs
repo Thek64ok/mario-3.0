@@ -17,6 +17,7 @@ public class Knight_Hurt : MonoBehaviour
     public bool stunned;
     public float timer;
     public float cooldown;
+    public AudioClip footstap;
 
     void Start()
     {
@@ -98,6 +99,7 @@ public class Knight_Hurt : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             checkDamage = false;
+            AudioSource.PlayClipAtPoint(footstap, transform.position);
         }
     }
 }
