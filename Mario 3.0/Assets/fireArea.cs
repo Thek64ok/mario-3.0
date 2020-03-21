@@ -9,6 +9,7 @@ public class fireArea : MonoBehaviour
     public Text text;
     public GameObject menu;
     public GameObject Tree;
+    public GameObject bars;
     void Start()
     {
         text.enabled = false;
@@ -28,6 +29,7 @@ public class fireArea : MonoBehaviour
                 check = false;  
                 Time.timeScale = 0.00000000001f;
                 Debug.Log("Чел садится 2 секунды");
+                bars.SetActive(false);
             }
         }
         else

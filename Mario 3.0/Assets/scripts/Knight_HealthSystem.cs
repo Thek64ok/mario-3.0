@@ -21,6 +21,9 @@ public class Knight_HealthSystem : MonoBehaviour
     public Texture2D texMana;
     public SpecialAttack skillToss;
     private fireArea hideGUI;
+    public HMSBarScript hpBar;
+    public HMSBarScript mpBar;
+    public HMSBarScript spBar;
     void Start()
     {
         knightCurrentHealth = knightMaxHealth; 
@@ -29,11 +32,17 @@ public class Knight_HealthSystem : MonoBehaviour
         sprint = dayn1.GetComponent<wasd>();
         skillToss = dayn1.GetComponent<SpecialAttack>();
         hideGUI = FindObjectOfType<fireArea>();
+        hpBar.SetMaxValue(knightMaxHealth);
+        mpBar.SetMaxValue(knightMaxMana);
+        spBar.SetMaxValue(knightMaxStamina);
     }
 
     // Update is called once per frame
     void Update()
     {
+        hpBar.SetCurrentValue(knightCurrentHealth);
+        mpBar.SetCurrentValue(knightCurrentMana);
+        spBar.SetCurrentValue(knightCurrentStamina);
         if (knightCurrentHealth <= -10)
         {
             gameObject.SetActive(false);
@@ -64,18 +73,6 @@ public class Knight_HealthSystem : MonoBehaviour
             sprint.currentMoveSpeed = 0.6f;
         }
     }
-    void OnGUI()
-    {
-        //texture HP
-        GUI.Box(new Rect((Screen.width/2)-(knightMaxHealth), Screen.height - 50, knightMaxHealth*2, 15), "");
-        GUI.DrawTexture(new Rect((Screen.width/2)-(knightMaxHealth), Screen.height - 50, knightCurrentHealth*2, 15), texHealth);
-        //texture Stamina
-        GUI.Box(new Rect((Screen.width)-(knightMaxStamina)-50, Screen.height - 50, knightMaxStamina, 15), "");
-        GUI.DrawTexture(new Rect((Screen.width)-(knightCurrentStamina)-50, Screen.height - 50, knightCurrentStamina, 15), texStamina);
-        //texture Mana
-        GUI.Box(new Rect(100, Screen.height - 50, knightMaxMana, 15), "");
-        GUI.DrawTexture(new Rect(100, Screen.height - 50, knightCurrentMana, 15), texMana);
-    }
     public void SetActiveGUI(bool boolean)
     {
         dayn1.gameObject.SetActive(boolean);
@@ -83,7 +80,6 @@ public class Knight_HealthSystem : MonoBehaviour
     public void HurtKnight(int damageToGive)
     {
         knightCurrentHealth -= damageToGive;
-
     }
     /*
     public void Back(bool checkDamage)
