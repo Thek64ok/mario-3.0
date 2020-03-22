@@ -9,16 +9,26 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public List<GameObject> KnightSaves = new List<GameObject>();
+    private loadSkillTreeScen boolHere;
+    private knightStats stats;
+    private wasd checkForSword;
+    private Knight_HealthSystem hpManaStamina;
+    public GameObject SwordForDestroy;
     string filePath;
     void Start()
     {
         filePath = Application.persistentDataPath + "/save.sosi";
+        boolHere = FindObjectOfType<loadSkillTreeScen>();
+        stats = FindObjectOfType<knightStats>();
+        checkForSword = FindObjectOfType<wasd>();
+        hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (checkForSword.dayn == true)
+            Destroy(SwordForDestroy);
     }
     public void Exit()
     {
@@ -36,8 +46,17 @@ public class PauseMenu : MonoBehaviour
         FileStream fs = new FileStream(filePath, FileMode.Create);
         Save save = new Save();
         save.SaveGame(KnightSaves);
+        save.SaveBool(boolHere.listOfBool);
+        save.lvl = stats.currentLvl;
+        save.exp = stats.cureentExp;
+        save.skillpoints = stats.skillPoints;
+        save.TakeSword_OrNot = checkForSword.dayn;
+        save.hp = hpManaStamina.knightCurrentHealth;
+        save.stamina = hpManaStamina.knightCurrentStamina;
+        save.mana = hpManaStamina.knightCurrentMana;
         bf.Serialize(fs, save);
         fs.Close();
+        Exit();
     }
     public void LoadGame()
     {
@@ -53,6 +72,15 @@ public class PauseMenu : MonoBehaviour
             KnightSaves[i].GetComponent<wasd>().LoadDate(knight);
             i++;
         }
+        boolHere.LoadData(save);
+        stats.currentLvl = save.lvl;
+        stats.cureentExp = save.exp;
+        stats.skillPoints = save.skillpoints;
+        checkForSword.dayn = save.TakeSword_OrNot;
+        hpManaStamina.knightCurrentHealth = save.hp;
+        hpManaStamina.knightCurrentStamina = save.stamina;
+        hpManaStamina.knightCurrentMana = save.mana;
+        Exit();
     }
 }
 
@@ -78,13 +106,28 @@ public class Save
             Position = pos;
         }
     }
+    public int lvl;
+    public int exp;
+    public int skillpoints;
+    public bool TakeSword_OrNot;
+    public float hp;
+    public float stamina;
+    public float mana;
     public List<KnightSaveData> Saves = new List<KnightSaveData>();
+    public List<bool> SavesOfBool = new List<bool>();
     public void SaveGame(List<GameObject> allOnSave)
     {
         foreach (var s in allOnSave)
         {
             Vec2 pos = new Vec2(s.transform.position.x, s.transform.position.y);
             Saves.Add(new KnightSaveData(pos));
+        }
+    }
+    public void SaveBool(List<bool> allOnBoolSave)
+    {
+        foreach (var save in allOnBoolSave)
+        {
+            SavesOfBool.Add(save);
         }
     }
 }

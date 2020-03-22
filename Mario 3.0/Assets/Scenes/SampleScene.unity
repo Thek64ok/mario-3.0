@@ -63353,6 +63353,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1453991040}
   KnightSaves:
   - {fileID: 142496390}
+  SwordForDestroy: {fileID: 1462850761}
 --- !u!4 &992863952
 Transform:
   m_ObjectHideFlags: 0
@@ -79294,11 +79295,15 @@ MonoBehaviour:
   - {fileID: 72594053}
   - {fileID: 337373451}
   - {fileID: 1720152510}
+  pointInFirstSkill: 0
+  pointInSecondSkill: 0
+  pointInFightOrRunSkill: 0
   pointInFreez: 0
   pointInCriticalStrike: 0
   pointInSkill1: 0
   pointInSkill2: 0
   pointInSkill3: 0
+  listOfBool: 
   skillsArray:
   - {fileID: 934625560}
   - {fileID: 1908683427}

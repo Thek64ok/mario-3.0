@@ -20,7 +20,6 @@ public class Knight_HealthSystem : MonoBehaviour
     public float regenMana;
     public Texture2D texMana;
     public SpecialAttack skillToss;
-    private fireArea hideGUI;
     public HMSBarScript hpBar;
     public HMSBarScript mpBar;
     public HMSBarScript spBar;
@@ -31,7 +30,6 @@ public class Knight_HealthSystem : MonoBehaviour
         knightCurrentMana = knightMaxMana;
         sprint = dayn1.GetComponent<wasd>();
         skillToss = dayn1.GetComponent<SpecialAttack>();
-        hideGUI = FindObjectOfType<fireArea>();
         hpBar.SetMaxValue(knightMaxHealth);
         mpBar.SetMaxValue(knightMaxMana);
         spBar.SetMaxValue(knightMaxStamina);
@@ -43,7 +41,7 @@ public class Knight_HealthSystem : MonoBehaviour
         hpBar.SetCurrentValue(knightCurrentHealth);
         mpBar.SetCurrentValue(knightCurrentMana);
         spBar.SetCurrentValue(knightCurrentStamina);
-        if (knightCurrentHealth <= -10)
+        if (knightCurrentHealth <= -7)
         {
             gameObject.SetActive(false);
         }
@@ -81,19 +79,6 @@ public class Knight_HealthSystem : MonoBehaviour
     {
         knightCurrentHealth -= damageToGive;
     }
-    /*
-    public void Back(bool checkDamage)
-    {
-        if (checkDamage)
-        {
-            //knightCurrentHealth = 200;
-            rigidbody2D.AddForce(Vector2.left * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-        }
-        else
-            rigidbody2D.AddForce(Vector2.right * 200f + 400f * rigidbody2D.velocity.normalized, ForceMode2D.Impulse);
-            //knightCurrentHealth = 100;
-    }
-    */
 
     public void SetMaxHealth(float max)
     {

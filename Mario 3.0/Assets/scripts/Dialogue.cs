@@ -28,7 +28,6 @@ public class Dialogue : MonoBehaviour
             for (int i = 0; i < node[_currentNode].PlayerAnswer.Length; i++)
             {
                 if (GUI.Button(new Rect(Screen.width / 2 - 250, Screen.height - 200 + 25 * i, 500, 25), node[_currentNode].PlayerAnswer[i].Text))
-
                 {
                     if (node[_currentNode].PlayerAnswer[i].SpeakEnd)
                     {
