@@ -18,11 +18,9 @@ public class PauseMenu : MonoBehaviour
     private Knight_HealthSystem hpManaStamina;
     public GameObject SwordForDestroy;
     string filePath;
-    string filePath1;
     void Start()
     {
-        //filePath = Application.persistentDataPath + "/ss.ss";
-        filePath = "C:/Users/Odmen/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
+        filePath = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
         boolHere = FindObjectOfType<loadSkillTreeScen>();
         stats = FindObjectOfType<knightStats>();
         checkForSword = FindObjectOfType<wasd>();
