@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Dialogue : MonoBehaviour
-{
+{ 
     public GUISkin skins;
     public DialogueNode[] node;
     public int _currentNode;
