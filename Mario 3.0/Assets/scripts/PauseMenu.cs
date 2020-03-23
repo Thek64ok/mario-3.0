@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System;
+using System.Globalization;
 
 public class PauseMenu : MonoBehaviour
 {
+    DateTime localData = DateTime.Now;
     public GameObject pauseMenu;
     public List<GameObject> KnightSaves = new List<GameObject>();
     private loadSkillTreeScen boolHere;
@@ -15,13 +18,16 @@ public class PauseMenu : MonoBehaviour
     private Knight_HealthSystem hpManaStamina;
     public GameObject SwordForDestroy;
     string filePath;
+    string filePath1;
     void Start()
     {
-        filePath = Application.persistentDataPath + "/save.sosi";
+        //filePath = Application.persistentDataPath + "/ss.ss";
+        filePath = "C:/Users/Odmen/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
         boolHere = FindObjectOfType<loadSkillTreeScen>();
         stats = FindObjectOfType<knightStats>();
         checkForSword = FindObjectOfType<wasd>();
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
+        Debug.Log(filePath);
     }
 
     // Update is called once per frame
