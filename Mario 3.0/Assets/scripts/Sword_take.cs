@@ -40,7 +40,6 @@ public class Sword_take : MonoBehaviour
     }
     private void PickUp()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
-
 }

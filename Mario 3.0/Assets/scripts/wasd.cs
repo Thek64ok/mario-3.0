@@ -15,6 +15,7 @@ public class wasd : MonoBehaviour
     public bool attacking;
     public float attackTime;
     private float attackTimeCounter;
+    public GameObject FakeSword;
 
 
     void Start()
@@ -91,6 +92,12 @@ public class wasd : MonoBehaviour
         {
             anime.SetTrigger("taking");
             Readl_Sword.SetActive(true);
+        }
+        else
+        {
+            anime.SetTrigger("untacking");
+            Readl_Sword.SetActive(false);
+            FakeSword.SetActive(true);
         }
     }
     public void SetSpeed(float max)
