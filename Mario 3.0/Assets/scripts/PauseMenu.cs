@@ -5,27 +5,34 @@ using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
-using System.Globalization;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     DateTime localData = DateTime.Now;
     public GameObject pauseMenu;
+    public GameObject saveMenu;
+    public Button SaveButton;
+    public Button LoadButton;
     public List<GameObject> KnightSaves = new List<GameObject>();
     private loadSkillTreeScen boolHere;
     private knightStats stats;
     private wasd checkForSword;
     private Knight_HealthSystem hpManaStamina;
     public GameObject SwordForDestroy;
-    string filePath;
+    string filePathF5;
+    string filePathNotF5;
     void Start()
     {
-        filePath = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
+        saveMenu.SetActive(false);
+        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
+        filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuikSave.save";
         boolHere = FindObjectOfType<loadSkillTreeScen>();
         stats = FindObjectOfType<knightStats>();
         checkForSword = FindObjectOfType<wasd>();
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
-        Debug.Log(filePath);
+        Debug.Log(filePathF5);
+        Debug.Log(filePathNotF5);
     }
 
     // Update is called once per frame
@@ -47,7 +54,7 @@ public class PauseMenu : MonoBehaviour
     public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream fs = new FileStream(filePath, FileMode.Create);
+        FileStream fs = new FileStream(filePathF5, FileMode.Create);
         Save save = new Save();
         save.SaveGame(KnightSaves);
         save.SaveBool(boolHere.listOfBool);
@@ -60,14 +67,15 @@ public class PauseMenu : MonoBehaviour
         save.mana = hpManaStamina.knightCurrentMana;
         bf.Serialize(fs, save);
         fs.Close();
+        saveMenu.SetActive(false);
         Exit();
     }
     public void LoadGame()
     {
-        if (!File.Exists(filePath))
+        if (!File.Exists(filePathF5))
             return;
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream fs = new FileStream(filePath, FileMode.Open);
+        FileStream fs = new FileStream(filePathF5, FileMode.Open);
         Save save =(Save)bf.Deserialize(fs);
         fs.Close();
         int i = 0;
@@ -84,7 +92,29 @@ public class PauseMenu : MonoBehaviour
         hpManaStamina.knightCurrentHealth = save.hp;
         hpManaStamina.knightCurrentStamina = save.stamina;
         hpManaStamina.knightCurrentMana = save.mana;
+        saveMenu.SetActive(false);
         Exit();
+    }
+    public void ShowSaveMenu()
+    {
+        saveMenu.SetActive(true);
+        SaveButton.gameObject.SetActive(true);
+        LoadButton.gameObject.SetActive(false);
+        pauseMenu.SetActive(false);
+    }
+    public void ShowLoadMenu()
+    {
+        saveMenu.SetActive(true);
+        SaveButton.gameObject.SetActive(false);
+        LoadButton.gameObject.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+    public void CloseSaveMenu()
+    {
+        saveMenu.SetActive(false);
+        SaveButton.gameObject.SetActive(false);
+        LoadButton.gameObject.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 }
 
