@@ -14,26 +14,30 @@ public class PauseMenu : MonoBehaviour
     public GameObject saveMenu;
     public Button SaveButton;
     public Button LoadButton;
-    private SaveLoadManager pressedOrNo;
     public List<GameObject> KnightSaves = new List<GameObject>();
     private loadSkillTreeScen boolHere;
     private knightStats stats;
     private wasd checkForSword;
     private Knight_HealthSystem hpManaStamina;
-    //public GameObject SwordForDestroy;
     private SaveLoadManager nameOfText;
     string filePathF5;
     string filePathNotF5;
+    public List<string> names = new List<string>();
+    public GameObject ErrorButton;
     void Start()
     {
+        ErrorButton.SetActive(false);
         saveMenu.SetActive(false);
         //filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuikSave.save";
         boolHere = FindObjectOfType<loadSkillTreeScen>();
         stats = FindObjectOfType<knightStats>();
         checkForSword = FindObjectOfType<wasd>();
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
-        pressedOrNo = FindObjectOfType<SaveLoadManager>();
         nameOfText = FindObjectOfType<SaveLoadManager>();
+        for (int i = 0; i < Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/").Length; i++)
+        {
+            names.Add(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
+        }
     }
 
     // Update is called once per frame
@@ -41,16 +45,14 @@ public class PauseMenu : MonoBehaviour
     {
         localData = DateTime.Now;
         filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
-       // if (checkForSword.dayn == true)
-           // Destroy(SwordForDestroy);
-        if (!pressedOrNo.slotPressed)
+        if (!nameOfText.slotPressed)
         {
             SaveButton.interactable = false;
             LoadButton.interactable = false;
         }
         else
         {
-            if(pressedOrNo.slotPressed)
+            if(nameOfText.slotPressed)
             SaveButton.interactable = true;
             LoadButton.interactable = true;
         }
@@ -83,25 +85,40 @@ public class PauseMenu : MonoBehaviour
         fs.Close();
         Exit();
         saveMenu.SetActive(false);
-        pressedOrNo.slotPressed = false;
+        nameOfText.slotPressed = false;
         if (nameOfText.slot0)
+        {
             nameOfText.filePathInFirstSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
+            PlayerPrefs.SetString("FirstFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+        }
         else
         {
             if (nameOfText.slot1)
+            {
                 nameOfText.filePathInSecondSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
+                PlayerPrefs.SetString("SecondFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+            }
             else
             {
                 if (nameOfText.slot2)
+                {
                     nameOfText.filePathInThirdSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
+                    PlayerPrefs.SetString("ThithFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                }
                 else
                 {
                     if (nameOfText.slot3)
+                    {
                         nameOfText.filePathInFourthSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
+                        PlayerPrefs.SetString("FourthFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                    }
                     else
                     {
                         if (nameOfText.slot4)
+                        {
                             nameOfText.filePathInFivethSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
+                            PlayerPrefs.SetString("FivethFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                        }
                     }
                 }
             }
@@ -115,14 +132,28 @@ public class PauseMenu : MonoBehaviour
             filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFirstSlot + ".save";
         else
         {
-            Debug.Log("думой");
+            if (nameOfText.slot1 && nameOfText.filePathInSecondSlot != "Пустой слот")
+                filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInSecondSlot + ".save";
+            else
+            {
+                if (nameOfText.slot2 && nameOfText.filePathInThirdSlot != "Пустой слот")
+                    filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInThirdSlot + ".save";
+                else
+                {
+                    if (nameOfText.slot3 && nameOfText.filePathInFourthSlot != "Пустой слот")
+                        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFourthSlot + ".save";
+                    else
+                    {
+                        if (nameOfText.slot4 && nameOfText.filePathInFivethSlot != "Пустой слот")
+                            filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFivethSlot + ".save";
+                    }
+                }
+            }
+        }
+        if (!File.Exists(filePathNotF5))
+        {
+            ErrorButton.SetActive(true);
             return;
-            //if (!File.Exists(filePathNotF5))
-            //{
-                
-            //}
-            //if (nameOfText.slot1)
-              //  filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInSecondSlot + ".save";
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = new FileStream(filePathNotF5, FileMode.Open);
@@ -143,7 +174,7 @@ public class PauseMenu : MonoBehaviour
         hpManaStamina.knightCurrentStamina = save.stamina;
         hpManaStamina.knightCurrentMana = save.mana;
         saveMenu.SetActive(false);
-        pressedOrNo.slotPressed = false;
+        nameOfText.slotPressed = false;
         Exit();
     }
     public void ShowSaveMenu()
@@ -162,11 +193,15 @@ public class PauseMenu : MonoBehaviour
     }
     public void CloseSaveMenu()
     {
-        pressedOrNo.slotPressed = false;
+        nameOfText.slotPressed = false;
         saveMenu.SetActive(false);
         SaveButton.gameObject.SetActive(false);
         LoadButton.gameObject.SetActive(false);
         pauseMenu.SetActive(true);
+    }
+    public void OK()
+    {
+        ErrorButton.SetActive(false);
     }
 }
 
