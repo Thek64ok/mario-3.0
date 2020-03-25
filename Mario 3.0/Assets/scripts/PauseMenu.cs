@@ -24,9 +24,12 @@ public class PauseMenu : MonoBehaviour
     string filePathNotF5;
     public List<string> names = new List<string>();
     public GameObject ErrorButton;
+    public GameObject ErrorRename;
+    public bool[] zamena;
     void Start()
     {
         ErrorButton.SetActive(false);
+        ErrorRename.SetActive(false);
         saveMenu.SetActive(false);
         //filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuikSave.save";
         boolHere = FindObjectOfType<loadSkillTreeScen>();
@@ -69,8 +72,86 @@ public class PauseMenu : MonoBehaviour
     }
     public void SaveGame()
     {
+        if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")
+        {
+            ErrorRename.SetActive(true);
+            pauseMenu.SetActive(false);
+            saveMenu.SetActive(false);
+            if (zamena[0])
+            {
+                filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFirstSlot + ".save";
+                zamena[5] = true;
+            }
+            else
+                return;
+        }
+        else
+        {
+            if (nameOfText.slot1 && nameOfText.filePathInSecondSlot != "Пустой слот")
+            {
+                ErrorRename.SetActive(true);
+                pauseMenu.SetActive(false);
+                saveMenu.SetActive(false);
+                if (zamena[0])
+                {
+                    filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInSecondSlot + ".save";
+                    zamena[5] = true;
+                }
+                else
+                    return;
+            }
+            else
+            {
+                if (nameOfText.slot2 && nameOfText.filePathInThirdSlot != "Пустой слот")
+                {
+                    ErrorRename.SetActive(true);
+                    pauseMenu.SetActive(false);
+                    saveMenu.SetActive(false);
+                    if (zamena[0])
+                    {
+                        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInThirdSlot + ".save";
+                        zamena[5] = true;
+                    }
+                    else
+                        return;
+                }
+                else
+                {
+                    if (nameOfText.slot3 && nameOfText.filePathInFourthSlot != "Пустой слот")
+                    {
+                        ErrorRename.SetActive(true);
+                        pauseMenu.SetActive(false);
+                        saveMenu.SetActive(false);
+                        if (zamena[0])
+                        {
+                            filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFourthSlot + ".save";
+                            zamena[5] = true;
+                        }
+                        else
+                            return;
+                    }
+                    else
+                    {
+                        if (nameOfText.slot4 && nameOfText.filePathInFivethSlot != "Пустой слот")
+                        {
+                            ErrorRename.SetActive(true);
+                            pauseMenu.SetActive(false);
+                            saveMenu.SetActive(false);
+                            if (zamena[0])
+                            {
+                                filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFivethSlot + ".save";
+                                zamena[5] = true;
+                            }
+                            else
+                                return;
+                        }
+                    }
+                }
+            }
+        }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = new FileStream(filePathNotF5, FileMode.Create);
+        //StreamWriter ff = new StreamWriter(filePathNotF5, false);
         Save save = new Save();
         save.SaveGame(KnightSaves);
         save.SaveBool(boolHere.listOfBool);
@@ -84,6 +165,13 @@ public class PauseMenu : MonoBehaviour
         bf.Serialize(fs, save);
         fs.Close();
         Exit();
+        if (zamena[5])
+        {
+            File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save");
+            File.Delete(filePathNotF5);
+            zamena[5] = false;
+            zamena[0] = false;
+        }
         saveMenu.SetActive(false);
         nameOfText.slotPressed = false;
         if (nameOfText.slot0)
@@ -124,6 +212,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
         Debug.Log(localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+        ErrorRename.SetActive(false);
     }
     public void LoadGame()
     {
@@ -153,6 +242,8 @@ public class PauseMenu : MonoBehaviour
         if (!File.Exists(filePathNotF5))
         {
             ErrorButton.SetActive(true);
+            pauseMenu.SetActive(false);
+            saveMenu.SetActive(false);
             return;
         }
         BinaryFormatter bf = new BinaryFormatter();
@@ -202,6 +293,22 @@ public class PauseMenu : MonoBehaviour
     public void OK()
     {
         ErrorButton.SetActive(false);
+        pauseMenu.SetActive(true);
+        saveMenu.SetActive(true);
+    }
+    public void Rename()
+    {
+        zamena[0] = true;
+        ErrorRename.SetActive(false);
+        pauseMenu.SetActive(true);
+        saveMenu.SetActive(true);
+    }
+    public void NoRename()
+    {
+        zamena[0] = false;
+        ErrorRename.SetActive(false);
+        pauseMenu.SetActive(true);
+        saveMenu.SetActive(true);
     }
 }
 
