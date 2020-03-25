@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - map
+  - Fire
+  - Real_Sword
+  - Weapon
+  - a
+  - sphere
+  - Cube
   layers:
   - Default
   - TransparentFX
