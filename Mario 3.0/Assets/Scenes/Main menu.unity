@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 251804951}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -6.100006}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -5.5999985}
+  m_SizeDelta: {x: 187.16998, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &33892997
 MonoBehaviour:
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 228460225}
   - component: {fileID: 228460224}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text In Fiveth Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,10 +802,10 @@ RectTransform:
   m_Father: {fileID: 1527136651}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.169495, y: -53.672913}
-  m_SizeDelta: {x: -1756.98, y: -817.48004}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 219.23999, y: 262.52002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251804952
 MonoBehaviour:
@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 424842891}
   - component: {fileID: 424842890}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text In Fourth Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,8 +1200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -66.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 109.1, y: -65.5}
+  m_SizeDelta: {x: 187.17, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &425473633
 MonoBehaviour:
@@ -1738,6 +1738,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadPanel: {fileID: 251804950}
   mainPanel: {fileID: 1526238018}
+  textInFirstSlot: {fileID: 1264529976}
+  textInSecondSlot: {fileID: 1296145205}
+  textInThirdSlot: {fileID: 768041641}
+  textInFourthSlot: {fileID: 424842890}
+  textInFivethSlot: {fileID: 228460224}
 --- !u!4 &691871466
 Transform:
   m_ObjectHideFlags: 0
@@ -1981,7 +1986,7 @@ GameObject:
   - component: {fileID: 768041642}
   - component: {fileID: 768041641}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text In Third Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2157,11 +2162,11 @@ RectTransform:
   m_Father: {fileID: 251804951}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -224.8}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 7.800003}
+  m_SizeDelta: {x: 187.16998, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &800267622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,8 +2585,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -126.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 109.4, y: -125.8}
+  m_SizeDelta: {x: 187.17, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1105867740
 MonoBehaviour:
@@ -2958,8 +2963,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -193.1}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 109.9, y: -193.1}
+  m_SizeDelta: {x: 187.17, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1255660103
 MonoBehaviour:
@@ -3052,7 +3057,7 @@ GameObject:
   - component: {fileID: 1264529977}
   - component: {fileID: 1264529976}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text In First Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3280,7 +3285,7 @@ GameObject:
   - component: {fileID: 1296145206}
   - component: {fileID: 1296145205}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text In Second Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4173,8 +4178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -96.3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 109, y: -95.2}
+  m_SizeDelta: {x: 187.17, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1657807651
 MonoBehaviour:
@@ -5090,8 +5095,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.51001, y: -36.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 109.5, y: -35.6}
+  m_SizeDelta: {x: 187.17, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2041909176
 MonoBehaviour:
