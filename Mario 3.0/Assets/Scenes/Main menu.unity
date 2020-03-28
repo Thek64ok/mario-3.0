@@ -202,7 +202,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 33892998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691871465}
+        m_MethodName: LoadFromFirstFile
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1264529976}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &33892998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,7 +1267,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 425473634}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691871465}
+        m_MethodName: LoadFromFirstFile
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 768041641}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &425473634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,6 +1787,18 @@ MonoBehaviour:
   textInThirdSlot: {fileID: 768041641}
   textInFourthSlot: {fileID: 424842890}
   textInFivethSlot: {fileID: 228460224}
+  arrayButton:
+  - {fileID: 33892997}
+  - {fileID: 2041909176}
+  - {fileID: 425473633}
+  - {fileID: 1657807651}
+  - {fileID: 1105867740}
+  arrayText:
+  - {fileID: 1264529976}
+  - {fileID: 1296145205}
+  - {fileID: 768041641}
+  - {fileID: 424842890}
+  - {fileID: 228460224}
 --- !u!4 &691871466
 Transform:
   m_ObjectHideFlags: 0
@@ -2630,7 +2686,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1105867741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691871465}
+        m_MethodName: LoadFromFirstFile
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 228460224}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1105867741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3008,7 +3086,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1255660104}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 691871465}
+        m_MethodName: LoadGameFromFile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1255660104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4223,7 +4323,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1657807652}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691871465}
+        m_MethodName: LoadFromFirstFile
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 424842890}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1657807652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4601,6 +4723,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1693129203
 MonoBehaviour:
@@ -5140,7 +5273,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2041909177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691871465}
+        m_MethodName: LoadFromFirstFile
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1296145205}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1255660103}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2041909177
 MonoBehaviour:
   m_ObjectHideFlags: 0

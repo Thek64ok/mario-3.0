@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     private Knight_HealthSystem hpManaStamina;
     private SaveLoadManager nameOfText;
     string filePathF5;
-    string filePathNotF5;
+    public string filePathNotF5;
     public List<string> names = new List<string>();
     public GameObject ErrorButton;
     public GameObject ErrorRename;
@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         localData = DateTime.Now;
-        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save";
+        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel) + ".save";
         if (!nameOfText.slotPressed)
         {
             SaveButton.interactable = false;
@@ -167,7 +167,7 @@ public class PauseMenu : MonoBehaviour
         Exit();
         if (zamena[5])
         {
-            File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss") + ".save");
+            File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel) + ".save");
             File.Delete(filePathNotF5);
             zamena[5] = false;
             zamena[0] = false;
@@ -176,65 +176,67 @@ public class PauseMenu : MonoBehaviour
         nameOfText.slotPressed = false;
         if (nameOfText.slot0)
         {
-            nameOfText.filePathInFirstSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
-            PlayerPrefs.SetString("FirstFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+            nameOfText.filePathInFirstSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel);
+            PlayerPrefs.SetString("FirstFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss-") + Application.loadedLevel);
         }
         else
         {
             if (nameOfText.slot1)
             {
-                nameOfText.filePathInSecondSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
-                PlayerPrefs.SetString("SecondFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                nameOfText.filePathInSecondSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel);
+                PlayerPrefs.SetString("SecondFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
             }
             else
             {
                 if (nameOfText.slot2)
                 {
-                    nameOfText.filePathInThirdSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
-                    PlayerPrefs.SetString("ThithFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                    nameOfText.filePathInThirdSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel);
+                    PlayerPrefs.SetString("ThithFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
                 }
                 else
                 {
                     if (nameOfText.slot3)
                     {
-                        nameOfText.filePathInFourthSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
-                        PlayerPrefs.SetString("FourthFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                        nameOfText.filePathInFourthSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel);
+                        PlayerPrefs.SetString("FourthFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
                     }
                     else
                     {
                         if (nameOfText.slot4)
                         {
-                            nameOfText.filePathInFivethSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss");
-                            PlayerPrefs.SetString("FivethFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+                            nameOfText.filePathInFivethSlot = localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel);
+                            PlayerPrefs.SetString("FivethFile", localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
                         }
                     }
                 }
             }
         }
-        Debug.Log(localData.ToString("dd-MMMM-yyyy~hh-mm-ss"));
+        Debug.Log(localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
         ErrorRename.SetActive(false);
     }
     public void LoadGame()
     {
-
-        if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот") 
-            filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFirstSlot + ".save";
-        else
+        if (PlayerPrefs.GetInt("check") == 0)
         {
-            if (nameOfText.slot1 && nameOfText.filePathInSecondSlot != "Пустой слот")
-                filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInSecondSlot + ".save";
+            if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")
+                filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFirstSlot + ".save";
             else
             {
-                if (nameOfText.slot2 && nameOfText.filePathInThirdSlot != "Пустой слот")
-                    filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInThirdSlot + ".save";
+                if (nameOfText.slot1 && nameOfText.filePathInSecondSlot != "Пустой слот")
+                    filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInSecondSlot + ".save";
                 else
                 {
-                    if (nameOfText.slot3 && nameOfText.filePathInFourthSlot != "Пустой слот")
-                        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFourthSlot + ".save";
+                    if (nameOfText.slot2 && nameOfText.filePathInThirdSlot != "Пустой слот")
+                        filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInThirdSlot + ".save";
                     else
                     {
-                        if (nameOfText.slot4 && nameOfText.filePathInFivethSlot != "Пустой слот")
-                            filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFivethSlot + ".save";
+                        if (nameOfText.slot3 && nameOfText.filePathInFourthSlot != "Пустой слот")
+                            filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFourthSlot + ".save";
+                        else
+                        {
+                            if (nameOfText.slot4 && nameOfText.filePathInFivethSlot != "Пустой слот")
+                                filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + nameOfText.filePathInFivethSlot + ".save";
+                        }
                     }
                 }
             }
@@ -267,6 +269,10 @@ public class PauseMenu : MonoBehaviour
         saveMenu.SetActive(false);
         nameOfText.slotPressed = false;
         Exit();
+    }
+    public void LoadGameFromMenu()
+    {
+        
     }
     public void ShowSaveMenu()
     {
