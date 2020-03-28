@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class LoadedBG : MonoBehaviour
 {
     private PauseMenu loading;
+    public Text spaceBar;
     void Start()
     {
         Debug.Log(PlayerPrefs.GetInt("check"));
         gameObject.SetActive(true);
         loading = FindObjectOfType<PauseMenu>();
-        Time.timeScale = 0;
+        Time.timeScale = 0.000001f;
     }
 
     // Update is called once per frame
