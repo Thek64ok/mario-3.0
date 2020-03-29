@@ -10,7 +10,7 @@
         </answers>
     </node>
     <node>
-        <npctext>Да конечно, нужно что бы ты зашел в белый куб.</npctext>
+        <npctext>Надо загаандошить мишу, раньше он был человеком, но спустя многие годы он мутировал, теперь это "Волохатое чудовище", так что когда будешь убивать его, не задумывайся...</npctext>
         <answers>
             <answer tonode = "0" questvalue = "1"><text>Я согласен.</text><dialend>true</dialend><questname>Quest1</questname></answer>
             <answer tonode = "0"><text>Мне это не интересно.</text><dialend>true</dialend></answer>
@@ -24,13 +24,13 @@
         </answers>
     </node>
     <node>
-        <npctext>Ты должен войти в триггер.</npctext>
+        <npctext>Тебе надо загандошить мишу.</npctext>
         <answers>
             <answer tonode = "0"><text>Аа, ну это легко.</text><dialend>true</dialend></answer>
         </answers>
     </node>
     <node>
-        <npctext>Ничего себе, кто бы мог подмать.</npctext>
+        <npctext>Хуя машина, спс.</npctext>
         <answers>
             <answer tonode = "0" needquestvalue = "2" questvalue = "3"  rewardgold = "400" > <text>Угу, гони бабло.</text><dialend>true</dialend><questname>Quest1</questname></answer>
         </answers>
