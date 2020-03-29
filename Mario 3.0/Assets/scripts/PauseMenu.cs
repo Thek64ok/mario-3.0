@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
         ErrorButton.SetActive(false);
         ErrorRename.SetActive(false);
         saveMenu.SetActive(false);
-        //filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuikSave.save";
+        Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/");
         boolHere = FindObjectOfType<loadSkillTreeScen>();
         stats = FindObjectOfType<knightStats>();
         checkForSword = FindObjectOfType<wasd>();
