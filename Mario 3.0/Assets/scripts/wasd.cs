@@ -16,7 +16,7 @@ public class wasd : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
     public GameObject FakeSword;
-    public GameObject weapon;
+
 
     void Start()
     {   
@@ -26,7 +26,6 @@ public class wasd : MonoBehaviour
     }
     void Update()
     {
-        if(weapon.activeSelf)dayn = true;
         moving = false;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -98,7 +97,7 @@ public class wasd : MonoBehaviour
         {
             anime.SetTrigger("untacking");
             Readl_Sword.SetActive(false);
-           // FakeSword.SetActive(true);
+            FakeSword.SetActive(true);
         }
     }
     public void SetSpeed(float max)

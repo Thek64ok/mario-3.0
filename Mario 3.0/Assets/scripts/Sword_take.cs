@@ -8,7 +8,7 @@ public class Sword_take : MonoBehaviour
     public Text pickUpText;
     private bool pickUpAllowed;
     public GameObject otherGame;
-    public wasd take;
+    private wasd take;
     void Start()
     {
         pickUpText.gameObject.SetActive(false);
@@ -16,7 +16,7 @@ public class Sword_take : MonoBehaviour
     }
     void Update()
     {
-        //if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
         {
             PickUp();
             take.dayn = true;

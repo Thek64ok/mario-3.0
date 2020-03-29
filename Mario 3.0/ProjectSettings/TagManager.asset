@@ -10,8 +10,8 @@ TagManager:
   - Real_Sword
   - Weapon
   - a
-  - Canvas
-  - InventoryManager
+  - sphere
+  - Cube
   layers:
   - Default
   - TransparentFX
