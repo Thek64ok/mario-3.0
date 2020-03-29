@@ -70,7 +70,6 @@ public class InstantiateDialog : MonoBehaviour
                         
                         ShowDialogue = false;
                     }
-                   
                     currentNode = answers[i].nextNode;
                 }
             }

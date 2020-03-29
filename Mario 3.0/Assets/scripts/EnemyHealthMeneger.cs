@@ -21,6 +21,10 @@ public class EnemyHealthMeneger : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+            if (PlayerPrefs.GetInt("Quest1") == 1)
+            {
+                PlayerPrefs.SetInt("Quest1", 2);
+            }
             stats.AddExp(expGive);
         }
     }
