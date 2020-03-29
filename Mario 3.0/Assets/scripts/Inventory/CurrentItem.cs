@@ -85,7 +85,7 @@ public class CurrentItem : MonoBehaviour, IPointerClickHandler, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject dragedObject =  Drag.dragedObject;
+        GameObject dragedObject = Drag.dragedObject;
         if (dragedObject == null)
         {
             return;
