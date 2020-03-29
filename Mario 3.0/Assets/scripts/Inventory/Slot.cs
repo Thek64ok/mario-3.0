@@ -17,7 +17,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         img = GetComponent<Image>();
         cell = img.sprite;
-        img.sprite = cell;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
