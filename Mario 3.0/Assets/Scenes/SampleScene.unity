@@ -54690,6 +54690,7 @@ GameObject:
   - component: {fileID: 841920517}
   - component: {fileID: 841920516}
   - component: {fileID: 841920515}
+  - component: {fileID: 841920519}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -54794,14 +54795,36 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841920514}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0.0004882635, w: 0.9999999}
   m_LocalPosition: {x: -24.8145, y: 36.192, z: 0}
   m_LocalScale: {x: 0.03791157, y: 0.035737008, z: 1}
   m_Children:
   - {fileID: 2110854697}
   m_Father: {fileID: 0}
   m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.056}
+--- !u!68 &841920519
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841920514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -3.9480124, y: 0.7438962}
+  - {x: 0.33995664, y: 3.870984}
+  - {x: 3.4604216, y: -5.5925584}
+  - {x: -3.8642495, y: 0.49448973}
+  - {x: -2.4563074, y: -5.455132}
+  - {x: -2.4563074, y: -5.455132}
 --- !u!1 &843144254
 GameObject:
   m_ObjectHideFlags: 0
