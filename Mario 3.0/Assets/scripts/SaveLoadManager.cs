@@ -46,8 +46,7 @@ public class SaveLoadManager : MonoBehaviour
             filePathInFirstSlot = textInFirstSlot.text;
             Debug.Log("такой файл есть");
         }
-        else
-            Debug.Log("нету");
+        //else Debug.Log("нету");
     }
     public void Button0Pressed()
     {

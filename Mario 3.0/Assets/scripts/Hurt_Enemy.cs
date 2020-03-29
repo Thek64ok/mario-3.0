@@ -10,6 +10,8 @@ public class Hurt_Enemy : MonoBehaviour
     public Transform hitPoint;
     public GameObject damageNumber1;
     public GameObject knight;
+    [HideInInspector]
+    public bool active;
     private wasd ataka;
     private loadSkillTreeScen freez;
     private loadSkillTreeScen LoadSkill;
@@ -19,6 +21,7 @@ public class Hurt_Enemy : MonoBehaviour
         ataka = knight.GetComponent<wasd>();
         freez = FindObjectOfType<loadSkillTreeScen>();
         LoadSkill = FindObjectOfType<loadSkillTreeScen>();
+        active = false;
     }
 
     // Update is called once per frame
@@ -28,6 +31,8 @@ public class Hurt_Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        //if(active)
+        
         if (ataka.attacking == true)
         {
             if (other.gameObject.tag == "Enemy")
@@ -45,6 +50,7 @@ public class Hurt_Enemy : MonoBehaviour
                 }
             }
         }
+        
     }
     public int critical_damage()
     {
