@@ -12,6 +12,8 @@ TagManager:
   - a
   - sphere
   - Cube
+  - InventoryManager
+  - UICamera
   layers:
   - Default
   - TransparentFX
