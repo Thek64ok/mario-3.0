@@ -15,8 +15,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
-        inventory.tooltipObj.SetActive(false);    
+        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();    
     }
 
     void Update()
