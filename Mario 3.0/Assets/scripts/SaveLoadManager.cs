@@ -35,18 +35,31 @@ public class SaveLoadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textInFirstSlot.text = filePathInFirstSlot;
-        textInSecondSlot.text = filePathInSecondSlot;
-        textInThirdSlot.text = filePathInThirdSlot;
-        textInFourthSlot.text = filePathInFourthSlot;
-        textInFivethSlot.text = filePathInFivethSlot;
-        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "23-марта-2020~07-51-07.save"))
-        {
-            textInFirstSlot.text = "23-марта-2020~07-51-07";
+        textInFirstSlot.text = PlayerPrefs.GetString("FirstFile");
+        textInSecondSlot.text = PlayerPrefs.GetString("SecondFile");
+        textInThirdSlot.text = PlayerPrefs.GetString("ThithFile");
+        textInFourthSlot.text = PlayerPrefs.GetString("FourthFile");
+        textInFivethSlot.text = PlayerPrefs.GetString("FivethFile");
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + textInFirstSlot.text + ".save"))
             filePathInFirstSlot = textInFirstSlot.text;
-            Debug.Log("такой файл есть");
-        }
-        //else Debug.Log("нету");
+        else
+            textInFirstSlot.text = filePathInFirstSlot;
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + textInSecondSlot.text + ".save"))
+            filePathInSecondSlot = textInSecondSlot.text;
+        else
+            textInSecondSlot.text = filePathInSecondSlot;
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + textInThirdSlot.text + ".save"))
+            filePathInThirdSlot = textInThirdSlot.text;
+        else
+            textInThirdSlot.text = filePathInThirdSlot;
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + textInFourthSlot.text + ".save"))
+            filePathInFourthSlot = textInFourthSlot.text;
+        else
+            textInFourthSlot.text = filePathInFourthSlot;
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + textInFivethSlot.text + ".save"))
+            filePathInFivethSlot = textInFivethSlot.text;
+        else
+            textInFivethSlot.text = filePathInFivethSlot;
     }
     public void Button0Pressed()
     {

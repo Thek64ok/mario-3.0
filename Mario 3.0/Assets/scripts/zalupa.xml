@@ -1,0 +1,38 @@
+<dialogue>
+    <node>
+        <npctext>Привет путник.</npctext>
+        <answers>
+            <answer tonode = "1" needquestvalue = "0"><text>Привет, есть ли у тебя работа для меня?</text><questname>Quest1</questname></answer>
+            <answer tonode = "2"><text>Есть ли что на продажу?</text></answer>
+            <answer tonode = "0"><text>Я должен идти.</text><dialend>true</dialend></answer>
+            <answer tonode = "3" needquestvalue = "1"><text>Напомни что нужно делать.</text><questname>Quest1</questname></answer>
+            <answer tonode = "4" needquestvalue = "2"><text>Я справился с твоим заданием!</text><questname>Quest1</questname></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Надо загаандошить мишу, раньше он был человеком, но спустя многие годы он мутировал, теперь это "Волохатое чудовище", так что когда будешь убивать его, не задумывайся...</npctext>
+        <answers>
+            <answer tonode = "0" questvalue = "1"><text>Я согласен.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode = "0"><text>Мне это не интересно.</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Я не торговец.</npctext>
+        <answers>
+            <answer tonode = "1" needquestvalue = "0"><text>Может тогда у тебя есть работа для меня?</text><questname>Quest1</questname></answer>
+            <answer tonode = "0"><text>Тогда я пойду.</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Тебе надо загандошить мишу.</npctext>
+        <answers>
+            <answer tonode = "0"><text>Аа, ну это легко.</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Хуя машина, спс.</npctext>
+        <answers>
+            <answer tonode = "0" needquestvalue = "2" questvalue = "3"  rewardgold = "400" > <text>Угу, гони бабло.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+        </answers>
+    </node>
+</dialogue>
