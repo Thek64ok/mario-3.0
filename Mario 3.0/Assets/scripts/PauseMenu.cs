@@ -70,6 +70,8 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main menu");
         Time.timeScale = 1f;
     }
+
+    [Obsolete]
     public void SaveGame()
     {
         if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")
