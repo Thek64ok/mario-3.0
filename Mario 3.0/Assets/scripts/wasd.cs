@@ -90,12 +90,12 @@ public class wasd : MonoBehaviour
         anime.SetFloat("LastMoveY", lastMove.y);
         if (dayn == true)
         {
-            anime.SetTrigger("taking");
+            anime.SetBool("tacking", dayn);
             Readl_Sword.SetActive(true);
         }
         else
         {
-            anime.SetTrigger("untacking");
+            anime.SetBool("tacking", dayn);
             Readl_Sword.SetActive(false);
             FakeSword.SetActive(true);
         }
