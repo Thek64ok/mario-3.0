@@ -6,17 +6,17 @@ public class pointDown : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool down;
-    private wasd knight;
+    //private wasd knight;
     void Start()
     {
-        knight = FindObjectOfType<wasd>();
+      //  knight = FindObjectOfType<wasd>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (down)
-            knight.myrigidbody2D.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+        //if (down)
+          //  knight.myrigidbody2D.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
