@@ -71,7 +71,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    [Obsolete]
+    //[Obsolete]
     public void SaveGame()
     {
         if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")

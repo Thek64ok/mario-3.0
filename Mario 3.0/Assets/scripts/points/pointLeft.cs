@@ -6,7 +6,6 @@ public class pointLeft : MonoBehaviour
 {
     public bool left;
     private wasd knight;
-    // Start is called before the first frame update
     void Start()
     {
         knight = FindObjectOfType<wasd>();

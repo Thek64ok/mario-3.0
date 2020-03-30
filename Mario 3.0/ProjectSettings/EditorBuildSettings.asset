@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Skill Tree.unity
     guid: 1f0b7c4571cffce4486c7bfca5fead7b
+  - enabled: 1
+    path: Assets/Scenes/SWW.unity
+    guid: 557dffccdad9208448754f6aa7c0a8a3
   m_configObjects: {}
