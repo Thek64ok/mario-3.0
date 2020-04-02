@@ -16,6 +16,10 @@ public class wasd : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
     public GameObject FakeSword;
+    private pointRight rr;
+    private pointLeft ll;
+    private pointUp uu;
+    private pointDown dd;
 
 
     void Start()
@@ -23,6 +27,10 @@ public class wasd : MonoBehaviour
         anime = GetComponent<Animator>();
         Readl_Sword.SetActive(false);
         myrigidbody2D = GetComponent<Rigidbody2D>();
+        rr = FindObjectOfType<pointRight>();
+        ll = FindObjectOfType<pointLeft>();
+        uu = FindObjectOfType<pointUp>();
+        dd = FindObjectOfType<pointDown>();
     }
     void Update()
     {
@@ -99,6 +107,17 @@ public class wasd : MonoBehaviour
             Readl_Sword.SetActive(false);
             FakeSword.SetActive(true);
         }
+        
+        if (rr.right)
+        {
+            myrigidbody2D.AddForce(Vector2.left * 20f, ForceMode2D.Impulse);
+        }
+        if (ll.left)
+            myrigidbody2D.AddForce(Vector2.right * 20f, ForceMode2D.Impulse);
+        if (uu.up)
+            myrigidbody2D.AddForce(Vector2.down * 20f, ForceMode2D.Impulse);
+        if (dd.down)
+            myrigidbody2D.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
     }
     public void SetSpeed(float max)
     {

@@ -10,6 +10,7 @@ public class CircleLoading : MonoBehaviour
     private int LoadDone;
     void Start()
     {
+        /*
         if (!MenuControls.check1)
         {
             LoadDone = 0;
@@ -20,6 +21,9 @@ public class CircleLoading : MonoBehaviour
             LoadDone = 1;
             PlayerPrefs.SetInt("check", LoadDone);
         }
+        */
+        LoadDone = 1;
+        PlayerPrefs.SetInt("check", LoadDone);
         StartCoroutine(AsyncLoad());
     }
 

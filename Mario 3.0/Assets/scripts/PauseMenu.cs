@@ -71,7 +71,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    [Obsolete]
+    //[Obsolete]
     public void SaveGame()
     {
         if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")
@@ -153,7 +153,6 @@ public class PauseMenu : MonoBehaviour
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = new FileStream(filePathNotF5, FileMode.Create);
-        //StreamWriter ff = new StreamWriter(filePathNotF5, false);
         Save save = new Save();
         save.SaveGame(KnightSaves);
         save.SaveBool(boolHere.listOfBool);
@@ -216,8 +215,54 @@ public class PauseMenu : MonoBehaviour
         Debug.Log(localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
         ErrorRename.SetActive(false);
     }
+    public void LoadToLoadSceneAndBackAgain(Text text)
+    {
+        if (nameOfText.slot0)
+            PlayerPrefs.SetString("FileToLoad", text.text);
+        else
+        {
+            if (nameOfText.slot1)
+                PlayerPrefs.SetString("FileToLoad", text.text);
+            else
+            {
+                if (nameOfText.slot2)
+                    PlayerPrefs.SetString("FileToLoad", text.text);
+                else
+                {
+                    if (nameOfText.slot3)
+                        PlayerPrefs.SetString("FileToLoad", text.text);
+                    else
+                    {
+                        if (nameOfText.slot4)
+                            PlayerPrefs.SetString("FileToLoad", text.text);
+                    }
+                }
+            }
+        }
+       // Debug.Log(PlayerPrefs.GetString("FileToLoad", text.text));
+    }
+    public void LoadloadScele()
+    {
+        if (PlayerPrefs.GetString("FileToLoad") == "Пустой слот")
+        {
+            ErrorButton.SetActive(true);
+            return;
+        }
+        else
+        {
+            if (PlayerPrefs.GetString("FileToLoad").EndsWith("2"))
+                MenuControls.IDScen = 2;
+            else
+            {
+                if (PlayerPrefs.GetString("FileToLoad").EndsWith("4"))
+                    MenuControls.IDScen = 4;
+            }
+            SceneManager.LoadScene("loadScene");
+        }
+    }
     public void LoadGame()
     {
+        /*
         if (PlayerPrefs.GetInt("check") == 0)
         {
             if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")
@@ -243,6 +288,7 @@ public class PauseMenu : MonoBehaviour
                 }
             }
         }
+        */
         if (!File.Exists(filePathNotF5))
         {
             ErrorButton.SetActive(true);

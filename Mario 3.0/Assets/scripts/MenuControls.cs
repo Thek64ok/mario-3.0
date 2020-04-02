@@ -92,6 +92,11 @@ public class MenuControls : MonoBehaviour
         PlayerPrefs.SetString("FileToLoad", text.text);
         if (text.text.EndsWith("2"))
             IDScen = 2;
+        else
+        {
+            if (text.text.EndsWith("4"))
+                IDScen = 4;
+        }
     }
     public void LoadGameFromFile()
     {

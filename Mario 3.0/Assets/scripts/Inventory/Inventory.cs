@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+
 
 public class Inventory : MonoBehaviour
 {
@@ -38,6 +38,7 @@ public class Inventory : MonoBehaviour
         {
             item.Add(new Item());
         }
+        Debug.Log(item.Count);
     }
 
     void Update()

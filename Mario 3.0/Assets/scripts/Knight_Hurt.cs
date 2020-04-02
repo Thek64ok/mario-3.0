@@ -37,6 +37,7 @@ public class Knight_Hurt : MonoBehaviour
         currentDamageToGive = damageToGive;
     }
 
+    /*
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -45,6 +46,17 @@ public class Knight_Hurt : MonoBehaviour
             checkDamage = true;
         }
     }
+    */
+    
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Knight_HealthSystem>().HurtKnight(currentDamageToGive);
+            checkDamage = true;
+        }
+    }
+    
     public void Stun(float toStun)
     {
         chance = toStun;
@@ -59,7 +71,7 @@ public class Knight_Hurt : MonoBehaviour
             anim.SetBool("Freez", stunned);
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
