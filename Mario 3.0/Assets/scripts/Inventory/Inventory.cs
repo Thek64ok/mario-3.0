@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class Inventory : MonoBehaviour
 {
@@ -27,7 +29,6 @@ public class Inventory : MonoBehaviour
     {
         tooltipObj.SetActive(false);
         item = new List<Item>();
-
         cellContainer.SetActive(false);
         for (int i = 0; i < cellContainer.transform.childCount; i++)
         {
@@ -38,13 +39,12 @@ public class Inventory : MonoBehaviour
         {
             item.Add(new Item());
         }
-        Debug.Log(item.Count);
     }
 
     void Update()
     {
         ToggleInventory();
-        
+        //Debug.Log(item[0].nameItem);
         if(Input.GetKeyDown(takeButton))
         {   
             Vector2 CurMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -62,9 +62,47 @@ public class Inventory : MonoBehaviour
                         AddItem(rayHit.collider.GetComponent<Item>());
                     }
                 }
-            }
-            
+            }           
         }    
+    }
+    public void LoadItem(List<Saveitem1> save)
+    {
+        for(int i = 0; i < save.Count; i++)
+        {      
+            item[i].id = save[i].id;
+            item[i].countItem = save[i].countItem;
+        }
+    }
+    public void LoadItemEvent()
+    {
+        for (int i = 0; i < item.Count; i++)
+        {
+            int Id = item[i].id;
+            int count = item[i].countItem;
+            Item newItem = GetItem(Id);
+            if(item[i].id != 0)
+            {
+                item[i] = newItem;
+                if(count > 0)
+                item[i].countItem = count;
+            }
+            else
+            {
+                item[i] = new Item();
+            }
+        }
+    }
+    public Item GetItem(int Id)
+    {
+        for (int i = 0; i < database.transform.childCount; i++)
+        {
+            Item item = database.transform.GetChild(i).GetComponent<Item>();
+            if(item.id == Id)
+            {
+                return item;
+            }
+        }    
+        return null;   
     }
     void Massage(Item currentItem)
     {

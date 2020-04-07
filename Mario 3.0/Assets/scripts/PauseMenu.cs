@@ -6,6 +6,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEditor;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     public List<string> names = new List<string>();
     public GameObject ErrorButton;
     public GameObject ErrorRename;
+    public Inventory inventory;
     public bool[] zamena;
     void Start()
     {
@@ -37,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         checkForSword = FindObjectOfType<wasd>();
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
         nameOfText = FindObjectOfType<SaveLoadManager>();
+        inventory = FindObjectOfType<Inventory>();
         for (int i = 0; i < Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/").Length; i++)
         {
             names.Add(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
@@ -156,6 +160,7 @@ public class PauseMenu : MonoBehaviour
         Save save = new Save();
         save.SaveGame(KnightSaves);
         save.SaveBool(boolHere.listOfBool);
+        save.SaveItem(save.sitem, inventory.item);
         save.lvl = stats.currentLvl;
         save.exp = stats.cureentExp;
         save.skillpoints = stats.skillPoints;
@@ -316,6 +321,10 @@ public class PauseMenu : MonoBehaviour
         hpManaStamina.knightCurrentMana = save.mana;
         saveMenu.SetActive(false);
         nameOfText.slotPressed = false;
+        inventory.LoadItem(save.sitem);
+        inventory.LoadItemEvent();
+        inventory.DisplayItems();
+        
         Exit();
     }
     public void LoadGameFromMenu()
@@ -397,6 +406,14 @@ public class Save
     public float mana;
     public List<KnightSaveData> Saves = new List<KnightSaveData>();
     public List<bool> SavesOfBool = new List<bool>();
+    public List<Saveitem1> sitem = new List<Saveitem1>();
+    public void SaveItem(List<Saveitem1> list, List<Item> item)
+    {
+        for(int i = 0;i < item.Count; i++)
+        {          
+            sitem.Add(new Saveitem1(item[i].id, item[i].countItem));           
+        }
+    }
     public void SaveGame(List<GameObject> allOnSave)
     {
         foreach (var s in allOnSave)
