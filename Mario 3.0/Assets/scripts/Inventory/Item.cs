@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
+[System.Serializable]
 public class Item : MonoBehaviour
 {
     public string nameItem;

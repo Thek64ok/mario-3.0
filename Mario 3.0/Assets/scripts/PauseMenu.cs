@@ -6,6 +6,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEditor;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     public List<string> names = new List<string>();
     public GameObject ErrorButton;
     public GameObject ErrorRename;
+    public Inventory inventory;
     public bool[] zamena;
     void Start()
     {
@@ -37,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         checkForSword = FindObjectOfType<wasd>();
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
         nameOfText = FindObjectOfType<SaveLoadManager>();
+        inventory = FindObjectOfType<Inventory>();
         for (int i = 0; i < Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/").Length; i++)
         {
             names.Add(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
@@ -153,10 +157,10 @@ public class PauseMenu : MonoBehaviour
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = new FileStream(filePathNotF5, FileMode.Create);
-        //StreamWriter ff = new StreamWriter(filePathNotF5, false);
         Save save = new Save();
         save.SaveGame(KnightSaves);
         save.SaveBool(boolHere.listOfBool);
+        save.SaveItem(save.sitem, inventory.item);
         save.lvl = stats.currentLvl;
         save.exp = stats.cureentExp;
         save.skillpoints = stats.skillPoints;
@@ -216,8 +220,54 @@ public class PauseMenu : MonoBehaviour
         Debug.Log(localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
         ErrorRename.SetActive(false);
     }
+    public void LoadToLoadSceneAndBackAgain(Text text)
+    {
+        if (nameOfText.slot0)
+            PlayerPrefs.SetString("FileToLoad", text.text);
+        else
+        {
+            if (nameOfText.slot1)
+                PlayerPrefs.SetString("FileToLoad", text.text);
+            else
+            {
+                if (nameOfText.slot2)
+                    PlayerPrefs.SetString("FileToLoad", text.text);
+                else
+                {
+                    if (nameOfText.slot3)
+                        PlayerPrefs.SetString("FileToLoad", text.text);
+                    else
+                    {
+                        if (nameOfText.slot4)
+                            PlayerPrefs.SetString("FileToLoad", text.text);
+                    }
+                }
+            }
+        }
+       // Debug.Log(PlayerPrefs.GetString("FileToLoad", text.text));
+    }
+    public void LoadloadScele()
+    {
+        if (PlayerPrefs.GetString("FileToLoad") == "Пустой слот")
+        {
+            ErrorButton.SetActive(true);
+            return;
+        }
+        else
+        {
+            if (PlayerPrefs.GetString("FileToLoad").EndsWith("2"))
+                MenuControls.IDScen = 2;
+            else
+            {
+                if (PlayerPrefs.GetString("FileToLoad").EndsWith("4"))
+                    MenuControls.IDScen = 4;
+            }
+            SceneManager.LoadScene("loadScene");
+        }
+    }
     public void LoadGame()
     {
+        /*
         if (PlayerPrefs.GetInt("check") == 0)
         {
             if (nameOfText.slot0 && nameOfText.filePathInFirstSlot != "Пустой слот")
@@ -243,6 +293,7 @@ public class PauseMenu : MonoBehaviour
                 }
             }
         }
+        */
         if (!File.Exists(filePathNotF5))
         {
             ErrorButton.SetActive(true);
@@ -270,6 +321,10 @@ public class PauseMenu : MonoBehaviour
         hpManaStamina.knightCurrentMana = save.mana;
         saveMenu.SetActive(false);
         nameOfText.slotPressed = false;
+        inventory.LoadItem(save.sitem);
+        inventory.LoadItemEvent();
+        inventory.DisplayItems();
+        
         Exit();
     }
     public void LoadGameFromMenu()
@@ -351,6 +406,14 @@ public class Save
     public float mana;
     public List<KnightSaveData> Saves = new List<KnightSaveData>();
     public List<bool> SavesOfBool = new List<bool>();
+    public List<Saveitem1> sitem = new List<Saveitem1>();
+    public void SaveItem(List<Saveitem1> list, List<Item> item)
+    {
+        for(int i = 0;i < item.Count; i++)
+        {          
+            sitem.Add(new Saveitem1(item[i].id, item[i].countItem));           
+        }
+    }
     public void SaveGame(List<GameObject> allOnSave)
     {
         foreach (var s in allOnSave)

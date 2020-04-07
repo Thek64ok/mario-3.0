@@ -17,6 +17,7 @@ public class CurrentItem : MonoBehaviour, IPointerClickHandler, IDropHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log(inventory.item[index].nameItem);
         if(eventData.button == PointerEventData.InputButton.Left)
         {
             if (inventory.item[index].customEvent != null)
