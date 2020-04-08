@@ -32,9 +32,17 @@ public class LoadNextLvl : MonoBehaviour
     }
     public void PressYes()
     {
-        MenuControls.IDScen = 4;
+        save.autosave = autosave;
+        if (Application.loadedLevel == 4)
+            MenuControls.IDScen = 2;
+        else
+        {
+            if (Application.loadedLevel == 2)
+                MenuControls.IDScen = 4;
+        }
         PlayerPrefs.SetInt("RenameAutoSave", 1);
         save.AutoSaveBetweenScens();
+        PlayerPrefs.SetInt("CurrentScene", Application.loadedLevel);
         SceneManager.LoadScene("loadScene");
     }
     public void OnTriggerEnter2D(Collider2D collision)
