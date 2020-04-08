@@ -20,7 +20,7 @@ public class wasd : MonoBehaviour
     private pointLeft ll;
     private pointUp uu;
     private pointDown dd;
-
+    private LoadNextLvl pressed;
 
     void Start()
     {   
@@ -31,6 +31,7 @@ public class wasd : MonoBehaviour
         ll = FindObjectOfType<pointLeft>();
         uu = FindObjectOfType<pointUp>();
         dd = FindObjectOfType<pointDown>();
+        pressed = FindObjectOfType<LoadNextLvl>();
     }
     void Update()
     {
@@ -107,11 +108,8 @@ public class wasd : MonoBehaviour
             Readl_Sword.SetActive(false);
             FakeSword.SetActive(true);
         }
-        
         if (rr.right)
-        {
             myrigidbody2D.AddForce(Vector2.left * 20f, ForceMode2D.Impulse);
-        }
         if (ll.left)
             myrigidbody2D.AddForce(Vector2.right * 20f, ForceMode2D.Impulse);
         if (uu.up)

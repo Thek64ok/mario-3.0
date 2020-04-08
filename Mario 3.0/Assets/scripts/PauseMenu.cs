@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject saveMenu;
     public Button SaveButton;
     public Button LoadButton;
+    public Button QuickSave;
+    public Button AutoLocalSave;
     public List<GameObject> KnightSaves = new List<GameObject>();
     private loadSkillTreeScen boolHere;
     private knightStats stats;
@@ -23,14 +25,16 @@ public class PauseMenu : MonoBehaviour
     private Knight_HealthSystem hpManaStamina;
     private SaveLoadManager nameOfText;
     string filePathF5;
+    private string autosave;
     public string filePathNotF5;
-    public List<string> names = new List<string>();
     public GameObject ErrorButton;
     public GameObject ErrorRename;
     public Inventory inventory;
     public bool[] zamena;
     void Start()
     {
+        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save";
+        filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save";
         ErrorButton.SetActive(false);
         ErrorRename.SetActive(false);
         saveMenu.SetActive(false);
@@ -41,10 +45,14 @@ public class PauseMenu : MonoBehaviour
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
         nameOfText = FindObjectOfType<SaveLoadManager>();
         inventory = FindObjectOfType<Inventory>();
-        for (int i = 0; i < Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/").Length; i++)
-        {
-            names.Add(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
-        }
+        if (!File.Exists(autosave))
+            AutoLocalSave.interactable = false;
+        else
+            AutoLocalSave.interactable = true;
+        if (!File.Exists(filePathF5))
+            QuickSave.interactable = false;
+        else
+            QuickSave.interactable = true;
     }
 
     // Update is called once per frame
