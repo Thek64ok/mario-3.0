@@ -10,9 +10,11 @@ public class LoadNextLvl : MonoBehaviour
     public GameObject Messege;
     public GameObject teleportPoint;
     private wasd knight;
+    private PauseMenu save;
     string autosave;
     void Start()
     {
+        save = FindObjectOfType<PauseMenu>();
         autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save";
         knight = FindObjectOfType<wasd>();
     }
@@ -30,7 +32,10 @@ public class LoadNextLvl : MonoBehaviour
     }
     public void PressYes()
     {
-        
+        MenuControls.IDScen = 4;
+        PlayerPrefs.SetInt("RenameAutoSave", 1);
+        save.AutoSaveBetweenScens();
+        SceneManager.LoadScene("loadScene");
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

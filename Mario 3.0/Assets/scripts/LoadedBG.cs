@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using System.IO;
 
 public class LoadedBG : MonoBehaviour
 {
     private PauseMenu loading;
     public Text spaceBar;
+    string autosave;
     void Start()
     {
+        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave" + ".save";
         Debug.Log(PlayerPrefs.GetInt("check"));
         gameObject.SetActive(true);
         loading = FindObjectOfType<PauseMenu>();
@@ -26,11 +29,23 @@ public class LoadedBG : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("check") == 1)
         {
-            loading.filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + PlayerPrefs.GetString("FileToLoad") + ".save";
-            loading.LoadGame();
-            gameObject.SetActive(false);
-            Time.timeScale = 0.1f;
-            PlayerPrefs.SetInt("check", 0);
+            if (File.Exists(autosave))
+            {
+                loading.AutoLoadBetweenScens();
+                gameObject.SetActive(false);
+                Time.timeScale = 0.1f;
+                PlayerPrefs.SetInt("check", 0);
+                PlayerPrefs.SetInt("RenameAutoSave", 0);
+                loading.AutoSaveBetweenScens();
+            }
+            else
+            {
+                loading.filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + PlayerPrefs.GetString("FileToLoad") + ".save";
+                loading.LoadGame();
+                gameObject.SetActive(false);
+                Time.timeScale = 0.1f;
+                PlayerPrefs.SetInt("check", 0);
+            }
         }
     }
 }

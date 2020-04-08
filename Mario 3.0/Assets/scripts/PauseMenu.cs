@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     public bool[] zamena;
     void Start()
     {
-        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save";
+        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave" + ".save";
         filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save";
         ErrorButton.SetActive(false);
         ErrorRename.SetActive(false);
@@ -227,6 +227,70 @@ public class PauseMenu : MonoBehaviour
         }
         Debug.Log(localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel));
         ErrorRename.SetActive(false);
+    }
+    public void AutoSaveBetweenScens()
+    {
+        int i = 1;
+        if (i == PlayerPrefs.GetInt("RenameAutoSave", 1))
+        {
+            filePathNotF5 = autosave;
+            FileStream fs = new FileStream(filePathNotF5, FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            Save save = new Save();
+            save.SaveBool(boolHere.listOfBool);
+            save.SaveItem(save.sitem, inventory.item);
+            save.lvl = stats.currentLvl;
+            save.exp = stats.cureentExp;
+            save.skillpoints = stats.skillPoints;
+            save.TakeSword_OrNot = checkForSword.dayn;
+            save.hp = hpManaStamina.knightCurrentHealth;
+            save.stamina = hpManaStamina.knightCurrentStamina;
+            save.mana = hpManaStamina.knightCurrentMana;
+            bf.Serialize(fs, save);
+            fs.Close();
+        }
+        else
+        {
+            filePathNotF5 = autosave;
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = new FileStream(filePathNotF5, FileMode.Create);
+            Save save = new Save();
+            save.SaveGame(KnightSaves);
+            save.SaveBool(boolHere.listOfBool);
+            save.SaveItem(save.sitem, inventory.item);
+            save.lvl = stats.currentLvl;
+            save.exp = stats.cureentExp;
+            save.skillpoints = stats.skillPoints;
+            save.TakeSword_OrNot = checkForSword.dayn;
+            save.hp = hpManaStamina.knightCurrentHealth;
+            save.stamina = hpManaStamina.knightCurrentStamina;
+            save.mana = hpManaStamina.knightCurrentMana;
+            bf.Serialize(fs, save);
+            fs.Close();
+            File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save");
+            File.Delete(filePathNotF5);
+        }
+    }
+    public void AutoLoadBetweenScens()
+    {
+        filePathNotF5 = autosave;
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream fs = new FileStream(filePathNotF5, FileMode.Open);
+        Save save = (Save)bf.Deserialize(fs);
+        fs.Close();
+        boolHere.LoadData(save);
+        stats.currentLvl = save.lvl;
+        stats.cureentExp = save.exp;
+        stats.skillPoints = save.skillpoints;
+        checkForSword.dayn = save.TakeSword_OrNot;
+        hpManaStamina.knightCurrentHealth = save.hp;
+        hpManaStamina.knightCurrentStamina = save.stamina;
+        hpManaStamina.knightCurrentMana = save.mana;
+        saveMenu.SetActive(false);
+        nameOfText.slotPressed = false;
+        inventory.LoadItem(save.sitem);
+        inventory.LoadItemEvent();
+        inventory.DisplayItems();
     }
     public void LoadToLoadSceneAndBackAgain(Text text)
     {

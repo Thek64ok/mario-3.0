@@ -61,6 +61,10 @@ public class SaveLoadManager : MonoBehaviour
         else
             textInFivethSlot.text = filePathInFivethSlot;
     }
+    public void SpecialSaveLoad()
+    {
+        slotPressed = true;
+    }
     public void Button0Pressed()
     {
         slotPressed = true;
