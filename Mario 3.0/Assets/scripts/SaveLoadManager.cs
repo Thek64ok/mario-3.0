@@ -13,6 +13,7 @@ public class SaveLoadManager : MonoBehaviour
     public bool slot2;
     public bool slot3;
     public bool slot4;
+    public bool autoSaveSlot;
     public Text textInFirstSlot;
     public Text textInSecondSlot;
     public Text textInThirdSlot;
@@ -64,10 +65,17 @@ public class SaveLoadManager : MonoBehaviour
     public void SpecialSaveLoad()
     {
         slotPressed = true;
+        autoSaveSlot = true;
+        slot0 = false;
+        slot1 = false;
+        slot2 = false;
+        slot3 = false;
+        slot4 = false;
     }
     public void Button0Pressed()
     {
         slotPressed = true;
+        autoSaveSlot = false;
         slot0 = true;
         slot1 = false;
         slot2 = false;
@@ -77,6 +85,7 @@ public class SaveLoadManager : MonoBehaviour
     public void Button1Pressed()
     {
         slotPressed = true;
+        autoSaveSlot = false;
         slot0 = false;
         slot1 = true;
         slot2 = false;
@@ -86,6 +95,7 @@ public class SaveLoadManager : MonoBehaviour
     public void Button2Pressed()
     {
         slotPressed = true;
+        autoSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = true;
@@ -95,6 +105,7 @@ public class SaveLoadManager : MonoBehaviour
     public void Button3Pressed()
     {
         slotPressed = true;
+        autoSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = false;
@@ -104,6 +115,7 @@ public class SaveLoadManager : MonoBehaviour
     public void Button4Pressed()
     {
         slotPressed = true;
+        autoSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = false;

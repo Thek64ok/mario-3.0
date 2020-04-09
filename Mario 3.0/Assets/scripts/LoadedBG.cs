@@ -38,6 +38,7 @@ public class LoadedBG : MonoBehaviour
                 gameObject.SetActive(false);
                 Time.timeScale = 0.1f;
                 PlayerPrefs.SetInt("check", 0);
+                Debug.Log("dayn");
             }
             else
             {
@@ -46,6 +47,7 @@ public class LoadedBG : MonoBehaviour
                 gameObject.SetActive(false);
                 Time.timeScale = 0.1f;
                 PlayerPrefs.SetInt("check", 0);
+                Debug.Log("dayn1");
             }
         }
     }

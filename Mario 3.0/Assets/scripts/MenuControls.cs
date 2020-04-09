@@ -18,15 +18,30 @@ public class MenuControls : MonoBehaviour
     public Text textInFivethSlot;
     public Button[] arrayButton;
     public Text[] arrayText;
+    public Button quickSave;
+    public Button autoSave;
+    string autosavePath;
     public static int IDScen;
     public static bool check1;
     void Start()
     {
+        quickSave.interactable = false;
+        autoSave.interactable = false;
         textInFirstSlot.text = PlayerPrefs.GetString("FirstFile");
         textInSecondSlot.text = PlayerPrefs.GetString("SecondFile");
         textInThirdSlot.text = PlayerPrefs.GetString("ThithFile");
         textInFourthSlot.text = PlayerPrefs.GetString("FourthFile");
         textInFivethSlot.text = PlayerPrefs.GetString("FivethFile");
+        for (int i = 0; i < Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/").Length; i++)
+        {
+            if (Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i].IndexOf("autoSave") >= 0)
+            {
+                autoSave.interactable = true;
+                autosavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
+            }
+            else
+                autosavePath = null;
+        }
     }
     private void Update()
     {
@@ -66,9 +81,10 @@ public class MenuControls : MonoBehaviour
     }
     public void PlayPressed()
     {
-        SceneManager.LoadScene("loadScene");
         IDScen = 2;
         check1 = false;
+        //PlayerPrefs.DeleteKey("FileToLoad");
+        SceneManager.LoadScene("loadScene");
     }
 
     public void ExitPressed()
@@ -98,9 +114,20 @@ public class MenuControls : MonoBehaviour
                 IDScen = 4;
         }
     }
+    public void LoadFromAutoSave()
+    {
+        PlayerPrefs.SetString("FileToLoad", autosavePath);
+        if (autosavePath.EndsWith("2"))
+            IDScen = 2;
+        else
+        {
+            if (autosavePath.EndsWith("4"))
+                IDScen = 4;
+        }
+    }
     public void LoadGameFromFile()
     {
-        SceneManager.LoadScene("loadScene");
         check1 = true;
+        SceneManager.LoadScene("loadScene");
     }
 }
