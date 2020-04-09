@@ -43,6 +43,7 @@ public class LoadNextLvl : MonoBehaviour
         PlayerPrefs.SetInt("RenameAutoSave", 1);
         save.AutoSaveBetweenScens();
         PlayerPrefs.SetInt("CurrentScene", Application.loadedLevel);
+        MenuControls.check1 = true;
         SceneManager.LoadScene("loadScene");
     }
     public void OnTriggerEnter2D(Collider2D collision)

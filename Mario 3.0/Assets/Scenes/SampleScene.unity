@@ -19230,7 +19230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.701, y: 35.13}
+  m_AnchoredPosition: {x: -18.911, y: 34.31}
   m_SizeDelta: {x: 35.02, y: 36.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &341713649
@@ -134119,31 +134119,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374607, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374607, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.028102687
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374607, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374607, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454117353631374607, guid: ef96224b275d6ca498be0975832702b8,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef96224b275d6ca498be0975832702b8, type: 3}

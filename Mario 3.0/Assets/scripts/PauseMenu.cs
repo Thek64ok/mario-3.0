@@ -346,6 +346,7 @@ public class PauseMenu : MonoBehaviour
                 if (PlayerPrefs.GetString("FileToLoad").EndsWith("4"))
                     MenuControls.IDScen = 4;
             }
+            MenuControls.check1 = true;
             SceneManager.LoadScene("loadScene");
         }
     }
