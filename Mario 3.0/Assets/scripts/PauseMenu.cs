@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     private Knight_HealthSystem hpManaStamina;
     private SaveLoadManager nameOfText;
     string filePathF5;
-    private string autosave;
+    public string autosave;
     public string filePathNotF5;
     public GameObject ErrorButton;
     public GameObject ErrorRename;
@@ -33,7 +33,6 @@ public class PauseMenu : MonoBehaviour
     public bool[] zamena;
     void Start()
     {
-        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave" + ".save";
         filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save";
         ErrorButton.SetActive(false);
         ErrorRename.SetActive(false);

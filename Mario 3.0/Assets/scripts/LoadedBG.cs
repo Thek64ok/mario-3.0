@@ -12,7 +12,7 @@ public class LoadedBG : MonoBehaviour
     string autosave;
     void Start()
     {
-        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave" + ".save";
+        autosave = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + PlayerPrefs.GetInt("CurrentScene") + ".save";
         Debug.Log(PlayerPrefs.GetInt("check"));
         gameObject.SetActive(true);
         loading = FindObjectOfType<PauseMenu>();
@@ -31,12 +31,13 @@ public class LoadedBG : MonoBehaviour
         {
             if (File.Exists(autosave))
             {
+                loading.autosave = autosave;
                 loading.AutoLoadBetweenScens();
+                PlayerPrefs.SetInt("RenameAutoSave", 0);
+                loading.AutoSaveBetweenScens();
                 gameObject.SetActive(false);
                 Time.timeScale = 0.1f;
                 PlayerPrefs.SetInt("check", 0);
-                PlayerPrefs.SetInt("RenameAutoSave", 0);
-                loading.AutoSaveBetweenScens();
             }
             else
             {
