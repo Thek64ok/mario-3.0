@@ -48188,6 +48188,11 @@ PrefabInstance:
       propertyPath: textInFivethSlot
       value: 
       objectReference: {fileID: 1483546220}
+    - target: {fileID: 5421664237757438548, guid: 76f71f6c7feff6f4eaa97a24870c3cab,
+        type: 3}
+      propertyPath: textInAutoSave
+      value: 
+      objectReference: {fileID: 1006859031}
     - target: {fileID: 5421664237757438549, guid: 76f71f6c7feff6f4eaa97a24870c3cab,
         type: 3}
       propertyPath: m_Name
@@ -55990,6 +55995,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417725089874985553, guid: 8f079e6846e214d4ea0ae4b6fe7bc70a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1923096277}
+    - target: {fileID: 1417725089874985553, guid: 8f079e6846e214d4ea0ae4b6fe7bc70a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PressYes
       objectReference: {fileID: 0}
     - target: {fileID: 1417725089897621379, guid: 8f079e6846e214d4ea0ae4b6fe7bc70a,
         type: 3}

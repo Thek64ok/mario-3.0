@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
     private SaveLoadManager nameOfText;
     string filePathF5;
     public string autosave;
+    public string autosavePath;
     public string filePathNotF5;
     public GameObject ErrorButton;
     public GameObject ErrorRename;
@@ -44,19 +45,23 @@ public class PauseMenu : MonoBehaviour
         hpManaStamina = FindObjectOfType<Knight_HealthSystem>();
         nameOfText = FindObjectOfType<SaveLoadManager>();
         inventory = FindObjectOfType<Inventory>();
-        if (!File.Exists(autosave))
-            AutoLocalSave.interactable = false;
-        else
-            AutoLocalSave.interactable = true;
-        if (!File.Exists(filePathF5))
-            QuickSave.interactable = false;
-        else
-            QuickSave.interactable = true;
+        AutoLocalSave.interactable = false;
+        QuickSave.interactable = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/").Length; i++)
+        {
+            if (Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i].IndexOf("autoSave") >= 0)
+            {
+                AutoLocalSave.interactable = true;
+                autosavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
+            }
+            else
+                autosavePath = null;
+        }
         localData = DateTime.Now;
         filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel) + ".save";
         if (!nameOfText.slotPressed)
@@ -66,7 +71,6 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            if(nameOfText.slotPressed)
             SaveButton.interactable = true;
             LoadButton.interactable = true;
         }
@@ -266,6 +270,8 @@ public class PauseMenu : MonoBehaviour
             save.mana = hpManaStamina.knightCurrentMana;
             bf.Serialize(fs, save);
             fs.Close();
+            if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save"))
+                File.Delete("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save");
             File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "autoSave-" + Application.loadedLevel + ".save");
             File.Delete(filePathNotF5);
         }
@@ -311,11 +317,18 @@ public class PauseMenu : MonoBehaviour
                     {
                         if (nameOfText.slot4)
                             PlayerPrefs.SetString("FileToLoad", text.text);
+                        else
+                        {
+                            if (nameOfText.autoSaveSlot)
+                            {
+                                PlayerPrefs.SetString("FileToLoad", autosavePath);
+                                Debug.Log(PlayerPrefs.GetString("FileToLoad"));
+                            }
+                        }
                     }
                 }
             }
         }
-       // Debug.Log(PlayerPrefs.GetString("FileToLoad", text.text));
     }
     public void LoadloadScele()
     {
@@ -370,6 +383,7 @@ public class PauseMenu : MonoBehaviour
             ErrorButton.SetActive(true);
             pauseMenu.SetActive(false);
             saveMenu.SetActive(false);
+            Debug.Log(filePathNotF5);
             return;
         }
         BinaryFormatter bf = new BinaryFormatter();
@@ -395,7 +409,6 @@ public class PauseMenu : MonoBehaviour
         inventory.LoadItem(save.sitem);
         inventory.LoadItemEvent();
         inventory.DisplayItems();
-        
         Exit();
     }
     public void LoadGameFromMenu()
