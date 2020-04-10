@@ -32,7 +32,7 @@ public class LoadedBG : MonoBehaviour
             if (File.Exists(autosave))
             {
                 loading.autosave = autosave;
-                loading.AutoLoadBetweenScens();
+                loading.AutoFastLoad();
                 PlayerPrefs.SetInt("RenameAutoSave", 0);
                 loading.AutoSaveBetweenScens();
                 gameObject.SetActive(false);

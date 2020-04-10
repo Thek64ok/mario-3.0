@@ -33,7 +33,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject ErrorRename;
     public Inventory inventory;
     public bool[] zamena;
-    int count = 0;
     void Start()
     {
         filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save";
@@ -68,8 +67,7 @@ public class PauseMenu : MonoBehaviour
                     QuickSave.interactable = true;
                     quickSavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
                 }
-            }
-                
+            }   
         }
         localData = DateTime.Now;
         filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel) + ".save";
@@ -285,7 +283,7 @@ public class PauseMenu : MonoBehaviour
             File.Delete(filePathNotF5);
         }
     }
-    public void AutoLoadBetweenScens()
+    public void AutoFastLoad()
     {
         filePathNotF5 = autosave;
         BinaryFormatter bf = new BinaryFormatter();
@@ -328,8 +326,25 @@ public class PauseMenu : MonoBehaviour
             File.Delete("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save");
         File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save");
         File.Delete(filePathNotF5);
-        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + PlayerPrefs.GetInt("CurrentScene") + ".save"))
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + PlayerPrefs.GetInt("CurrentScene") + ".save") && PlayerPrefs.GetInt("CurrentScene") != Application.loadedLevel) 
             File.Delete("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + PlayerPrefs.GetInt("CurrentScene") + ".save");
+    }
+    //первая страница - тема
+    //вторая станица - актуальность\цель
+    //третья страница - кого опрашивать
+    //анкета в гугл формах мб - 10 вопросов, легкие ответы
+    //подведение в итоге
+    //выводы\рекомендации
+    public void QuickLoadFile()
+    {
+        filePathNotF5 = quickSavePath + ".save";
+        if (!File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + filePathNotF5))
+            return;
+        else
+        {
+            PlayerPrefs.SetString("FileToLoad", quickSavePath);
+            LoadloadScele();
+        }
     }
     public void LoadToLoadSceneAndBackAgain(Text text)
     {
@@ -365,7 +380,6 @@ public class PauseMenu : MonoBehaviour
                                 {
                                     PlayerPrefs.SetString("FileToLoad", quickSavePath);
                                     Debug.Log(PlayerPrefs.GetString("FileToLoad"));
-                                    Debug.Log(count);
                                 }
                             }
                             
@@ -429,7 +443,6 @@ public class PauseMenu : MonoBehaviour
             ErrorButton.SetActive(true);
             pauseMenu.SetActive(false);
             saveMenu.SetActive(false);
-            Debug.Log(filePathNotF5);
             return;
         }
         BinaryFormatter bf = new BinaryFormatter();

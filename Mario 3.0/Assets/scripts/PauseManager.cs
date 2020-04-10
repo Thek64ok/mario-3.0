@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
@@ -25,5 +26,7 @@ public class PauseManager : MonoBehaviour
             quickSave.filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave" + ".save";
             quickSave.QuickSaveF5();
         }
+        if (Input.GetKeyDown(KeyCode.F9))
+            quickSave.QuickLoadFile();
     }
 }
