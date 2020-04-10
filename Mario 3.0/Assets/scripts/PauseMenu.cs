@@ -24,7 +24,8 @@ public class PauseMenu : MonoBehaviour
     private wasd checkForSword;
     private Knight_HealthSystem hpManaStamina;
     private SaveLoadManager nameOfText;
-    string filePathF5;
+    public string filePathF5;
+    public string quickSavePath;
     public string autosave;
     public string autosavePath;
     public string filePathNotF5;
@@ -32,6 +33,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject ErrorRename;
     public Inventory inventory;
     public bool[] zamena;
+    int count = 0;
     void Start()
     {
         filePathF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save";
@@ -60,7 +62,14 @@ public class PauseMenu : MonoBehaviour
                 autosavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
             }
             else
-                autosavePath = null;
+            {
+                if (Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i].IndexOf("QuickSave") >= 0)
+                {
+                    QuickSave.interactable = true;
+                    quickSavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
+                }
+            }
+                
         }
         localData = DateTime.Now;
         filePathNotF5 = "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + localData.ToString("dd-MMMM-yyyy~hh-mm-ss-" + Application.loadedLevel) + ".save";
@@ -297,6 +306,31 @@ public class PauseMenu : MonoBehaviour
         inventory.LoadItemEvent();
         inventory.DisplayItems();
     }
+    public void QuickSaveF5()
+    {
+        filePathNotF5 = filePathF5;
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream fs = new FileStream(filePathNotF5, FileMode.Create);
+        Save save = new Save();
+        save.SaveGame(KnightSaves);
+        save.SaveBool(boolHere.listOfBool);
+        save.SaveItem(save.sitem, inventory.item);
+        save.lvl = stats.currentLvl;
+        save.exp = stats.cureentExp;
+        save.skillpoints = stats.skillPoints;
+        save.TakeSword_OrNot = checkForSword.dayn;
+        save.hp = hpManaStamina.knightCurrentHealth;
+        save.stamina = hpManaStamina.knightCurrentStamina;
+        save.mana = hpManaStamina.knightCurrentMana;
+        bf.Serialize(fs, save);
+        fs.Close();
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save"))
+            File.Delete("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save");
+        File.Move(filePathNotF5, "C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + Application.loadedLevel + ".save");
+        File.Delete(filePathNotF5);
+        if (File.Exists("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + PlayerPrefs.GetInt("CurrentScene") + ".save"))
+            File.Delete("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/" + "QuickSave-" + PlayerPrefs.GetInt("CurrentScene") + ".save");
+    }
     public void LoadToLoadSceneAndBackAgain(Text text)
     {
         if (nameOfText.slot0)
@@ -324,6 +358,17 @@ public class PauseMenu : MonoBehaviour
                                 PlayerPrefs.SetString("FileToLoad", autosavePath);
                                 Debug.Log(PlayerPrefs.GetString("FileToLoad"));
                             }
+                            
+                            else
+                            {
+                                if (nameOfText.quickSaveSlot)
+                                {
+                                    PlayerPrefs.SetString("FileToLoad", quickSavePath);
+                                    Debug.Log(PlayerPrefs.GetString("FileToLoad"));
+                                    Debug.Log(count);
+                                }
+                            }
+                            
                         }
                     }
                 }

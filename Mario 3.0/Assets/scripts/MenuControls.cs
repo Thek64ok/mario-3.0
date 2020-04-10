@@ -21,6 +21,7 @@ public class MenuControls : MonoBehaviour
     public Button quickSave;
     public Button autoSave;
     string autosavePath;
+    string quickSavePath;
     public static int IDScen;
     public static bool check1;
     void Start()
@@ -40,7 +41,14 @@ public class MenuControls : MonoBehaviour
                 autosavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
             }
             else
-                autosavePath = null;
+            {
+                if (Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i].IndexOf("QuickSave") >= 0)
+                {
+                    quickSave.interactable = true;
+                    quickSavePath = Path.GetFileNameWithoutExtension(Directory.GetFiles("C:/Users/" + Environment.UserName + "/Documents/" + Application.productName + "/Saves/")[i]);
+                }
+            }
+
         }
     }
     private void Update()
@@ -122,6 +130,17 @@ public class MenuControls : MonoBehaviour
         else
         {
             if (autosavePath.EndsWith("4"))
+                IDScen = 4;
+        }
+    }
+    public void LoadFromQuickSave()
+    {
+        PlayerPrefs.SetString("FileToLoad", quickSavePath);
+        if (quickSavePath.EndsWith("2"))
+            IDScen = 2;
+        else
+        {
+            if (quickSavePath.EndsWith("4"))
                 IDScen = 4;
         }
     }

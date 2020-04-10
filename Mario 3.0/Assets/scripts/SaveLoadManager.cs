@@ -14,6 +14,7 @@ public class SaveLoadManager : MonoBehaviour
     public bool slot3;
     public bool slot4;
     public bool autoSaveSlot;
+    public bool quickSaveSlot;
     public Text textInFirstSlot;
     public Text textInSecondSlot;
     public Text textInThirdSlot;
@@ -62,10 +63,22 @@ public class SaveLoadManager : MonoBehaviour
         else
             textInFivethSlot.text = filePathInFivethSlot;
     }
+    public void QuickSaveButton()
+    {
+        slotPressed = true;
+        autoSaveSlot = false;
+        quickSaveSlot = true;
+        slot0 = false;
+        slot1 = false;
+        slot2 = false;
+        slot3 = false;
+        slot4 = false;
+    }
     public void SpecialSaveLoad()
     {
         slotPressed = true;
         autoSaveSlot = true;
+        quickSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = false;
@@ -76,6 +89,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         slotPressed = true;
         autoSaveSlot = false;
+        quickSaveSlot = false;
         slot0 = true;
         slot1 = false;
         slot2 = false;
@@ -86,6 +100,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         slotPressed = true;
         autoSaveSlot = false;
+        quickSaveSlot = false;
         slot0 = false;
         slot1 = true;
         slot2 = false;
@@ -96,6 +111,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         slotPressed = true;
         autoSaveSlot = false;
+        quickSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = true;
@@ -106,6 +122,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         slotPressed = true;
         autoSaveSlot = false;
+        quickSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = false;
@@ -116,6 +133,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         slotPressed = true;
         autoSaveSlot = false;
+        quickSaveSlot = false;
         slot0 = false;
         slot1 = false;
         slot2 = false;
